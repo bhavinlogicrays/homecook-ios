@@ -25,6 +25,7 @@
 		820D05CE25A5BCCD009508F3 /* BottomPopupTransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D05C625A5BCCD009508F3 /* BottomPopupTransitionHandler.swift */; };
 		820D05CF25A5BCCD009508F3 /* BottomPopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D05C725A5BCCD009508F3 /* BottomPopupPresentationController.swift */; };
 		82165CD825B583B7005C2361 /* collImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82165CD725B583B7005C2361 /* collImages.swift */; };
+		821F45CB25B6F6BF00EB8265 /* TrackingOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F45CA25B6F6BF00EB8265 /* TrackingOrderVC.swift */; };
 		82250C4925A2D9E9007E46DD /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82250C4825A2D9E9007E46DD /* LogInVC.swift */; };
 		823077DE25A5803B004B930A /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823077D925A5803A004B930A /* ArrayExtension.swift */; };
 		823077DF25A5803B004B930A /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823077DA25A5803A004B930A /* CALayerExtension.swift */; };
@@ -42,6 +43,9 @@
 		82484F9225A6E6C80072E458 /* TotalOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82484F9125A6E6C80072E458 /* TotalOrdersVC.swift */; };
 		82484F9425A6E6EF0072E458 /* TotalOrderVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82484F9325A6E6EF0072E458 /* TotalOrderVCCell.swift */; };
 		8266B9FB25A4447200954E75 /* DashBoardVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8266B9FA25A4447200954E75 /* DashBoardVCCell.swift */; };
+		8281CC3825B6DD7D009FC8F2 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8281CC3725B6DD7D009FC8F2 /* SearchVC.swift */; };
+		8281CC3A25B6E18D009FC8F2 /* SearchVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8281CC3925B6E18D009FC8F2 /* SearchVCCell.swift */; };
+		8281CC3C25B6E5B0009FC8F2 /* DeliveryStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8281CC3B25B6E5B0009FC8F2 /* DeliveryStatusVC.swift */; };
 		828469A525A477610049467A /* DashBoardRunningOrderVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828469A425A477610049467A /* DashBoardRunningOrderVCCell.swift */; };
 		828469A725A47E780049467A /* DashBoardOrderRequestVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828469A625A47E780049467A /* DashBoardOrderRequestVCCell.swift */; };
 		828469AB25A486350049467A /* MyFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828469AA25A486350049467A /* MyFoodVC.swift */; };
@@ -122,6 +126,8 @@
 		820D05C625A5BCCD009508F3 /* BottomPopupTransitionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupTransitionHandler.swift; sourceTree = "<group>"; };
 		820D05C725A5BCCD009508F3 /* BottomPopupPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupPresentationController.swift; sourceTree = "<group>"; };
 		82165CD725B583B7005C2361 /* collImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collImages.swift; sourceTree = "<group>"; };
+		821F45C925B6EAF300EB8265 /* HomeCook'd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HomeCook'd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		821F45CA25B6F6BF00EB8265 /* TrackingOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingOrderVC.swift; sourceTree = "<group>"; };
 		82250C4825A2D9E9007E46DD /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		823077D925A5803A004B930A /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		823077DA25A5803A004B930A /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
@@ -139,6 +145,9 @@
 		82484F9125A6E6C80072E458 /* TotalOrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrdersVC.swift; sourceTree = "<group>"; };
 		82484F9325A6E6EF0072E458 /* TotalOrderVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderVCCell.swift; sourceTree = "<group>"; };
 		8266B9FA25A4447200954E75 /* DashBoardVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardVCCell.swift; sourceTree = "<group>"; };
+		8281CC3725B6DD7D009FC8F2 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		8281CC3925B6E18D009FC8F2 /* SearchVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCCell.swift; sourceTree = "<group>"; };
+		8281CC3B25B6E5B0009FC8F2 /* DeliveryStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryStatusVC.swift; sourceTree = "<group>"; };
 		828469A425A477610049467A /* DashBoardRunningOrderVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardRunningOrderVCCell.swift; sourceTree = "<group>"; };
 		828469A625A47E780049467A /* DashBoardOrderRequestVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardOrderRequestVCCell.swift; sourceTree = "<group>"; };
 		828469AA25A486350049467A /* MyFoodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFoodVC.swift; sourceTree = "<group>"; };
@@ -180,7 +189,6 @@
 		82AD9F12259F334400EAA057 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		82AD9F13259F334400EAA057 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		82AD9F14259F334400EAA057 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
-		82B63600259F220200FFCA39 /* HomeCook'd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HomeCook'd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B63603259F220200FFCA39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82B63605259F220200FFCA39 /* WelComeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelComeVC.swift; sourceTree = "<group>"; };
 		82B63608259F220200FFCA39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -283,16 +291,8 @@
 			children = (
 				82B63615259F225800FFCA39 /* HomeCook'd-Bridging-Header.h */,
 				82B63602259F220200FFCA39 /* HomeCook'd */,
+				821F45C925B6EAF300EB8265 /* HomeCook'd.app */,
 			);
-			sourceTree = "<group>";
-		};
-		82B63601259F220200FFCA39 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				82B63600259F220200FFCA39 /* HomeCook'd.app */,
-			);
-			name = Products;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		82B63602259F220200FFCA39 /* HomeCook'd */ = {
@@ -341,8 +341,11 @@
 				82E4DF2925A71DDE0038DF38 /* SettingVC.swift */,
 				82D147C625AB0C83002073A6 /* HomeVC.swift */,
 				82D147C825AB1299002073A6 /* HomeVCCell.swift */,
+				8281CC3725B6DD7D009FC8F2 /* SearchVC.swift */,
+				8281CC3925B6E18D009FC8F2 /* SearchVCCell.swift */,
 				82E9588225AC0F06006ED26A /* HomeVC2.swift */,
 				82E9588425AC0F36006ED26A /* HomeVC2Cell.swift */,
+				82165CD725B583B7005C2361 /* collImages.swift */,
 				82E9588625AC162C006ED26A /* HomeVC3.swift */,
 				82E9588A25AC2917006ED26A /* HomeVC3Cell.swift */,
 				820CFBD225B5937D0043756E /* CartVC.swift */,
@@ -352,6 +355,8 @@
 				82032D0B25B5BFCE0046B841 /* Terms&ConditionVC.swift */,
 				82032D0925B5BBC90046B841 /* AddNewCardVC.swift */,
 				82032D0725B5B0990046B841 /* RatingVC.swift */,
+				8281CC3B25B6E5B0009FC8F2 /* DeliveryStatusVC.swift */,
+				821F45CA25B6F6BF00EB8265 /* TrackingOrderVC.swift */,
 				82B6360A259F220300FFCA39 /* Assets.xcassets */,
 				82B63607259F220200FFCA39 /* Main.storyboard */,
 				82B6360C259F220300FFCA39 /* LaunchScreen.storyboard */,
@@ -360,8 +365,6 @@
 				820D05BF25A5BCCD009508F3 /* BottomPopupController */,
 				8230778E25A57FDC004B930A /* Bar Chart */,
 				82AD9F00259F334400EAA057 /* Fonts */,
-				82B63601259F220200FFCA39 /* Products */,
-				82165CD725B583B7005C2361 /* collImages.swift */,
 			);
 			path = "HomeCook'd";
 			sourceTree = "<group>";
@@ -385,7 +388,7 @@
 			);
 			name = "HomeCook'd";
 			productName = "HomeCook'd";
-			productReference = 82B63600259F220200FFCA39 /* HomeCook'd.app */;
+			productReference = 821F45C925B6EAF300EB8265 /* HomeCook'd.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -412,7 +415,7 @@
 				Base,
 			);
 			mainGroup = 82B635F7259F220200FFCA39;
-			productRefGroup = 82B63601259F220200FFCA39 /* Products */;
+			productRefGroup = 82B635F7259F220200FFCA39;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -462,14 +465,11 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HomeCook'd-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -483,8 +483,6 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -522,6 +520,7 @@
 				828B97CF25A4741C002DAA66 /* DashBoardOrderRequestVC.swift in Sources */,
 				82E9588B25AC2917006ED26A /* HomeVC3Cell.swift in Sources */,
 				8205C18125A5D42900E602DE /* AddNewItemVC.swift in Sources */,
+				821F45CB25B6F6BF00EB8265 /* TrackingOrderVC.swift in Sources */,
 				823077E825A58048004B930A /* BasicBarChart.swift in Sources */,
 				829603C225A70F9D00ED3F14 /* PaymentMethodVC.swift in Sources */,
 				82250C4925A2D9E9007E46DD /* LogInVC.swift in Sources */,
@@ -549,6 +548,7 @@
 				828B297325A5F3AD00EB8DCA /* PersonalEditVC.swift in Sources */,
 				8266B9FB25A4447200954E75 /* DashBoardVCCell.swift in Sources */,
 				823077DF25A5803B004B930A /* CALayerExtension.swift in Sources */,
+				8281CC3825B6DD7D009FC8F2 /* SearchVC.swift in Sources */,
 				82D147C725AB0C83002073A6 /* HomeVC.swift in Sources */,
 				82D147C925AB1299002073A6 /* HomeVCCell.swift in Sources */,
 				82032D0E25B5C1D60046B841 /* AddressVC.swift in Sources */,
@@ -557,10 +557,12 @@
 				828469A725A47E780049467A /* DashBoardOrderRequestVCCell.swift in Sources */,
 				82899D0825A31F2E00CDEC00 /* PassWordVarificationVC.swift in Sources */,
 				828469AD25A486510049467A /* MyFoodVCCell.swift in Sources */,
+				8281CC3C25B6E5B0009FC8F2 /* DeliveryStatusVC.swift in Sources */,
 				8295D94325A2EAFE0047C545 /* RegisterVC.swift in Sources */,
 				82E4934725A466A300409613 /* RevenueVC.swift in Sources */,
 				82484F9225A6E6C80072E458 /* TotalOrdersVC.swift in Sources */,
 				820D05CA25A5BCCD009508F3 /* BottomPopupDismissInteractionController.swift in Sources */,
+				8281CC3A25B6E18D009FC8F2 /* SearchVCCell.swift in Sources */,
 				82484F8E25A6DB230072E458 /* MessegesVC.swift in Sources */,
 				82C03D56259F59E40001ADCC /* ReViewVCCell.swift in Sources */,
 				823077E025A5803B004B930A /* CustomSegments.swift in Sources */,
@@ -719,17 +721,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development: Sanjay Modasia (9RXJ9UL8J9)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6Q48KBREZX;
+				DEVELOPMENT_TEAM = 2L2TH4Z227;
 				INFOPLIST_FILE = "HomeCook'd/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skoolapp.testing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.homecook.application;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Testing-Development";
+				PROVISIONING_PROFILE_SPECIFIER = HomeCook_Dev;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -739,17 +742,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development: Sanjay Modasia (9RXJ9UL8J9)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6Q48KBREZX;
+				DEVELOPMENT_TEAM = 2L2TH4Z227;
 				INFOPLIST_FILE = "HomeCook'd/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skoolapp.testing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.homecook.application;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Testing-Development";
+				PROVISIONING_PROFILE_SPECIFIER = HomeCook_Dev;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

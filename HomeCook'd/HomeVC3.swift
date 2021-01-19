@@ -57,7 +57,7 @@ class HomeVC3: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionViewFoodImg {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collImages", for: indexPath) as! collImages
-        
+            cell.layer.cornerRadius = 25.0
             return cell
         }
 
