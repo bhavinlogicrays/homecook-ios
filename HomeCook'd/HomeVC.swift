@@ -19,6 +19,18 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var btnDelivery: UIButton!
     @IBOutlet weak var btnPickUp: UIButton!
     @IBOutlet weak var tblViewMostPop: UITableView!
+    @IBOutlet weak var subView: UIView!
+    @IBOutlet weak var subBtnDel: UIView!
+    @IBOutlet weak var subBtnPick: UIButton!
+    @IBOutlet weak var subBtnTime1: UIButton!
+    @IBOutlet weak var subBtnTime2: UIButton!
+    @IBOutlet weak var subBtnTime3: UIButton!
+    @IBOutlet weak var subRat1: UIButton!
+    @IBOutlet weak var subRat2: UIButton!
+    @IBOutlet weak var subRat3: UIButton!
+    @IBOutlet weak var subRat4: UIButton!
+    @IBOutlet weak var subRat5: UIButton!
+    @IBOutlet weak var btnApply: UIButton!
     
     
     // MARK: - ViewController Methods
@@ -39,14 +51,36 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         btnFilter.layer.cornerRadius = 6.0
         btnFilter.layer.masksToBounds = true
         
+        btnApply.layer.cornerRadius = 6.0
+        btnApply.layer.masksToBounds = true
+        
         btnDelivery.layer.cornerRadius = btnDelivery.frame.size.height/2
         btnPickUp.layer.cornerRadius = btnPickUp.frame.size.height/2
         
+        subBtnDel.layer.cornerRadius = btnDelivery.frame.size.height/2
+        setCorner(btn: subBtnPick)
+        setCorner(btn: subBtnTime1)
+        setCorner(btn: subBtnTime2)
+        setCorner(btn: subBtnTime3)
+        setCorner(btn: subRat1)
+        setCorner(btn: subRat2)
+        setCorner(btn: subRat3)
+        setCorner(btn: subRat4)
+        setCorner(btn: subRat5)
+        
+        subView.layer.cornerRadius = 25.0
+        subView.layer.masksToBounds = true
         
         arrFoodImg = ["food-img-big","food-img2-big","food-img-big","food-img2-big","food-img-big","food-img2-big","food-img-big"]
         arrChefImg = ["chef-1","chef-2","chef-1","chef-2","chef-1","chef-2","chef-1"]
         arrDelTime = ["Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Pick Up 1.5 km"]
         arrHomeCook = ["Friends HomeCooke'd","Duhari HomeCooke'd ","Friends HomeCooke'd","Duhari HomeCooke'd","Friends HomeCooke'd","Duhari HomeCooke'd","Friends HomeCooke'd"]
+    }
+    
+    func setCorner(btn: UIButton){
+        btn.layer.cornerRadius = btn.frame.size.height/2
+        btn.layer.borderWidth = 1.0
+        btn.layer.borderColor = UIColor.init(red: 200.0/255.0, green: 205.0/255.0, blue: 211.0/255.0, alpha: 1.0).cgColor
     }
     
     // MARK: - Delegate Method
