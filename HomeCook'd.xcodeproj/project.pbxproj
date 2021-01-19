@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82032D0825B5B0990046B841 /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82032D0725B5B0990046B841 /* RatingVC.swift */; };
+		82032D0A25B5BBC90046B841 /* AddNewCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82032D0925B5BBC90046B841 /* AddNewCardVC.swift */; };
+		82032D0C25B5BFCE0046B841 /* Terms&ConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82032D0B25B5BFCE0046B841 /* Terms&ConditionVC.swift */; };
+		82032D0E25B5C1D60046B841 /* AddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82032D0D25B5C1D60046B841 /* AddressVC.swift */; };
 		8205C18125A5D42900E602DE /* AddNewItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205C18025A5D42900E602DE /* AddNewItemVC.swift */; };
 		8205C18325A5D7CE00E602DE /* AddNewItemVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205C18225A5D7CE00E602DE /* AddNewItemVCCell.swift */; };
 		8205C18525A5E4A200E602DE /* PaymentWithdrawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205C18425A5E4A200E602DE /* PaymentWithdrawVC.swift */; };
+		8208D99425B59D6C00B57A24 /* CartVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8208D99325B59D6C00B57A24 /* CartVCCell.swift */; };
+		820CFBD325B5937D0043756E /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820CFBD225B5937D0043756E /* CartVC.swift */; };
 		820D05C825A5BCCD009508F3 /* BottomPopupUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D05C025A5BCCD009508F3 /* BottomPopupUtils.swift */; };
 		820D05C925A5BCCD009508F3 /* BottomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D05C125A5BCCD009508F3 /* BottomPopupViewController.swift */; };
 		820D05CA25A5BCCD009508F3 /* BottomPopupDismissInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D05C225A5BCCD009508F3 /* BottomPopupDismissInteractionController.swift */; };
@@ -18,6 +24,7 @@
 		820D05CD25A5BCCD009508F3 /* BottomPopupPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D05C525A5BCCD009508F3 /* BottomPopupPresentAnimator.swift */; };
 		820D05CE25A5BCCD009508F3 /* BottomPopupTransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D05C625A5BCCD009508F3 /* BottomPopupTransitionHandler.swift */; };
 		820D05CF25A5BCCD009508F3 /* BottomPopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820D05C725A5BCCD009508F3 /* BottomPopupPresentationController.swift */; };
+		82165CD825B583B7005C2361 /* collImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82165CD725B583B7005C2361 /* collImages.swift */; };
 		82250C4925A2D9E9007E46DD /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82250C4825A2D9E9007E46DD /* LogInVC.swift */; };
 		823077DE25A5803B004B930A /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823077D925A5803A004B930A /* ArrayExtension.swift */; };
 		823077DF25A5803B004B930A /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823077DA25A5803A004B930A /* CALayerExtension.swift */; };
@@ -85,6 +92,7 @@
 		82C03D56259F59E40001ADCC /* ReViewVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C03D55259F59E40001ADCC /* ReViewVCCell.swift */; };
 		82D147C725AB0C83002073A6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D147C625AB0C83002073A6 /* HomeVC.swift */; };
 		82D147C925AB1299002073A6 /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D147C825AB1299002073A6 /* HomeVCCell.swift */; };
+		82DFB33125B6A2B8004518B4 /* AddressVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DFB33025B6A2B8004518B4 /* AddressVCCell.swift */; };
 		82E4934725A466A300409613 /* RevenueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4934625A466A300409613 /* RevenueVC.swift */; };
 		82E4934925A46A2300409613 /* RevenueVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4934825A46A2300409613 /* RevenueVCCell.swift */; };
 		82E4DF2A25A71DDE0038DF38 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4DF2925A71DDE0038DF38 /* SettingVC.swift */; };
@@ -96,9 +104,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		82032D0725B5B0990046B841 /* RatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
+		82032D0925B5BBC90046B841 /* AddNewCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVC.swift; sourceTree = "<group>"; };
+		82032D0B25B5BFCE0046B841 /* Terms&ConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terms&ConditionVC.swift"; sourceTree = "<group>"; };
+		82032D0D25B5C1D60046B841 /* AddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressVC.swift; sourceTree = "<group>"; };
 		8205C18025A5D42900E602DE /* AddNewItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemVC.swift; sourceTree = "<group>"; };
 		8205C18225A5D7CE00E602DE /* AddNewItemVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemVCCell.swift; sourceTree = "<group>"; };
 		8205C18425A5E4A200E602DE /* PaymentWithdrawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWithdrawVC.swift; sourceTree = "<group>"; };
+		8208D99325B59D6C00B57A24 /* CartVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVCCell.swift; sourceTree = "<group>"; };
+		820CFBD225B5937D0043756E /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		820D05C025A5BCCD009508F3 /* BottomPopupUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupUtils.swift; sourceTree = "<group>"; };
 		820D05C125A5BCCD009508F3 /* BottomPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupViewController.swift; sourceTree = "<group>"; };
 		820D05C225A5BCCD009508F3 /* BottomPopupDismissInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupDismissInteractionController.swift; sourceTree = "<group>"; };
@@ -107,6 +121,7 @@
 		820D05C525A5BCCD009508F3 /* BottomPopupPresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupPresentAnimator.swift; sourceTree = "<group>"; };
 		820D05C625A5BCCD009508F3 /* BottomPopupTransitionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupTransitionHandler.swift; sourceTree = "<group>"; };
 		820D05C725A5BCCD009508F3 /* BottomPopupPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupPresentationController.swift; sourceTree = "<group>"; };
+		82165CD725B583B7005C2361 /* collImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collImages.swift; sourceTree = "<group>"; };
 		82250C4825A2D9E9007E46DD /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		823077D925A5803A004B930A /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		823077DA25A5803A004B930A /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
@@ -177,6 +192,7 @@
 		82C03D55259F59E40001ADCC /* ReViewVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReViewVCCell.swift; sourceTree = "<group>"; };
 		82D147C625AB0C83002073A6 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		82D147C825AB1299002073A6 /* HomeVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCCell.swift; sourceTree = "<group>"; };
+		82DFB33025B6A2B8004518B4 /* AddressVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressVCCell.swift; sourceTree = "<group>"; };
 		82E4934625A466A300409613 /* RevenueVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueVC.swift; sourceTree = "<group>"; };
 		82E4934825A46A2300409613 /* RevenueVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueVCCell.swift; sourceTree = "<group>"; };
 		82E4DF2925A71DDE0038DF38 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -329,6 +345,13 @@
 				82E9588425AC0F36006ED26A /* HomeVC2Cell.swift */,
 				82E9588625AC162C006ED26A /* HomeVC3.swift */,
 				82E9588A25AC2917006ED26A /* HomeVC3Cell.swift */,
+				820CFBD225B5937D0043756E /* CartVC.swift */,
+				8208D99325B59D6C00B57A24 /* CartVCCell.swift */,
+				82032D0D25B5C1D60046B841 /* AddressVC.swift */,
+				82DFB33025B6A2B8004518B4 /* AddressVCCell.swift */,
+				82032D0B25B5BFCE0046B841 /* Terms&ConditionVC.swift */,
+				82032D0925B5BBC90046B841 /* AddNewCardVC.swift */,
+				82032D0725B5B0990046B841 /* RatingVC.swift */,
 				82B6360A259F220300FFCA39 /* Assets.xcassets */,
 				82B63607259F220200FFCA39 /* Main.storyboard */,
 				82B6360C259F220300FFCA39 /* LaunchScreen.storyboard */,
@@ -338,6 +361,7 @@
 				8230778E25A57FDC004B930A /* Bar Chart */,
 				82AD9F00259F334400EAA057 /* Fonts */,
 				82B63601259F220200FFCA39 /* Products */,
+				82165CD725B583B7005C2361 /* collImages.swift */,
 			);
 			path = "HomeCook'd";
 			sourceTree = "<group>";
@@ -478,16 +502,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8208D99425B59D6C00B57A24 /* CartVCCell.swift in Sources */,
 				82E9588525AC0F36006ED26A /* HomeVC2Cell.swift in Sources */,
 				82C03D54259F56550001ADCC /* ReViewVC.swift in Sources */,
 				82484F8A25A6C9050072E458 /* NotificationVC.swift in Sources */,
 				828469B325A498AE0049467A /* MyFoodDetailVCCell.swift in Sources */,
+				82DFB33125B6A2B8004518B4 /* AddressVCCell.swift in Sources */,
 				820D05CF25A5BCCD009508F3 /* BottomPopupPresentationController.swift in Sources */,
 				8205C18325A5D7CE00E602DE /* AddNewItemVCCell.swift in Sources */,
 				828469B525A49AE80049467A /* EditItemsVC.swift in Sources */,
 				82899D0625A31C1900CDEC00 /* ForgotPassWordVC.swift in Sources */,
 				82E4DF2A25A71DDE0038DF38 /* SettingVC.swift in Sources */,
+				82032D0A25B5BBC90046B841 /* AddNewCardVC.swift in Sources */,
 				82E9588D25AC3495006ED26A /* Extension.swift in Sources */,
+				82032D0825B5B0990046B841 /* RatingVC.swift in Sources */,
 				828B97CD25A473E7002DAA66 /* DashBoardRunningOrderVC.swift in Sources */,
 				829603C425A70FE100ED3F14 /* PaymentMethodVCCell.swift in Sources */,
 				82B63606259F220200FFCA39 /* WelComeVC.swift in Sources */,
@@ -508,6 +536,7 @@
 				82484F9425A6E6EF0072E458 /* TotalOrderVCCell.swift in Sources */,
 				820D05C925A5BCCD009508F3 /* BottomPopupViewController.swift in Sources */,
 				820D05C825A5BCCD009508F3 /* BottomPopupUtils.swift in Sources */,
+				82032D0C25B5BFCE0046B841 /* Terms&ConditionVC.swift in Sources */,
 				828469B725A49D840049467A /* EditItemVCCell.swift in Sources */,
 				823077DE25A5803B004B930A /* ArrayExtension.swift in Sources */,
 				823077E625A58048004B930A /* BasicBarChartPresenter.swift in Sources */,
@@ -515,12 +544,14 @@
 				82899D0425A3047400CDEC00 /* RegisterVC2.swift in Sources */,
 				82E9588325AC0F06006ED26A /* HomeVC2.swift in Sources */,
 				82E4934925A46A2300409613 /* RevenueVCCell.swift in Sources */,
+				82165CD825B583B7005C2361 /* collImages.swift in Sources */,
 				823077E225A5803B004B930A /* UIBezierPathExtension.swift in Sources */,
 				828B297325A5F3AD00EB8DCA /* PersonalEditVC.swift in Sources */,
 				8266B9FB25A4447200954E75 /* DashBoardVCCell.swift in Sources */,
 				823077DF25A5803B004B930A /* CALayerExtension.swift in Sources */,
 				82D147C725AB0C83002073A6 /* HomeVC.swift in Sources */,
 				82D147C925AB1299002073A6 /* HomeVCCell.swift in Sources */,
+				82032D0E25B5C1D60046B841 /* AddressVC.swift in Sources */,
 				829603C625A717D800ED3F14 /* PaymentSuccessVC.swift in Sources */,
 				820D05CE25A5BCCD009508F3 /* BottomPopupTransitionHandler.swift in Sources */,
 				828469A725A47E780049467A /* DashBoardOrderRequestVCCell.swift in Sources */,
@@ -533,6 +564,7 @@
 				82484F8E25A6DB230072E458 /* MessegesVC.swift in Sources */,
 				82C03D56259F59E40001ADCC /* ReViewVCCell.swift in Sources */,
 				823077E025A5803B004B930A /* CustomSegments.swift in Sources */,
+				820CFBD325B5937D0043756E /* CartVC.swift in Sources */,
 				828469A525A477610049467A /* DashBoardRunningOrderVCCell.swift in Sources */,
 				8290027925A73001007F6C64 /* MessageDetailVC.swift in Sources */,
 				829603C025A6FB3B00ED3F14 /* PaymentWithdrawVC2.swift in Sources */,
