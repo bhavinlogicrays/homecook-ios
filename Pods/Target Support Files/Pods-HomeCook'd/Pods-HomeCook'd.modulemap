@@ -1,0 +1,6 @@
+framework module Pods_HomeCook_d {
+  umbrella header "Pods-HomeCook'd-umbrella.h"
+
+  export *
+  module * { export * }
+}

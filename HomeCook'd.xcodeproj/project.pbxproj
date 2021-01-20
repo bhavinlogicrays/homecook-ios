@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A01E0AFC692C33818861A10 /* Pods_HomeCook_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C609B729F9C033B15D16A72C /* Pods_HomeCook_d.framework */; };
 		82032D0825B5B0990046B841 /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82032D0725B5B0990046B841 /* RatingVC.swift */; };
 		82032D0A25B5BBC90046B841 /* AddNewCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82032D0925B5BBC90046B841 /* AddNewCardVC.swift */; };
 		82032D0C25B5BFCE0046B841 /* Terms&ConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82032D0B25B5BFCE0046B841 /* Terms&ConditionVC.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EB55ED455A3A479BC232E66 /* Pods-HomeCook'd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCook'd.debug.xcconfig"; path = "Target Support Files/Pods-HomeCook'd/Pods-HomeCook'd.debug.xcconfig"; sourceTree = "<group>"; };
 		82032D0725B5B0990046B841 /* RatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
 		82032D0925B5BBC90046B841 /* AddNewCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVC.swift; sourceTree = "<group>"; };
 		82032D0B25B5BFCE0046B841 /* Terms&ConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terms&ConditionVC.swift"; sourceTree = "<group>"; };
@@ -201,6 +203,8 @@
 		82E9588625AC162C006ED26A /* HomeVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC3.swift; sourceTree = "<group>"; };
 		82E9588A25AC2917006ED26A /* HomeVC3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC3Cell.swift; sourceTree = "<group>"; };
 		82E9588C25AC3495006ED26A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		C609B729F9C033B15D16A72C /* Pods_HomeCook_d.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeCook_d.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE09C5968B65D618991015A5 /* Pods-HomeCook'd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCook'd.release.xcconfig"; path = "Target Support Files/Pods-HomeCook'd/Pods-HomeCook'd.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,12 +212,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A01E0AFC692C33818861A10 /* Pods_HomeCook_d.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		202B7E72299E36517ACF3C4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C609B729F9C033B15D16A72C /* Pods_HomeCook_d.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		700EDB06FD2B6D01AC0CAA19 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1EB55ED455A3A479BC232E66 /* Pods-HomeCook'd.debug.xcconfig */,
+				DE09C5968B65D618991015A5 /* Pods-HomeCook'd.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		820D05BF25A5BCCD009508F3 /* BottomPopupController */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +305,8 @@
 			children = (
 				82B63615259F225800FFCA39 /* HomeCook'd-Bridging-Header.h */,
 				82B63602259F220200FFCA39 /* HomeCook'd */,
+				700EDB06FD2B6D01AC0CAA19 /* Pods */,
+				202B7E72299E36517ACF3C4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -373,11 +397,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82B63612259F220300FFCA39 /* Build configuration list for PBXNativeTarget "HomeCook'd" */;
 			buildPhases = (
-				434BB0751FF9A8DF4232CFC4 /* [CP] Check Pods Manifest.lock */,
+				41B3011B7B1844070BA041FE /* [CP] Check Pods Manifest.lock */,
 				82B635FC259F220200FFCA39 /* Sources */,
 				82B635FD259F220200FFCA39 /* Frameworks */,
 				82B635FE259F220200FFCA39 /* Resources */,
-				BA02DD3119794A83B1B514A1 /* [CP] Embed Pods Frameworks */,
+				1E7680148F4E9500B11C591D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -454,7 +478,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		434BB0751FF9A8DF4232CFC4 /* [CP] Check Pods Manifest.lock */ = {
+		1E7680148F4E9500B11C591D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomeCook'd/Pods-HomeCook'd-frameworks.sh\"\n";
+		};
+		41B3011B7B1844070BA041FE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -473,26 +511,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
-			showEnvVarsInLog = 0;
-		};
-		BA02DD3119794A83B1B514A1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -633,7 +652,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -650,7 +669,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -699,13 +718,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -717,40 +737,44 @@
 		};
 		82B63613259F220300FFCA39 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EB55ED455A3A479BC232E66 /* Pods-HomeCook'd.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development: Sanjay Modasia (9RXJ9UL8J9)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6Q48KBREZX;
+				DEVELOPMENT_TEAM = 2L2TH4Z227;
 				INFOPLIST_FILE = "HomeCook'd/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skoolapp.testing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.homecook.application;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Testing-Development";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = HomeCook_Dev;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		82B63614259F220300FFCA39 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE09C5968B65D618991015A5 /* Pods-HomeCook'd.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development: Sanjay Modasia (9RXJ9UL8J9)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6Q48KBREZX;
+				DEVELOPMENT_TEAM = 2L2TH4Z227;
 				INFOPLIST_FILE = "HomeCook'd/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skoolapp.testing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.homecook.application;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Testing-Development";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = HomeCook_Dev;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LogInVC: UIViewController,UITextFieldDelegate {
     
@@ -76,6 +77,9 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         txtTemp.text = txtTemp.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         txtTemp.resignFirstResponder()
         txtTemp = nil
-    } 
+    }
+    
+    
+    
 }
 
