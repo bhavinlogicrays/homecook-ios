@@ -61,6 +61,11 @@
 		828B97CD25A473E7002DAA66 /* DashBoardRunningOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828B97CC25A473E7002DAA66 /* DashBoardRunningOrderVC.swift */; };
 		828B97CF25A4741C002DAA66 /* DashBoardOrderRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828B97CE25A4741C002DAA66 /* DashBoardOrderRequestVC.swift */; };
 		828C542B25AC6624006830EC /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C542A25AC6624006830EC /* TabVC.swift */; };
+		828E0D6E25B80BA600790179 /* AddressVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E0D6D25B80BA600790179 /* AddressVC2.swift */; };
+		828E0D7025B8239300790179 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E0D6F25B8239300790179 /* MenuVC.swift */; };
+		828E0D7225B8297300790179 /* PreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E0D7125B8297300790179 /* PreviewVC.swift */; };
+		828E0D7425B82E6E00790179 /* PreviewVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E0D7325B82E6E00790179 /* PreviewVCCell.swift */; };
+		828E0D7625B831E000790179 /* PreviewIngVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E0D7525B831E000790179 /* PreviewIngVCCell.swift */; };
 		8290027925A73001007F6C64 /* MessageDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290027825A73001007F6C64 /* MessageDetailVC.swift */; };
 		8295D94325A2EAFE0047C545 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8295D94225A2EAFE0047C545 /* RegisterVC.swift */; };
 		829603C025A6FB3B00ED3F14 /* PaymentWithdrawVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829603BF25A6FB3B00ED3F14 /* PaymentWithdrawVC2.swift */; };
@@ -163,6 +168,11 @@
 		828B97CC25A473E7002DAA66 /* DashBoardRunningOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardRunningOrderVC.swift; sourceTree = "<group>"; };
 		828B97CE25A4741C002DAA66 /* DashBoardOrderRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardOrderRequestVC.swift; sourceTree = "<group>"; };
 		828C542A25AC6624006830EC /* TabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
+		828E0D6D25B80BA600790179 /* AddressVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressVC2.swift; sourceTree = "<group>"; };
+		828E0D6F25B8239300790179 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		828E0D7125B8297300790179 /* PreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewVC.swift; sourceTree = "<group>"; };
+		828E0D7325B82E6E00790179 /* PreviewVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewVCCell.swift; sourceTree = "<group>"; };
+		828E0D7525B831E000790179 /* PreviewIngVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewIngVCCell.swift; sourceTree = "<group>"; };
 		8290027825A73001007F6C64 /* MessageDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailVC.swift; sourceTree = "<group>"; };
 		8295D94225A2EAFE0047C545 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		829603BF25A6FB3B00ED3F14 /* PaymentWithdrawVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWithdrawVC2.swift; sourceTree = "<group>"; };
@@ -351,12 +361,17 @@
 				820CFBD225B5937D0043756E /* CartVC.swift */,
 				8208D99325B59D6C00B57A24 /* CartVCCell.swift */,
 				82032D0D25B5C1D60046B841 /* AddressVC.swift */,
+				828E0D6D25B80BA600790179 /* AddressVC2.swift */,
 				82DFB33025B6A2B8004518B4 /* AddressVCCell.swift */,
 				82032D0B25B5BFCE0046B841 /* Terms&ConditionVC.swift */,
 				82032D0925B5BBC90046B841 /* AddNewCardVC.swift */,
 				82032D0725B5B0990046B841 /* RatingVC.swift */,
 				8281CC3B25B6E5B0009FC8F2 /* DeliveryStatusVC.swift */,
 				821F45CA25B6F6BF00EB8265 /* TrackingOrderVC.swift */,
+				828E0D6F25B8239300790179 /* MenuVC.swift */,
+				828E0D7125B8297300790179 /* PreviewVC.swift */,
+				828E0D7325B82E6E00790179 /* PreviewVCCell.swift */,
+				828E0D7525B831E000790179 /* PreviewIngVCCell.swift */,
 				82B6360A259F220300FFCA39 /* Assets.xcassets */,
 				82B63607259F220200FFCA39 /* Main.storyboard */,
 				82B6360C259F220300FFCA39 /* LaunchScreen.storyboard */,
@@ -509,6 +524,7 @@
 				820D05CF25A5BCCD009508F3 /* BottomPopupPresentationController.swift in Sources */,
 				8205C18325A5D7CE00E602DE /* AddNewItemVCCell.swift in Sources */,
 				828469B525A49AE80049467A /* EditItemsVC.swift in Sources */,
+				828E0D7425B82E6E00790179 /* PreviewVCCell.swift in Sources */,
 				82899D0625A31C1900CDEC00 /* ForgotPassWordVC.swift in Sources */,
 				82E4DF2A25A71DDE0038DF38 /* SettingVC.swift in Sources */,
 				82032D0A25B5BBC90046B841 /* AddNewCardVC.swift in Sources */,
@@ -530,6 +546,7 @@
 				828C542B25AC6624006830EC /* TabVC.swift in Sources */,
 				82484F9025A6DE830072E458 /* MessegeVCCell.swift in Sources */,
 				828B297125A5ED2C00EB8DCA /* PersonalInfoVC.swift in Sources */,
+				828E0D7625B831E000790179 /* PreviewIngVCCell.swift in Sources */,
 				82484F8C25A6CF0E0072E458 /* NotificationVCCell.swift in Sources */,
 				8205C18525A5E4A200E602DE /* PaymentWithdrawVC.swift in Sources */,
 				82484F9425A6E6EF0072E458 /* TotalOrderVCCell.swift in Sources */,
@@ -544,6 +561,7 @@
 				82E9588325AC0F06006ED26A /* HomeVC2.swift in Sources */,
 				82E4934925A46A2300409613 /* RevenueVCCell.swift in Sources */,
 				82165CD825B583B7005C2361 /* collImages.swift in Sources */,
+				828E0D7225B8297300790179 /* PreviewVC.swift in Sources */,
 				823077E225A5803B004B930A /* UIBezierPathExtension.swift in Sources */,
 				828B297325A5F3AD00EB8DCA /* PersonalEditVC.swift in Sources */,
 				8266B9FB25A4447200954E75 /* DashBoardVCCell.swift in Sources */,
@@ -568,8 +586,10 @@
 				823077E025A5803B004B930A /* CustomSegments.swift in Sources */,
 				820CFBD325B5937D0043756E /* CartVC.swift in Sources */,
 				828469A525A477610049467A /* DashBoardRunningOrderVCCell.swift in Sources */,
+				828E0D6E25B80BA600790179 /* AddressVC2.swift in Sources */,
 				8290027925A73001007F6C64 /* MessageDetailVC.swift in Sources */,
 				829603C025A6FB3B00ED3F14 /* PaymentWithdrawVC2.swift in Sources */,
+				828E0D7025B8239300790179 /* MenuVC.swift in Sources */,
 				823077E725A58048004B930A /* BasicBarEntry.swift in Sources */,
 				82A850D6259F29C500522965 /* DashBoardVC.swift in Sources */,
 				82E9588725AC162C006ED26A /* HomeVC3.swift in Sources */,

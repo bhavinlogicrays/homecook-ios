@@ -26,11 +26,7 @@ class AddNewCardVC: UIViewController {
         DELEGATE.setBorder(textField: txtCardNum )
         DELEGATE.setBorder(textField: txtExpDate )
         DELEGATE.setBorder(textField: txtCVC )
-        
-        btnConfirm.layer.masksToBounds = false
-        btnConfirm.layer.cornerRadius = 10.0
-        btnConfirm.layer.borderWidth = 1.0
-        btnConfirm.layer.borderColor = UIColor.init(red: 235.0/255.0, green: 57.0/255.0, blue: 67.0/255.0, alpha: 1.0).cgColor
+        DELEGATE.setCorner(button: btnConfirm)
         
         txtCardName.attributedPlaceholder = NSAttributedString(string:"Type Here", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
         txtCardName.setLeftPaddingPoints(15)
