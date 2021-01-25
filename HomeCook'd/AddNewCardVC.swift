@@ -4,7 +4,7 @@
 
 import UIKit
 
-class AddNewCardVC: UIViewController {
+class AddNewCardVC: UIViewController,UITextFieldDelegate {
 
     // MARK: - Variables
     // MARK: - UI Controls
@@ -44,6 +44,15 @@ class AddNewCardVC: UIViewController {
         txtCVC.setLeftPaddingPoints(15)
         txtCVC.setRightPaddingPoints(15)
         
+    }
+    
+    @IBAction func onClickBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func onClickConfirm(_ sender: UIButton) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
+        self.navigationController?.pushViewController(objVC, animated: true)
     }
     
     // MARK: - Delegate Methods

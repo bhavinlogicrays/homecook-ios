@@ -10,11 +10,14 @@ let STORYBOARD = UIStoryboard(name: "Main", bundle: nil)
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var strIsComefrom = String()
+    var isPayment : Bool = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -67,9 +70,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension UINavigationController {
     
     func popToViewController(ofClass: AnyClass, animated: Bool = true) {
-        if let vc = viewControllers.filter({$0.isKind(of: ofClass)}).last {
-            popToViewController(vc, animated: animated)
-        }
+            if let vc = viewControllers.filter({$0.isKind(of: ofClass)}).last {
+                popToViewController(vc, animated: animated)
+            }
     }
     
     func popViewControllers(viewsToPop: Int, animated: Bool = true) {

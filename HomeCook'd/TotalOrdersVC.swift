@@ -20,7 +20,7 @@ class TotalOrdersVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
         // Do any additional setup after loading the view.
         
-        arrImg = ["veg thai","vegan thai curry","veganPad","vegetable pad thai"]
+        arrImg  = ["cart-img1","cart-img2","cart-img3","cart-img1"]
         arrFoodName = ["Vegetable Thai Food","Vegetable Thai Food","Keema Chickeniriyani","Mazali Chicken halim"]
         arrProgress = ["In Progress","In Progress","Complete","Canceled"]
     }

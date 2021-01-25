@@ -40,5 +40,9 @@ class CartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
+    @IBAction func onClickCheckout(_ sender: UIButton) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_PaymentVC") as! Customer_PaymentVC
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
     
 }

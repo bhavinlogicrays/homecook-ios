@@ -17,6 +17,8 @@ class Terms_ConditionVC: UIViewController {
         
     }
     
-
+    @IBAction func btnBackClick(_ sender:AnyObject) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }

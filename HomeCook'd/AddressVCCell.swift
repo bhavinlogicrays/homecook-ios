@@ -4,12 +4,20 @@
 
 import UIKit
 
+protocol AddressVCCellDelegate: NSObjectProtocol {
+    func didPressOnCell(_ Index: Int)
+}
+
 class AddressVCCell: UITableViewCell {
 
+    // MARK: - Variables
+    var row = 0
+    
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblAdrs: UILabel!
+    weak var delegate: (NSObjectProtocol & AddressVCCellDelegate)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,4 +30,7 @@ class AddressVCCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func onClickCell(_ sender: UIButton) {
+        delegate?.didPressOnCell(row)
+    }
 }

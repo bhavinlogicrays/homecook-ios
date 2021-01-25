@@ -26,7 +26,7 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        txtCode1.becomeFirstResponder()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Poppins", size: 16.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.gray, range: NSRange(location: 34,length:17))
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSRange(location: 0,length:34))

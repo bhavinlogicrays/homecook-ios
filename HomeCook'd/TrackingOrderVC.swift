@@ -25,7 +25,10 @@ class TrackingOrderVC: UIViewController {
         imgCall.layer.cornerRadius = imgCall.frame.size.height/2
     }
     
-
+    @IBAction func btnBackClick(_ sender:AnyObject) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
  
 
 }
