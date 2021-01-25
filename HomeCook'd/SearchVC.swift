@@ -23,6 +23,10 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         txtSearch.setRightPaddingPoints(15)
     }
     
+    @IBAction func onClickBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Delegate Method
     // MARK: - UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

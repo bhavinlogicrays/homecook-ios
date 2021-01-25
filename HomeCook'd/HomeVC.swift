@@ -4,13 +4,14 @@
 
 import UIKit
 
-class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,HomeVCCellDelegate {
 
     // MARK: - Variables
     var arrFoodImg = [String]()
     var arrChefImg = [String]()
     var arrDelTime = [String]()
     var arrHomeCook = [String]()
+    var isViewOpen:String = ""
     
     // MARK: - UI Controls
     @IBOutlet weak var imgView: UIImageView!
@@ -57,15 +58,15 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         btnDelivery.layer.cornerRadius = btnDelivery.frame.size.height/2
         btnPickUp.layer.cornerRadius = btnPickUp.frame.size.height/2
         
-        subBtnDel.layer.cornerRadius = btnDelivery.frame.size.height/2
+        subBtnDel.layer.cornerRadius = subBtnDel.frame.size.height/2
+        subRat4.layer.cornerRadius = subRat4.frame.size.height/2
+        subBtnTime1.layer.cornerRadius = subRat4.frame.size.height/2
         setCorner(btn: subBtnPick)
-        setCorner(btn: subBtnTime1)
         setCorner(btn: subBtnTime2)
         setCorner(btn: subBtnTime3)
         setCorner(btn: subRat1)
         setCorner(btn: subRat2)
         setCorner(btn: subRat3)
-        setCorner(btn: subRat4)
         setCorner(btn: subRat5)
         
         subView.layer.cornerRadius = 25.0
@@ -75,6 +76,12 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         arrChefImg = ["chef-1","chef-2","chef-1","chef-2","chef-1","chef-2","chef-1"]
         arrDelTime = ["Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Pick Up 1.5 km"]
         arrHomeCook = ["Friends HomeCooke'd","Duhari HomeCooke'd ","Friends HomeCooke'd","Duhari HomeCooke'd","Friends HomeCooke'd","Duhari HomeCooke'd","Friends HomeCooke'd"]
+        
+        isViewOpen = ""
+        subView.isHidden = true
+
+        
+       
     }
     
     func setCorner(btn: UIButton){
@@ -82,6 +89,45 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         btn.layer.borderWidth = 1.0
         btn.layer.borderColor = UIColor.init(red: 200.0/255.0, green: 205.0/255.0, blue: 211.0/255.0, alpha: 1.0).cgColor
     }
+    
+    @IBAction func onClickFilter(_ sender: Any) {
+        isViewOpen = "1"
+        subView.isHidden = false
+
+    }
+    
+    @IBAction func btnProfileClick(_ sender: Any) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
+    
+    @IBAction func btnApplyClick(_ sender: Any) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
+    
+    @IBAction func onClickClose(_ sender: Any) {
+        if isViewOpen == "1" {
+            subView.isHidden = true
+        }
+        else{
+            subView.isHidden = false
+
+        }
+
+    }
+    
+    @IBAction func onClickSerch(_ sender: Any) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
+    
+    @IBAction func btnDeliveryClick(_ sender: Any) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "AddressVC2") as! AddressVC2
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
+    
+    
     
     // MARK: - Delegate Method
     // MARK: - UITableView
@@ -92,16 +138,17 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeVCCell") as! HomeVCCell
         
+        cell.delegate = self
         cell.imgFood.image = UIImage(named: arrFoodImg[indexPath.row])
         cell.imgFood.layer.cornerRadius = 20.0
         cell.imgFood.layer.masksToBounds = true
         
         cell.imgChef.image = UIImage(named: arrChefImg[indexPath.row])
-//        cell.imgChef.layer.cornerRadius = cell.imgChef.frame.size.height/2
+        cell.imgChef.layer.cornerRadius = cell.imgChef.frame.size.height / 2
 //        cell.imgChef.layer.borderColor = UIColor.white.cgColor
-//        cell.imgChef.layer.borderWidth = 2.0
-//        cell.imgChef.layer.masksToBounds = true
+//       cell.imgChef.layer.borderWidth = 2.0
         
+        //
         cell.lblDelTime.text = arrDelTime[indexPath.row]
         cell.lblDelTime.layer.cornerRadius = cell.lblDelTime.frame.size.height/2
         cell.lblDelTime.layer.masksToBounds = true
@@ -110,6 +157,13 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         return cell
         
+    }
+    
+    
+    // MARK: - HomeVCCell
+    func didPressOnCell(_ Index: Int) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "HomeVC3") as! HomeVC3
+        self.navigationController?.pushViewController(objVC, animated: true)
     }
 
 }

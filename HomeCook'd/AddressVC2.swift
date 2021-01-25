@@ -4,7 +4,7 @@
 
 import UIKit
 
-class AddressVC2: UIViewController {
+class AddressVC2: UIViewController,UITextFieldDelegate {
 
     // MARK: - Variables
     
@@ -19,6 +19,8 @@ class AddressVC2: UIViewController {
     @IBOutlet weak var btnWork: UIButton!
     @IBOutlet weak var btnOther: UIButton!
     @IBOutlet weak var btnSaveLocation: UIButton!
+    
+    var txtTemp: UITextField!
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
@@ -60,6 +62,29 @@ class AddressVC2: UIViewController {
     }
     
 
-   
-
+    @IBAction func btnSaveLocationClick(_ sender: Any) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
+    
+    @IBAction func btnBackClick(_ sender:AnyObject) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Delegate Methods
+    // MARK: UITextField
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        txtTemp = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        txtTemp.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        txtTemp.text = txtTemp.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        txtTemp.resignFirstResponder()
+        txtTemp = nil
+    }
 }

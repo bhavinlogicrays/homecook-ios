@@ -30,7 +30,14 @@ class DeliveryStatusVC: UIViewController {
         imgCall.layer.cornerRadius = imgCall.frame.size.height/2
     }
     
-
+    @IBAction func btnBackClick(_ sender:AnyObject) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnMapViewClick(_ sender: Any) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TrackingOrderVC") as! TrackingOrderVC
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
    
 
 }

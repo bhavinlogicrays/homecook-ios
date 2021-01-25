@@ -18,6 +18,7 @@ class TabVC: UIViewController {
     
     var btnTemp: UIButton!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var tabView: UIView!
     @IBOutlet weak var imgTab1: UIImageView!
     @IBOutlet weak var imgTab2: UIImageView!
     @IBOutlet weak var imgTab3: UIImageView!
@@ -36,6 +37,14 @@ class TabVC: UIViewController {
 //        containerView.layer.cornerRadius = 20.0
 //        containerView.layer.masksToBounds =true
         
+//        tabView.layer.shadowColor = UIColor.gray.cgColor
+//        tabView.layer.shadowOpacity = 1
+//        tabView.layer.shadowOffset = CGSize.zero
+//        tabView.layer.shadowRadius = 5
+//
+//        tabView.layer.cornerRadius = 30.0
+       
+       
         
         objVC1 = STORYBOARD.instantiateViewController(withIdentifier: "DashBoardVC") as? DashBoardVC
         objVC2 = STORYBOARD.instantiateViewController(withIdentifier: "MyFoodVC") as? MyFoodVC
@@ -48,7 +57,12 @@ class TabVC: UIViewController {
         
         self.onClickTab(buttons[selectedIndex] as! UIButton)
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        if DELEGATE.isPayment == true {
+            selectedIndex = 0 
+            self.onClickTab(buttons[selectedIndex] as! UIButton)
+        }
+    }
     @IBAction func onClickTab(_ sender: UIButton) {
         if (sender == btn3) {
             self.navigationController?.pushViewController(objVC3!, animated: true)

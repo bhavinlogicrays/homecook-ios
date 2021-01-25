@@ -13,6 +13,11 @@ class TotalOrderVCCell: UITableViewCell {
     @IBOutlet weak var lblFoodName: UILabel!
     @IBOutlet weak var lblNumOfOrdr: UILabel!
     @IBOutlet weak var lblProgrs: UILabel!
+    @IBOutlet weak var lblCatType: UILabel!
+    @IBOutlet weak var lblStar: UILabel!
+    @IBOutlet weak var lblReviewcount: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
+
     
     // MARK: - Cell Methods
     override func awakeFromNib() {

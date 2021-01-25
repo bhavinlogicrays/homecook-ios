@@ -55,6 +55,7 @@ class PaymentWithdrawVC: UIViewController {
     }
     
     @IBAction func onClickLogOut(_ sender: Any) {
+        DELEGATE.isPayment = false
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "WelComeVC") as! WelComeVC
         self.navigationController?.pushViewController(objVC, animated: true)
         

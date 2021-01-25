@@ -74,4 +74,11 @@ class HomeVC2: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return cell
         
     }
+    
+    // MARK: - HomeVC2Cell
+    func didPressOnCell(_ Index: Int) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "HomeVC3") as! HomeVC3
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
+
 }

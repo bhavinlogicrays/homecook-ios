@@ -113,4 +113,21 @@ class AddNewItemVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
         }
         
     }
+    
+    // MARK: - Delegate Methods
+    // MARK: UITextField
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        txtTemp = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        txtTemp.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        txtTemp.text = txtTemp.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        txtTemp.resignFirstResponder()
+        txtTemp = nil
+    }
 }

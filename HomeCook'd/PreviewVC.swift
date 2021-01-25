@@ -4,17 +4,21 @@
 
 import UIKit
 
-class PreviewVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class PreviewVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
 
     // MARK: - Variables
     var arrIng = [[String:AnyObject]]  ()
+   
+   
     
     // MARK: - UIControls
     @IBOutlet weak var collectionDisplayImg: UICollectionView!
     @IBOutlet weak var collectionViewIngradients: UICollectionView!
     @IBOutlet weak var detailTextView: UITextView!
-    
+    @IBOutlet weak var btnViewCart: UIButton!
+    @IBOutlet weak var imgDisplay: UIImageView!
+
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +27,11 @@ class PreviewVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
         
 //        arrFoodImg = [["img":"cart-img1","name":""],["img":"cart-img2"],["img":"cart-img3"]] as [[String : AnyObject]]
         
-        
+        DELEGATE.setCorner(button:btnViewCart )
         
         arrIng = [["img":"Broccoli","name":"Salt","type":""],["img":"Chicken","name":"Chicken","type":""],["img":"onion","name":"Onion","type":"(Alergy)"],["img":"Garlic","name":"Pappers","type":""],["img":"Pappers","name":"Garlic","type":"(Alergy)"],["img":"Ginger","name":"Ginger","type":""],["img":"Broccoli","name":"Broccoli","type":""],["img":"Orange","name":"Orange","type":""],["img":"Walnut","name":"Walnut","type":""],["img":"Orange","name":"Orange","type":""]] as [[String : AnyObject]]
+        
+       
     }
     
 
@@ -53,9 +59,33 @@ class PreviewVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
             cell.imgIngrs.image = UIImage(named: arrIng[indexPath.row]["img"] as! String)
             cell.lblIngrName.text = arrIng[indexPath.row]["name"] as? String
             cell.lblIngrName2.text = arrIng[indexPath.row]["type"] as? String
+        
+        
             return cell
 
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+       
+        if collectionView == collectionDisplayImg {
+            return CGSize(width: self.view.frame.size.width, height: self.collectionDisplayImg.frame.size.height)
+        }
+        return CGSize(width:(self.view.frame.size.width) / 3, height: 100)
+        }
+
+    // MARK: -  Action
+    @IBAction func btnBackClick(_ sender:AnyObject) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
+    @IBAction func btnViewCartClick(_ sender:AnyObject) {
+//        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "CartVC") as! CartVC
+//        self.navigationController?.pushViewController(objVC, animated: true)
+        
+        let tabbarVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
+        tabbarVC.selectedIndex = 1
+        self.navigationController?.pushViewController(tabbarVC, animated: true)
+    }
+    
+   
 }

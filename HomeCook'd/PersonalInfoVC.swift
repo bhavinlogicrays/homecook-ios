@@ -12,13 +12,27 @@ class PersonalInfoVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var txtSetServiceTime: UITextField!
-    
+    @IBOutlet weak var lblSetServiceTime: UILabel!
+    @IBOutlet weak var btnEdit: UIButton!
+    @IBOutlet weak var btnEditImg: UIButton!
+
     var txtTemp: UITextField!
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnEdit.isSelected = false
+        if DELEGATE.strIsComefrom == "Chef" {
+            txtSetServiceTime.isHidden = false
+            lblSetServiceTime.isHidden = false
+            btnEditImg.isHidden = true
 
+        } else {
+            txtSetServiceTime.isHidden = true
+            lblSetServiceTime.isHidden = true
+            btnEditImg.isHidden = false
+
+        }
         // Do any additional setup after loading the view.
         
         setBorder(textField: txtName)
@@ -46,7 +60,7 @@ class PersonalInfoVC: UIViewController,UITextFieldDelegate {
     
     func setBorder(textField: UITextField) {
         textField.layer.masksToBounds = false
-        textField.layer.cornerRadius = 6.0
+        textField.layer.cornerRadius = 10.0
        
     }
 
@@ -55,8 +69,17 @@ class PersonalInfoVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func onClickEdit(_ sender: UIButton) {
-        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PersonalEditVC") as! PersonalEditVC
-        self.navigationController?.pushViewController(objVC, animated: true)
+//        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PersonalEditVC") as! PersonalEditVC
+//        self.navigationController?.pushViewController(objVC, animated: true)
+        if btnEdit.isSelected {
+            btnEdit.isSelected = false
+            
+
+        } else {
+            btnEdit.isSelected = true
+            
+        }
+        
     }
     // MARK: - Delegate Methods
     // MARK: UITextField
