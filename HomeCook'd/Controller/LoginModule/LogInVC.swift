@@ -89,7 +89,7 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         self.navigationController?.pushViewController(objVC, animated: true)
     }
     @IBAction func onClickLogIn(_ sender: Any) {
-        
+        checkValidation()
     }
     
     @IBAction func onClickRememberMe(_ sender: Any) {
