@@ -32,7 +32,8 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,HomeVCC
     @IBOutlet weak var subRat4: UIButton!
     @IBOutlet weak var subRat5: UIButton!
     @IBOutlet weak var btnApply: UIButton!
-    
+    @IBOutlet weak var innerSubView: UIView!
+
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
@@ -72,6 +73,12 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,HomeVCC
         subView.layer.cornerRadius = 25.0
         subView.layer.masksToBounds = true
         
+        innerSubView.layer.cornerRadius = 25.0
+        innerSubView.layer.masksToBounds = true
+        
+        
+
+
         arrFoodImg = ["food-img-big","food-img2-big","food-img-big","food-img2-big","food-img-big","food-img2-big","food-img-big"]
         arrChefImg = ["chef-1","chef-2","chef-1","chef-2","chef-1","chef-2","chef-1"]
         arrDelTime = ["Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Pick Up 1.5 km"]

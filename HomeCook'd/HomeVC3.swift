@@ -48,6 +48,10 @@ class HomeVC3: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
 //
        // DELEGATE.setCorner(button:btnViewCart )
         
+        collectionViewFoodImg.layer.cornerRadius = 25
+        collectionViewFoodImg.layer.borderWidth = 1
+        collectionViewFoodImg.layer.borderColor = UIColor.clear.cgColor
+
         
     
          arrFoodImg = ["item-food-1","item-food-2","item-food-3","item-food-4"]
@@ -76,9 +80,6 @@ class HomeVC3: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collImages", for: indexPath) as! collImages
             
 //            cell.delegate = self
-            cell.layer.cornerRadius = 8
-            cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.clear.cgColor
             cell.lblDelTime.layer.cornerRadius = cell.lblDelTime.frame.size.height/2
             return cell
         }
@@ -112,9 +113,9 @@ class HomeVC3: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
         cell.viewItemCount.layer.cornerRadius = cell.viewItemCount.frame.size.width/2
         cell.imgFood.image = UIImage(named: arrFoodImg[indexPath.row])
         cell.imgFood.layer.cornerRadius = 20.0
-        conCollFoodItemHeight.constant = CGFloat((arrFoodImg.count / 2) * 159)
-        collectionViewItems.updateConstraintsIfNeeded()
+        conCollFoodItemHeight.constant = CGFloat(CGFloat((arrFoodImg.count / 2)) * 169)
         collectionViewItems.layoutIfNeeded()
+        collectionViewItems.updateConstraintsIfNeeded()
 
         return cell
     }
@@ -128,7 +129,7 @@ class HomeVC3: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
 
         }
 
-        return CGSize(width:(self.collectionViewItems.frame.size.width / 2  ) - 20   , height: (self.collectionViewItems.frame.size.width / 2) - 20)
+        return CGSize(width:((self.collectionViewItems.frame.size.width) / 2  ) - 20   , height: 169)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -165,7 +166,13 @@ class HomeVC3: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
         self.navigationController?.pushViewController(objVC, animated: true)
     }
     
-    
+    @IBAction func btnViewCartClick(_ sender:AnyObject) {
+        let tabbarVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
+        tabbarVC.selectedIndex = 1
+        self.navigationController?.pushViewController(tabbarVC, animated: true)
+
+    }
+
     
     
     

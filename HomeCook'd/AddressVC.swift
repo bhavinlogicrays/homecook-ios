@@ -52,6 +52,10 @@ class AddressVC: UIViewController,UITableViewDataSource,UITableViewDelegate,Addr
         self.navigationController?.pushViewController(objVC, animated: true)
     }
     
+    func didPressOnEdit(_ Index: Int) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "AddressVC2") as! AddressVC2
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
     @IBAction func onClickBack(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }

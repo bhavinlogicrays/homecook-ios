@@ -66,5 +66,38 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
         txtTemp.resignFirstResponder()
         txtTemp = nil
     }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if txtTemp.text!.count < 1  && string.count > 0{
+               let nextTag = txtTemp.tag + 1
+
+               // get next responder
+               var nextResponder = txtTemp.superview?.viewWithTag(nextTag)
+
+               if (nextResponder == nil){
+
+//                   nextResponder = txtTemp.superview?.viewWithTag(0)
+                nextResponder?.endEditing(true)
+               }
+               txtTemp.text = string
+               nextResponder?.becomeFirstResponder()
+               return false
+           }
+           else if txtTemp.text!.count >= 1  && string.count == 0{
+               // on deleting value from Textfield
+               let previousTag = txtTemp.tag - 1
+
+               // get next responder
+               var previousResponder = txtTemp.superview?.viewWithTag(previousTag)
+
+               if (previousResponder == nil){
+                   previousResponder = txtTemp.superview?.viewWithTag(1)
+               }
+                txtTemp.text = ""
+               previousResponder?.becomeFirstResponder()
+               return false
+           }
+           return true
+    }
+
 }
 

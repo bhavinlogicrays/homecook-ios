@@ -34,7 +34,7 @@ class Customer_OrderVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         
         arrImg  = ["cart-img1","cart-img2","cart-img3","cart-img1"]
         arrFoodName = ["Vegetable Thai Food","Vegetable Thai Food","Keema Chickeniriyani","Mazali Chicken halim"]
-         arrFoodCat = [["catName":"Running Orders(1)","isSel":"1"],["catName":"Past Orders","isSel":"0"],["catName":"Dinner","isSel":"0"],["catName":"Drink","isSel":"0"]] as [[String:AnyObject]]
+         arrFoodCat = [["catName":"Running Orders(4)","isSel":"1"],["catName":"Past Orders","isSel":"0"],["catName":"Dinner","isSel":"0"],["catName":"Drink","isSel":"0"]] as [[String:AnyObject]]
 
     }
     

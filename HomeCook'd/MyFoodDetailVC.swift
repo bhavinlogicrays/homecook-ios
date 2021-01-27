@@ -70,8 +70,8 @@ class MyFoodDetailVC: UIViewController,UICollectionViewDelegate,UICollectionView
         return cell
     }
    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: SCREEN_WIDTH - 30.0 / 4.0, height: 95.0)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width:(self.view.frame.size.width) / 5, height: 100)
+    }
     
 }

@@ -59,5 +59,9 @@ class Customer_NotificationVC: UIViewController, UITableViewDelegate,UITableView
         return cell
     }
 
-   
+    @IBAction func onClickMassege(_ sender: Any) {
+            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "MessegesVC") as! MessegesVC
+            self.navigationController?.pushViewController(objVC, animated: true)
+
+    }
 }

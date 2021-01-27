@@ -20,7 +20,11 @@ class CartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
         // Do any additional setup after loading the view.
         
-        viewCheckOut.layer.cornerRadius = 33.0
+//        viewCheckOut.layer.cornerRadius = 33.0
+        
+        viewCheckOut.layer.cornerRadius = 25
+        viewCheckOut.layer.masksToBounds = true
+        viewCheckOut.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         arrFoodImg = [["img":"cart-img1","name":""],["img":"cart-img2"],["img":"cart-img3"]] as [[String : AnyObject]]
     }
@@ -40,6 +44,18 @@ class CartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+        
+        self.tblViewCart.deleteRows(at: [indexPath], with: .automatic)
+        self.arrFoodImg.remove(at: indexPath.row)
+
+      }
+    }
+
+
     @IBAction func onClickCheckout(_ sender: UIButton) {
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_PaymentVC") as! Customer_PaymentVC
         self.navigationController?.pushViewController(objVC, animated: true)
