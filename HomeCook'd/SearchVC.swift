@@ -21,6 +21,12 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         txtSearch.attributedPlaceholder = NSAttributedString(string:"Humberger", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
         txtSearch.setLeftPaddingPoints(15)
         txtSearch.setRightPaddingPoints(15)
+        
+        viewSearch.layer.cornerRadius = 8
+        viewSearch.layer.borderWidth = 0
+        viewSearch.backgroundColor = UIColor.init(hexString: "#f5f5f5")
+
+        
     }
     
     @IBAction func onClickBack(_ sender: Any) {

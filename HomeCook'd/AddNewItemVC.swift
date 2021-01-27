@@ -42,6 +42,10 @@ class AddNewItemVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
         DELEGATE.setBorder(textField: txtPrice)
         DELEGATE.setBorder(textField: txtEstTime)
         
+        
+        self.view.endEditing(true)
+        
+        
         txtPrice.attributedPlaceholder = NSAttributedString(string:"$50", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
         txtPrice.setRightPaddingPoints(15)
         txtPrice.setLeftPaddingPoints(15)
@@ -70,7 +74,7 @@ class AddNewItemVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
     }
     
     @IBAction func onClickPublishItems(_ sender: Any) {
-//        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "EditItemsVC") as! EditItemsVC
+//        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "MyFoodVC") as! MyFoodVC
 //        self.navigationController?.pushViewController(objVC, animated: true)
     }
     

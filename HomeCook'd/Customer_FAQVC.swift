@@ -15,7 +15,7 @@ class Customer_FAQVC: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrData = [["title":"this is a title","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"1"],["title":"this is a title","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"0"],["title":"this is a title","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"0"],["title":"this is a title","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"0"],["title":"this is a title","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"0"]]
+        arrData = [["title":"Can i place an order for later?","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"1"],["title":"Can i place an order for later?","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"0"],["title":"How to change my address","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"0"],["title":"How to submit my feedback","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"0"],["title":"How to change payment method","desc":"this is a description.this is a description.this is a description.this is a description.","isTapp":"0"]]
        
     }
     

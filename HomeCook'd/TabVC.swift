@@ -34,15 +34,14 @@ class TabVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        containerView.layer.cornerRadius = 20.0
-//        containerView.layer.masksToBounds =true
+
         
-//        tabView.layer.shadowColor = UIColor.gray.cgColor
-//        tabView.layer.shadowOpacity = 1
-//        tabView.layer.shadowOffset = CGSize.zero
-//        tabView.layer.shadowRadius = 5
-//
-//        tabView.layer.cornerRadius = 30.0
+        tabView.layer.shadowColor = UIColor.init(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.05).cgColor
+        tabView.layer.shadowOpacity = 1
+        tabView.layer.shadowOffset = CGSize(width: 0, height: -4)
+        tabView.layer.shadowRadius = 5
+
+        tabView.layer.cornerRadius = 20.0
        
        
         
@@ -62,6 +61,7 @@ class TabVC: UIViewController {
             selectedIndex = 0 
             self.onClickTab(buttons[selectedIndex] as! UIButton)
         }
+        
     }
     @IBAction func onClickTab(_ sender: UIButton) {
         if (sender == btn3) {

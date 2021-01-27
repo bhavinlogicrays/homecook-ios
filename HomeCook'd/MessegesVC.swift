@@ -56,4 +56,9 @@ class MessegesVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         return cell
     }
 
+    @IBAction func onClickNotification(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        
+    }
+  
 }

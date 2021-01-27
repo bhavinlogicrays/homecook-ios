@@ -21,7 +21,7 @@ class Customer_TabVC: UIViewController {
     
     var btnTemp: UIButton!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var BottomView: UIView!
+    @IBOutlet weak var tabView: UIView!
     @IBOutlet weak var imgTab1: UIImageView!
     @IBOutlet weak var imgTab2: UIImageView!
     @IBOutlet weak var imgTab3: UIImageView!
@@ -44,11 +44,18 @@ class Customer_TabVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        BottomView.layer.cornerRadius = 10
-        BottomView.layer.borderWidth  = 1
-        BottomView.layer.borderColor = UIColor.clear.cgColor
-        BottomView.layer.masksToBounds = true
+//        BottomView.layer.cornerRadius = 10
+//        BottomView.layer.borderWidth  = 1
+//        BottomView.layer.borderColor = UIColor.clear.cgColor
+//        BottomView.layer.masksToBounds = true
+        
+        tabView.layer.shadowColor = UIColor.init(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.05).cgColor
+        tabView.layer.shadowOpacity = 1
+        tabView.layer.shadowOffset = CGSize(width: 0, height: -4)
+        tabView.layer.shadowRadius = 5
 
+        tabView.layer.cornerRadius = 20.0
+       
         objVC1 = STORYBOARD.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
         objVC2 = STORYBOARD.instantiateViewController(withIdentifier: "CartVC") as? CartVC
         objVC3 = STORYBOARD.instantiateViewController(withIdentifier: "FavVC") as? FavVC

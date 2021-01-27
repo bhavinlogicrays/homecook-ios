@@ -26,6 +26,9 @@ class ForgotPassWordVC: UIViewController,UITextFieldDelegate {
         txtEmail.attributedPlaceholder = NSAttributedString(string:"example@gmail.com", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
         txtEmail.setRightPaddingPoints(15)
         txtEmail.setLeftPaddingPoints(15)
+        
+        txtEmail.keyboardType = .emailAddress
+        txtEmail.becomeFirstResponder()
     }
     
     // MARK: - UI Methods

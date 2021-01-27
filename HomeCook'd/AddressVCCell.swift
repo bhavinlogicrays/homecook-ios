@@ -6,6 +6,7 @@ import UIKit
 
 protocol AddressVCCellDelegate: NSObjectProtocol {
     func didPressOnCell(_ Index: Int)
+    func didPressOnEdit (_ Index: Int)
 }
 
 class AddressVCCell: UITableViewCell {
@@ -17,6 +18,8 @@ class AddressVCCell: UITableViewCell {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblAdrs: UILabel!
+    @IBOutlet weak var btnEdit: UIButton!
+    
     weak var delegate: (NSObjectProtocol & AddressVCCellDelegate)?
     
     override func awakeFromNib() {
@@ -32,5 +35,9 @@ class AddressVCCell: UITableViewCell {
 
     @IBAction func onClickCell(_ sender: UIButton) {
         delegate?.didPressOnCell(row)
+    }
+    
+    @IBAction func onClickEdit(_ sender: UIButton) {
+        delegate?.didPressOnEdit(row)
     }
 }

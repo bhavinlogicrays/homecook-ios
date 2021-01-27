@@ -50,7 +50,7 @@ class RegisterVC2: UIViewController,UITextFieldDelegate {
         let shapeLayer = CAShapeLayer()
         shapeLayer.strokeColor = UIColor.lightGray.cgColor
         shapeLayer.lineDashPattern = [5.0, 5.0]
-        shapeLayer.frame = CGRect(x: 0.0, y: 0.0, width: SCREEN_WIDTH - 48.0, height: view.frame.size.height)
+        shapeLayer.frame = CGRect(x: 0.0, y: 0.0, width: SCREEN_WIDTH - 40, height: view.frame.size.height)
         shapeLayer.fillColor = nil
         shapeLayer.path = UIBezierPath(roundedRect: shapeLayer.frame, cornerRadius: 10.0).cgPath
         view.layer.addSublayer(shapeLayer)

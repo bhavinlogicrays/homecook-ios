@@ -10,6 +10,8 @@ class PersonalEditVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var txtSetServiceTime: UITextField!
+    @IBOutlet weak var imgSetService: UIImageView!
+
     
     var txtTemp: UITextField!
     
@@ -38,6 +40,21 @@ class PersonalEditVC: UIViewController,UITextFieldDelegate {
         txtSetServiceTime.attributedPlaceholder = NSAttributedString(string:"sun-mon, 10:00 AM- 11:00 pM", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
         txtSetServiceTime.setLeftPaddingPoints(15)
         txtSetServiceTime.setRightPaddingPoints(15)
+        
+//        btnEdit.isSelected = false
+//        if DELEGATE.strIsComefrom == "Chef" {
+//            txtSetServiceTime.isHidden = false
+//            lblSetServiceTime.isHidden = false
+//            btnEditImg.isHidden = true
+//            imgSetService.isHidden = false
+//
+//        } else {
+//            txtSetServiceTime.isHidden = true
+//            lblSetServiceTime.isHidden = true
+//            btnEditImg.isHidden = false
+//            imgSetService.isHidden = true
+//
+//        }
     }
     
     @IBAction func onClickBack(_ sender: Any) {

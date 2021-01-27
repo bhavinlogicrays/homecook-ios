@@ -14,8 +14,9 @@ class Customer_PaymentVC: UIViewController, UICollectionViewDelegate,UICollectio
     @IBOutlet weak var viewCard: UIView!
     @IBOutlet weak var btnAddNew: UIButton!
     @IBOutlet weak var btnConfirm: UIButton!
+    @IBOutlet weak var btnAdd: UIButton!
+
     @IBOutlet weak var viewPaymentWithdraw: UIView!
-    @IBOutlet weak var txtAdd: UITextField!
     
     // MARK:- ViewController Methods
     override func viewDidLoad() {
@@ -24,8 +25,11 @@ class Customer_PaymentVC: UIViewController, UICollectionViewDelegate,UICollectio
         // Do any additional setup after loading the view.
         
         viewCard.layer.cornerRadius = 15.0
-        
-        viewPaymentWithdraw.layer.cornerRadius = 33.0
+        DELEGATE.setCorner(button: btnAdd)
+//        viewPaymentWithdraw.layer.cornerRadius = 33.0
+        viewPaymentWithdraw.layer.cornerRadius = 25
+        viewPaymentWithdraw.layer.masksToBounds = true
+        viewPaymentWithdraw.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         btnAddNew.layer.masksToBounds = false
         btnAddNew.layer.cornerRadius = 6.0
@@ -41,8 +45,8 @@ class Customer_PaymentVC: UIViewController, UICollectionViewDelegate,UICollectio
         btnConfirm.layer.masksToBounds = true
         btnConfirm.clipsToBounds = false
         
-        arrImg = ["visa","master-card","paypal-icon","paypal-icon"]
-        arrCardName = ["Visa","Mastercard","Paypal","Paypal"]
+        arrImg = ["Cash","visa","master-card","paypal-icon"]
+        arrCardName = ["Cash","Visa","Mastercard","Paypal"]
     }
     
     // MARK: - UI Methods
@@ -90,7 +94,6 @@ class Customer_PaymentVC: UIViewController, UICollectionViewDelegate,UICollectio
         return cell
     }
   
-    
 
     
 }

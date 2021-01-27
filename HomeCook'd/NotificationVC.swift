@@ -57,5 +57,9 @@ class NotificationVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
+    @IBAction func onClickMassege(_ sender: Any) {
+            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "MessegesVC") as! MessegesVC
+            self.navigationController?.pushViewController(objVC, animated: true)
 
+    }
 }

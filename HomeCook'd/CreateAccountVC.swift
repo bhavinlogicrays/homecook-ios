@@ -15,8 +15,9 @@ class CreateAccountVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var txtPassword : UITextField!
     @IBOutlet weak var txtDateOfBirth : UITextField!
     @IBOutlet weak var lblTrms : UILabel!
+    @IBOutlet weak var btnRegister : UIButton!
     @IBOutlet weak var btnLogin : UIButton!
-    
+
     var txtTemp: UITextField!
     
     override func viewDidLoad() {
@@ -28,8 +29,13 @@ class CreateAccountVC: UIViewController,UITextFieldDelegate {
         DELEGATE.setBorder(textField: txtEmail)
         DELEGATE.setBorder(textField: txtPassword)
         DELEGATE.setBorder(textField: txtDateOfBirth)
-        DELEGATE.setCorner(button: btnLogin)
+        DELEGATE.setCorner(button: btnRegister)
         
+        btnLogin.layer.masksToBounds = false
+        btnLogin.layer.cornerRadius = 10.0
+        btnLogin.layer.borderWidth = 1.0
+        btnLogin.layer.borderColor = UIColor.init(red: 235.0/255.0, green: 57.0/255.0, blue: 67.0/255.0, alpha: 1.0).cgColor
+
         txtEmail.attributedPlaceholder = NSAttributedString(string:"Type Here", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
         txtEmail.setLeftPaddingPoints(15)
         txtEmail.setRightPaddingPoints(15)
@@ -74,9 +80,14 @@ class CreateAccountVC: UIViewController,UITextFieldDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func onClickLogIn(_ sender: Any){
+    @IBAction func btnRegClick(_ sender: Any){
     let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
             self.navigationController?.pushViewController(objVC, animated: true)
     }
+    
+    @IBAction func btnLoginClick(_ sender: Any){
+        navigationController?.popViewController(animated: true)
+    }
+
     
 }
