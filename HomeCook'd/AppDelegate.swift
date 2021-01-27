@@ -3,12 +3,8 @@
 //  
 
 import UIKit
+import IQKeyboardManagerSwift
 
-
-let DELEGATE = UIApplication.shared.delegate as! AppDelegate
-let STORYBOARD = UIStoryboard(name: "Main", bundle: nil)
-let SCREEN_WIDTH = UIScreen.main.bounds.size.width
-let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 
 
 @UIApplicationMain
@@ -16,12 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var strIsComefrom = String()
-    var isPayment : Bool = false
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        IQKeyboardManager.shared.enable = true
+
         return true
     }
 
@@ -47,40 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    //MARK: - UI Methods
-    func setBorder(textField: UITextField) {
-        textField.layer.masksToBounds = false
-        textField.layer.cornerRadius = 10.0
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor.init(red: 232.0/255.0, green: 234.0/255.0, blue: 237.0/255.0, alpha: 1).cgColor
-    }
-   
-    func setCorner(button: UIButton) {
-        button.layer.cornerRadius = 10.0
-        button.layer.masksToBounds = true
-        button.clipsToBounds = false
-    }
 
-    func setViewCorner(view: UIView) {
-        view.layer.cornerRadius = 10.0
-        view.layer.masksToBounds = true
-        view.clipsToBounds = false
-    }
-}
 
-extension UINavigationController {
-    
-    func popToViewController(ofClass: AnyClass, animated: Bool = true) {
-            if let vc = viewControllers.filter({$0.isKind(of: ofClass)}).last {
-                popToViewController(vc, animated: animated)
-            }
-    }
-    
-    func popViewControllers(viewsToPop: Int, animated: Bool = true) {
-        if viewControllers.count > viewsToPop {
-            let vc = viewControllers[viewControllers.count - viewsToPop - 1]
-            popToViewController(vc, animated: animated)
-        }
-    }
-    
 }
