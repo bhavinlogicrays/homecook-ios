@@ -18,6 +18,9 @@ class ApiList:NSObject{
         static let Host = "https://www.dev.halal.masumparvej.me/api" // Developement
         struct Auth {
             static let loginEndpoint = "/clientgettoken"
+            static let forgotPasswordEndpoint = "/client/forgot"
+            static let forgot_VarificationEndpoint = "/verificationcode"
+            static let resendOTPEndpoint = "/verificationcode"
         }
 
     }

@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ForgotPassWordVC: UIViewController,UITextFieldDelegate {
 
@@ -13,12 +14,20 @@ class ForgotPassWordVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var btnSendCode: UIButton!
     
     var txtTemp: UITextField!
+    lazy var dicForgotPassword = ForgotPasswordResponseModel()
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setUI()
+    }
+    
+    // MARK: - UI Methods
+    func setUI() {
+        txtEmail.keyboardType = UIKeyboardType.emailAddress
         
         CommonManager.setBorder(textField: txtEmail)
         CommonManager.setCorner(button: btnSendCode)
@@ -31,16 +40,18 @@ class ForgotPassWordVC: UIViewController,UITextFieldDelegate {
         txtEmail.becomeFirstResponder()
     }
     
-    // MARK: - UI Methods
-    
     // MARK: - IBAction Methods
     
     @IBAction func onClickBack(_ sender: Any) {
+        self.view.endEditing(true)
         navigationController?.popViewController(animated: true)
     }
     @IBAction func onClickSendCode(_ sender: UIButton) {
-        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PassWordVarificationVC") as! PassWordVarificationVC
-        self.navigationController?.pushViewController(objVC, animated: true)
+//        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PassWordVarificationVC") as! PassWordVarificationVC
+//        self.navigationController?.pushViewController(objVC, animated: true)
+        self.view.endEditing(true)
+        checkValidation()
+        
     }
     
     // MARK: - Delegate Methods
@@ -59,4 +70,58 @@ class ForgotPassWordVC: UIViewController,UITextFieldDelegate {
         txtTemp.resignFirstResponder()
         txtTemp = nil
     }
+    
+    //MARK:- CheckValidation
+    func checkValidation() {
+        self.view.endEditing(true)
+        guard let stremail = txtEmail.text,  stremail.count > 0 else {
+            Utils.showMessage(type: .error, message:"Please enter email")
+        return
+    }
+        if !CommonManager.isValidEmail(txtEmail.text!){
+            Utils.showMessage(type: .error, message:"Please enter valid email")
+            return
+        }
+        callApi()
+       
+    }
+       
+    //MARK:- Api Call
+    func callApi(){
+        Utils.showProgressHud()
+        let apiUrl = ApiList.URL.Host  + ApiList.URL.Auth.forgotPasswordEndpoint
+        let param = ["email":txtEmail.text!]
+        let header:HTTPHeaders = ["Content-Type":"application/json"]
+
+        API_SHARED.callAPIForGETorPOST(strUrl: apiUrl , parameters:param, httpMethodForGetOrPost: .post, setheaders: header) {[weak self] (dicResponseWithSuccess ,_)  in
+            if let weakSelf = self {
+                if  let jsonResponse = dicResponseWithSuccess {
+                    guard jsonResponse.dictionary != nil else {
+                        return
+                    }
+                    if let dicResponseData = jsonResponse.dictionary {
+                    
+                        weakSelf.dicForgotPassword = ForgotPasswordResponseModel().initWithDictionary(dictionary: dicResponseData)
+                        if weakSelf.dicForgotPassword.status == true {
+
+                            Utils.showMessage(type:.success, message: weakSelf.dicForgotPassword.succmsg)
+                            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PassWordVarificationVC") as! PassWordVarificationVC
+                            objVC.getEmail = weakSelf.txtEmail.text!
+                            weakSelf.navigationController?.pushViewController(objVC, animated: true)
+                        }
+                        else {
+                            Utils.showMessage(type: .error, message:dicResponseData["errMsg"] as? String ?? "")
+                        }
+                    } else {}
+
+                } else {
+                }
+                
+            }
+            }
+        
+        
+    }
 }
+    
+

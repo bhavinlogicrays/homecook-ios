@@ -95,7 +95,6 @@
 		82AD9F27259F334400EAA057 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82AD9F14259F334400EAA057 /* Poppins-MediumItalic.ttf */; };
 		82B63604259F220200FFCA39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B63603259F220200FFCA39 /* AppDelegate.swift */; };
 		82B63606259F220200FFCA39 /* WelComeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B63605259F220200FFCA39 /* WelComeVC.swift */; };
-		82B63609259F220200FFCA39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B63607259F220200FFCA39 /* Main.storyboard */; };
 		82B6360B259F220300FFCA39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B6360A259F220300FFCA39 /* Assets.xcassets */; };
 		82B6360E259F220300FFCA39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B6360C259F220300FFCA39 /* LaunchScreen.storyboard */; };
 		82C03D54259F56550001ADCC /* ReViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C03D53259F56550001ADCC /* ReViewVC.swift */; };
@@ -120,6 +119,9 @@
 		8449D2B925B9BF5500B39058 /* Customer_OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449D2B825B9BF5500B39058 /* Customer_OrderVC.swift */; };
 		844C624825BC244000BE58E1 /* Customer_OrderVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C624725BC244000BE58E1 /* Customer_OrderVCCell.swift */; };
 		844C624B25BC28FA00BE58E1 /* Customer_OrderTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C624A25BC28FA00BE58E1 /* Customer_OrderTblCell.swift */; };
+		844E651125C2809C00A13109 /* Forgot_VarificationCodeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E651025C2809C00A13109 /* Forgot_VarificationCodeResponseModel.swift */; };
+		844E651E25C293D800A13109 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844E651D25C293D800A13109 /* Main.storyboard */; };
+		844E652925C2B2D200A13109 /* ResendOTPResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E652825C2B2D200A13109 /* ResendOTPResponseModel.swift */; };
 		845AEB6E25BAB3D9004922C9 /* CustomFaqtblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845AEB6D25BAB3D9004922C9 /* CustomFaqtblCell.swift */; };
 		845AEB7425BAF5C1004922C9 /* collHomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845AEB7325BAF5C1004922C9 /* collHomeDetailCell.swift */; };
 		84703D2325B8480B00E47970 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84703D2225B8480B00E47970 /* CreateAccountVC.swift */; };
@@ -130,6 +132,7 @@
 		84A82D6C25C1659600C2D42D /* AJAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A82D6A25C1659600C2D42D /* AJAlertController.swift */; };
 		84A82DB325C16A8F00C2D42D /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A82DB225C16A8F00C2D42D /* LoginResponseModel.swift */; };
 		84A82DDE25C16BF400C2D42D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A82DDD25C16BF400C2D42D /* Utils.swift */; };
+		84A82E4825C17FC900C2D42D /* ForgotPasswordResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A82E4725C17FC900C2D42D /* ForgotPasswordResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,7 +225,6 @@
 		82AD9F14259F334400EAA057 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		82B63603259F220200FFCA39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82B63605259F220200FFCA39 /* WelComeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelComeVC.swift; sourceTree = "<group>"; };
-		82B63608259F220200FFCA39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82B6360A259F220300FFCA39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82B6360D259F220300FFCA39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82B6360F259F220300FFCA39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -249,6 +251,9 @@
 		8449D2B825B9BF5500B39058 /* Customer_OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer_OrderVC.swift; sourceTree = "<group>"; };
 		844C624725BC244000BE58E1 /* Customer_OrderVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer_OrderVCCell.swift; sourceTree = "<group>"; };
 		844C624A25BC28FA00BE58E1 /* Customer_OrderTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer_OrderTblCell.swift; sourceTree = "<group>"; };
+		844E651025C2809C00A13109 /* Forgot_VarificationCodeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forgot_VarificationCodeResponseModel.swift; sourceTree = "<group>"; };
+		844E651D25C293D800A13109 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		844E652825C2B2D200A13109 /* ResendOTPResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendOTPResponseModel.swift; sourceTree = "<group>"; };
 		845AEB6D25BAB3D9004922C9 /* CustomFaqtblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFaqtblCell.swift; sourceTree = "<group>"; };
 		845AEB7325BAF5C1004922C9 /* collHomeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collHomeDetailCell.swift; sourceTree = "<group>"; };
 		84703D2225B8480B00E47970 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
@@ -259,6 +264,7 @@
 		84A82D6A25C1659600C2D42D /* AJAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJAlertController.swift; sourceTree = "<group>"; };
 		84A82DB225C16A8F00C2D42D /* LoginResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		84A82DDD25C16BF400C2D42D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		84A82E4725C17FC900C2D42D /* ForgotPasswordResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordResponseModel.swift; sourceTree = "<group>"; };
 		9106C05312D98C7452DFB30C /* Pods-HomeCook'd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCook'd.release.xcconfig"; path = "Target Support Files/Pods-HomeCook'd/Pods-HomeCook'd.release.xcconfig"; sourceTree = "<group>"; };
 		E5C342D506B677A7C3A91578 /* libPods-HomeCook'd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HomeCook'd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -362,14 +368,12 @@
 		82B63602259F220200FFCA39 /* HomeCook'd */ = {
 			isa = PBXGroup;
 			children = (
-				84A82D3525C1640900C2D42D /* View */,
-				84A82D3425C163FA00C2D42D /* Resource */,
 				84A82D3325C163E600C2D42D /* Library */,
 				84A82D3225C163DE00C2D42D /* Model */,
 				84A82D3125C163D200C2D42D /* Controller */,
 				82B63603259F220200FFCA39 /* AppDelegate.swift */,
 				82B6360A259F220300FFCA39 /* Assets.xcassets */,
-				82B63607259F220200FFCA39 /* Main.storyboard */,
+				844E651D25C293D800A13109 /* Main.storyboard */,
 				82B6360C259F220300FFCA39 /* LaunchScreen.storyboard */,
 				82B6360F259F220300FFCA39 /* Info.plist */,
 				82AD9F00259F334400EAA057 /* Fonts */,
@@ -416,20 +420,6 @@
 				8230778E25A57FDC004B930A /* Bar Chart */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		84A82D3425C163FA00C2D42D /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		84A82D3525C1640900C2D42D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		84A82D3625C1641C00C2D42D /* LoginModule */ = {
@@ -797,6 +787,9 @@
 			isa = PBXGroup;
 			children = (
 				84A82DB225C16A8F00C2D42D /* LoginResponseModel.swift */,
+				84A82E4725C17FC900C2D42D /* ForgotPasswordResponseModel.swift */,
+				844E651025C2809C00A13109 /* Forgot_VarificationCodeResponseModel.swift */,
+				844E652825C2B2D200A13109 /* ResendOTPResponseModel.swift */,
 			);
 			path = ResponseModule;
 			sourceTree = "<group>";
@@ -881,6 +874,7 @@
 				82AD9F23259F334400EAA057 /* Poppins-Black.ttf in Resources */,
 				82AD9F26259F334400EAA057 /* Poppins-Italic.ttf in Resources */,
 				82AD9F1D259F334400EAA057 /* Poppins-ExtraBold.ttf in Resources */,
+				844E651E25C293D800A13109 /* Main.storyboard in Resources */,
 				84A82D6B25C1659600C2D42D /* AJAlertController.xib in Resources */,
 				82AD9F21259F334400EAA057 /* Poppins-LightItalic.ttf in Resources */,
 				82B6360E259F220300FFCA39 /* LaunchScreen.storyboard in Resources */,
@@ -891,7 +885,6 @@
 				82AD9F16259F334400EAA057 /* Poppins-ThinItalic.ttf in Resources */,
 				82AD9F1A259F334400EAA057 /* Poppins-Medium.ttf in Resources */,
 				82B6360B259F220300FFCA39 /* Assets.xcassets in Resources */,
-				82B63609259F220200FFCA39 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,6 +954,7 @@
 				82E9588D25AC3495006ED26A /* Extension.swift in Sources */,
 				82032D0825B5B0990046B841 /* RatingVC.swift in Sources */,
 				828B97CD25A473E7002DAA66 /* DashBoardRunningOrderVC.swift in Sources */,
+				844E652925C2B2D200A13109 /* ResendOTPResponseModel.swift in Sources */,
 				829603C425A70FE100ED3F14 /* PaymentMethodVCCell.swift in Sources */,
 				82B63606259F220200FFCA39 /* WelComeVC.swift in Sources */,
 				828B97CF25A4741C002DAA66 /* DashBoardOrderRequestVC.swift in Sources */,
@@ -982,6 +976,7 @@
 				82484F8C25A6CF0E0072E458 /* NotificationVCCell.swift in Sources */,
 				8205C18525A5E4A200E602DE /* PaymentWithdrawVC.swift in Sources */,
 				84A82DB325C16A8F00C2D42D /* LoginResponseModel.swift in Sources */,
+				844E651125C2809C00A13109 /* Forgot_VarificationCodeResponseModel.swift in Sources */,
 				82484F9425A6E6EF0072E458 /* TotalOrderVCCell.swift in Sources */,
 				820D05C925A5BCCD009508F3 /* BottomPopupViewController.swift in Sources */,
 				820D05C825A5BCCD009508F3 /* BottomPopupUtils.swift in Sources */,
@@ -1032,6 +1027,7 @@
 				84A82D5625C1651C00C2D42D /* CommonManager.swift in Sources */,
 				828469A525A477610049467A /* DashBoardRunningOrderVCCell.swift in Sources */,
 				828E0D6E25B80BA600790179 /* AddressVC2.swift in Sources */,
+				84A82E4825C17FC900C2D42D /* ForgotPasswordResponseModel.swift in Sources */,
 				8290027925A73001007F6C64 /* MessageDetailVC.swift in Sources */,
 				829603C025A6FB3B00ED3F14 /* PaymentWithdrawVC2.swift in Sources */,
 				8449D2A625B990FD00B39058 /* Customer_PaymentVCCell.swift in Sources */,
@@ -1049,14 +1045,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		82B63607259F220200FFCA39 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82B63608259F220200FFCA39 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		82B6360C259F220300FFCA39 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -96,12 +96,12 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         if btnRememberme.isSelected {
             isRememberClick = false
             btnRememberme.isSelected = false
-            imgRemember.image  = #imageLiteral(resourceName: "icons8-unchecked-checkbox-50 (6)")
+            imgRemember.image  = #imageLiteral(resourceName: "icons8-unchecked-checkbox-50 (4)")
         }
         else {
             isRememberClick = true
             btnRememberme.isSelected = true
-            imgRemember.image  = #imageLiteral(resourceName: "checkMark")
+            imgRemember.image  = #imageLiteral(resourceName: "CheckMark")
 
         }
     }
@@ -130,7 +130,6 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         }
         
     }
-    
     
     
     // MARK: - Delegate Methods
@@ -174,23 +173,32 @@ class LogInVC: UIViewController,UITextFieldDelegate {
     func callApi(){
         Utils.showProgressHud()
         let apiUrl = ApiList.URL.Host  + ApiList.URL.Auth.loginEndpoint
-        let param = ["email":"lr.testdemo@gmail.com",
-                     "password":"lrtestdemo"]
-        API_SHARED.callAPIForGETorPOST(strUrl: apiUrl , parameters:param, httpMethodForGetOrPost: .post) {[weak self] (dicResponseWithSuccess ,_)  in
+        let param = ["email":txtEmail.text!,
+                     "password":txtPassword.text!]
+        let header:HTTPHeaders = ["Content-Type":"application/json"]
+
+        API_SHARED.callAPIForGETorPOST(strUrl: apiUrl , parameters:param, httpMethodForGetOrPost: .post, setheaders: header) {[weak self] (dicResponseWithSuccess ,_)  in
             if let weakSelf = self {
                 if  let jsonResponse = dicResponseWithSuccess {
                     guard jsonResponse.dictionary != nil else {
                         return
                     }
                     if let dicResponseData = jsonResponse.dictionary {
+                    
                         weakSelf.dicLogin = LoginResponseModel().initWithDictionary(dictionary: dicResponseData)
-                        if strIsComefrom ==  "Chef" {
-                            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
-                            weakSelf.navigationController?.pushViewController(objVC, animated: true)
+                        if weakSelf.dicLogin.status == true {
+                            if strIsComefrom ==  "Chef" {
+                                let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
+                                weakSelf.navigationController?.pushViewController(objVC, animated: true)
+                            }
+                            else{
+                                let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
+                                weakSelf.navigationController?.pushViewController(objVC, animated: true)
+                            }
+
                         }
-                        else{
-                            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
-                            weakSelf.navigationController?.pushViewController(objVC, animated: true)
+                        else {
+                            Utils.showMessage(type: .error, message: "Invalid Login Details")
                         }
                     } else {}
 
@@ -203,7 +211,6 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         
         
     }
-    
 
 }
 
