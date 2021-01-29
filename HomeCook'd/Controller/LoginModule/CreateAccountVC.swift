@@ -7,9 +7,12 @@ import UIKit
 
 class CreateAccountVC: UIViewController,UITextFieldDelegate {
 
+    // MARK:- Variables
     var strng:NSString = "By clicking ‘Create Account’ you will accept our terms and conditions"
     var mutableStrng = NSMutableAttributedString()
+    var datePicker = UIDatePicker()
     
+    // MARK: - UIControls
     @IBOutlet weak var txtName : UITextField!
     @IBOutlet weak var txtEmail : UITextField!
     @IBOutlet weak var txtPassword : UITextField!
@@ -19,12 +22,24 @@ class CreateAccountVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var btnLogin : UIButton!
 
     var txtTemp: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        setUI()
+        
+    }
+    
+    // MARK: - UI Methods
+    func setUI() {
+        
+        txtName.keyboardType = UIKeyboardType.alphabet
+        txtEmail.keyboardType = UIKeyboardType.emailAddress
+        txtPassword.keyboardType = UIKeyboardType.default
+        txtPassword.isSecureTextEntry = true
+//        txtDateOfBirth.keyboardType = UIKeyboardType
         CommonManager.setBorder(textField: txtName)
         CommonManager.setBorder(textField: txtEmail)
         CommonManager.setBorder(textField: txtPassword)
@@ -56,7 +71,22 @@ class CreateAccountVC: UIViewController,UITextFieldDelegate {
         mutableStrng.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.init(hexString: "#9C9BA6"), range:NSRange(location:0, length: 48))
         mutableStrng.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range:NSRange(location:48, length:20))
         lblTrms.attributedText = mutableStrng
+        
+        
+        self.txtDateOfBirth.setInputViewDatePicker(target: self, selector: #selector(tapDone)) //1
+
+
     }
+    
+    @objc func tapDone() {
+        if let datePicker = self.txtDateOfBirth.inputView as? UIDatePicker { // 2-1
+            let dateformatter = DateFormatter() // 2-2
+            dateformatter.dateStyle = .medium // 2-3
+            self.txtDateOfBirth.text = dateformatter.string(from: datePicker.date) //2-4
+        }
+        self.txtDateOfBirth.resignFirstResponder() // 2-5
+    }
+
     
     // MARK: - Delegate Methods
     // MARK: UITextField
@@ -88,6 +118,7 @@ class CreateAccountVC: UIViewController,UITextFieldDelegate {
     @IBAction func btnLoginClick(_ sender: Any){
         navigationController?.popViewController(animated: true)
     }
-
+    
+   
     
 }
