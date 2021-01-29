@@ -6,6 +6,7 @@ import UIKit
 
 protocol HomeVCCellDelegate: NSObjectProtocol {
     func didPressOnCell(_ Index: Int)
+    func didPressOnReview(_ Index: Int)
 }
 
 class HomeVCCell: UITableViewCell {
@@ -38,5 +39,8 @@ class HomeVCCell: UITableViewCell {
         delegate?.didPressOnCell(row)
     }
     
+    @IBAction func onClickReview(_ sender: UIButton) {
+        delegate?.didPressOnReview(row)
+    }
 
 }

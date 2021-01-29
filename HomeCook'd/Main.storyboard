@@ -2936,16 +2936,19 @@
                                                     <state key="normal" title="See All">
                                                         <color key="titleColor" red="0.61176470588235299" green="0.60784313725490191" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onClickSeeAll:" destination="wmC-iL-O51" eventType="touchUpInside" id="Vkx-g9-Wp3"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="eJn-Ye-yoJ">
                                                     <rect key="frame" x="277" y="474" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jbC-jV-GaO">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jbC-jV-GaO">
                                                     <rect key="frame" x="21" y="501" width="279" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="7bt-mL-vV6">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="7bt-mL-vV6">
                                                         <size key="itemSize" width="72.5" height="95"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -2953,7 +2956,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EditItemVCCell" id="TeV-pp-Oei" customClass="EditItemVCCell" customModule="HomeCook_d" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="5" width="72.5" height="90"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="72.5" height="90"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="72.5" height="90"/>
@@ -3112,6 +3115,7 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="btnSaveChanges" destination="hWq-iP-oPy" id="rVf-Rl-9fX"/>
+                        <outlet property="btnSeeAll" destination="feS-ea-Etn" id="WV3-C4-oJg"/>
                         <outlet property="collectionViewFruits" destination="uob-WC-dDc" id="K2i-J4-2OQ"/>
                         <outlet property="collectionViewIngradients" destination="jbC-jV-GaO" id="xyZ-5d-u3Q"/>
                         <outlet property="collectionViewUploadPhoto" destination="hGE-kH-2tR" id="CLi-Az-DKG"/>
@@ -3495,15 +3499,37 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please create your existing account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtQ-OC-932">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please create your existing account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtQ-OC-932">
                                         <rect key="frame" x="1" y="138" width="320" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" red="0.61176470589999998" green="0.60784313729999995" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldn-LK-6kH">
+                                        <rect key="frame" x="40" y="68" width="240" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="30"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nka-Iy-6oL">
+                                        <rect key="frame" x="100" y="119" width="120" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ellipse 48" translatesAutoresizingMaskIntoConstraints="NO" id="gB1-Ax-eiC">
+                                                <rect key="frame" x="7" y="8" width="105" height="105"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera-ic" translatesAutoresizingMaskIntoConstraints="NO" id="eFh-r2-aq4">
+                                                <rect key="frame" x="77" y="63" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QC5-4B-L8M">
-                                        <rect key="frame" x="0.0" y="190" width="320" height="378"/>
+                                        <rect key="frame" x="0.0" y="259" width="320" height="309"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <view key="tableHeaderView" clipsSubviews="YES" contentMode="scaleToFill" id="Imx-gb-X9d">
@@ -3658,15 +3684,13 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldn-LK-6kH">
-                                        <rect key="frame" x="41" y="90" width="240" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="30"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="WtQ-OC-932"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3690,7 +3714,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYd-9O-hgb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14" y="969"/>
+            <point key="canvasLocation" x="-14.4" y="968.81559220389818"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="uap-MX-TRo">
@@ -3704,6 +3728,250 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-Kh-zDf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87l-dc-7Ux">
+                                        <rect key="frame" x="0.0" y="101" width="320" height="467"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4dp-kc-TBm">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="467"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <view key="tableFooterView" contentMode="scaleToFill" id="eGh-3V-UZl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="660"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-ub-Ooj">
+                                                            <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCg-f3-e6l">
+                                                                    <rect key="frame" x="20" y="2" width="48" height="48"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <state key="normal" image="close"/>
+                                                                    <connections>
+                                                                        <action selector="onClickClose:" destination="Oa1-xW-n3d" eventType="touchUpInside" id="VsL-pA-rrG"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjQ-vy-rH0">
+                                                                    <rect key="frame" x="258" y="16" width="38" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                                    <state key="normal" title="Clear">
+                                                                        <color key="titleColor" red="0.61176470588235299" green="0.60784313725490191" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </state>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaO-nx-ER9">
+                                                            <rect key="frame" x="20" y="99" width="133" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2z-qE-GG3">
+                                                            <rect key="frame" x="20" y="129" width="89" height="39"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                                            <state key="normal" title="Delivery">
+                                                                <color key="titleColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sX-0N-hkw">
+                                                            <rect key="frame" x="125" y="129" width="84" height="39"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                                            <state key="normal" title="Pick Up">
+                                                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdt-df-QfB">
+                                                            <rect key="frame" x="20" y="200" width="46" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$20-$50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9h-kV-v3T">
+                                                            <rect key="frame" x="233" y="200" width="66" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PdA-J3-ucD">
+                                                            <rect key="frame" x="20" y="237" width="279" height="0.0"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.90980392156862744" green="0.91764705882352937" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </view>
+                                                        <slider opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="30" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="b5v-7r-gb4">
+                                                            <rect key="frame" x="18" y="230" width="283" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                            <color key="minimumTrackTintColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="maximumTrackTintColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="thumbTintColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </slider>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delivery Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4s-Lf-0zk">
+                                                            <rect key="frame" x="20" y="275" width="108" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XK2-sn-15m">
+                                                            <rect key="frame" x="20" y="305" width="89" height="37"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                            <state key="normal" title="15 Minute">
+                                                                <color key="titleColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSr-iq-9ux">
+                                                            <rect key="frame" x="116" y="305" width="89" height="37"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                            <state key="normal" title="20 Minute">
+                                                                <color key="titleColor" red="0.21568627450980393" green="0.21568627450980393" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpG-gM-d26">
+                                                            <rect key="frame" x="212" y="305" width="89" height="37"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                            <state key="normal" title="20 Minute">
+                                                                <color key="titleColor" red="0.2156862745" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtd-we-NnO">
+                                                            <rect key="frame" x="20" y="380" width="65" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvB-IW-XSm">
+                                                            <rect key="frame" x="0.0" y="419" width="320" height="43"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6Z-P6-iH6">
+                                                                    <rect key="frame" x="20" y="4" width="48" height="35"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
+                                                                    <state key="normal" title="     1">
+                                                                        <color key="titleColor" red="0.21568627450980393" green="0.21568627450980393" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </state>
+                                                                </button>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star-1" translatesAutoresizingMaskIntoConstraints="NO" id="AJH-MR-KcW">
+                                                                    <rect key="frame" x="30" y="13" width="14" height="14"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C39-ry-wHO">
+                                                                    <rect key="frame" x="79" y="4" width="48" height="35"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
+                                                                    <state key="normal" title="     2">
+                                                                        <color key="titleColor" red="0.2156862745" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </state>
+                                                                </button>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star-1" translatesAutoresizingMaskIntoConstraints="NO" id="oh7-zX-Dhu">
+                                                                    <rect key="frame" x="87" y="13" width="14" height="14"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTn-9D-eCt">
+                                                                    <rect key="frame" x="138" y="4" width="46" height="35"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
+                                                                    <state key="normal" title="     3">
+                                                                        <color key="titleColor" red="0.2156862745" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </state>
+                                                                </button>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star-1" translatesAutoresizingMaskIntoConstraints="NO" id="nnA-8K-20c">
+                                                                    <rect key="frame" x="145" y="13" width="14" height="14"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77M-rI-1GX">
+                                                                    <rect key="frame" x="196" y="4" width="46" height="35"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" red="0.98431372549019602" green="0.42745098039215684" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
+                                                                    <state key="normal" title="     4">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                </button>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star 1" translatesAutoresizingMaskIntoConstraints="NO" id="b72-LL-iEu">
+                                                                    <rect key="frame" x="202" y="13" width="14" height="14"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCz-nH-QeK">
+                                                                    <rect key="frame" x="253" y="4" width="46" height="35"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
+                                                                    <state key="normal" title="     5">
+                                                                        <color key="titleColor" red="0.2156862745" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </state>
+                                                                </button>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star-1" translatesAutoresizingMaskIntoConstraints="NO" id="fhq-LB-DKj">
+                                                                    <rect key="frame" x="259" y="13" width="14" height="14"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utO-Hc-IEb">
+                                                            <rect key="frame" x="20" y="506" width="65" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rs6-zp-UdT">
+                                                            <rect key="frame" x="20" y="547" width="279" height="0.0"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.90980392160000001" green="0.91764705879999997" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </view>
+                                                        <slider opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="30" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Ul3-3C-srJ">
+                                                            <rect key="frame" x="18" y="537" width="283" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                            <color key="minimumTrackTintColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="maximumTrackTintColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="thumbTintColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </slider>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0km - 4 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj0-py-zmq">
+                                                            <rect key="frame" x="211" y="506" width="88" height="23"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40H-83-iU6">
+                                                            <rect key="frame" x="20" y="588" width="280" height="60"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.92156862750000001" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                                            <state key="normal" title="Apply">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="btnApplyClick:" destination="Oa1-xW-n3d" eventType="touchUpInside" id="epC-zX-VIp"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.32358955536912754" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHT-Wi-D4H">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -3883,10 +4151,17 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fm-G2-kHb">
-                                                            <rect key="frame" x="20" y="11" width="280" height="241"/>
+                                                            <rect key="frame" x="20" y="11" width="280" height="247"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <connections>
                                                                 <action selector="onClickFoodCell:" destination="9Wm-z5-CMv" eventType="touchUpInside" id="7oi-lp-rjn"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3M-Ql-mBF">
+                                                            <rect key="frame" x="226" y="183" width="74" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                            <connections>
+                                                                <action selector="onClickReview:" destination="9Wm-z5-CMv" eventType="touchUpInside" id="sVm-f7-ap3"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -3908,250 +4183,6 @@
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-Kh-zDf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87l-dc-7Ux">
-                                        <rect key="frame" x="0.0" y="101" width="320" height="467"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4dp-kc-TBm">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="467"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <view key="tableFooterView" contentMode="scaleToFill" id="eGh-3V-UZl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="660"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-ub-Ooj">
-                                                            <rect key="frame" x="0.0" y="20" width="320" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCg-f3-e6l">
-                                                                    <rect key="frame" x="20" y="2" width="48" height="48"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <state key="normal" image="close"/>
-                                                                    <connections>
-                                                                        <action selector="onClickClose:" destination="Oa1-xW-n3d" eventType="touchUpInside" id="VsL-pA-rrG"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjQ-vy-rH0">
-                                                                    <rect key="frame" x="258" y="16" width="38" height="21"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                    <state key="normal" title="Clear">
-                                                                        <color key="titleColor" red="0.61176470588235299" green="0.60784313725490191" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </state>
-                                                                </button>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaO-nx-ER9">
-                                                            <rect key="frame" x="20" y="99" width="133" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
-                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2z-qE-GG3">
-                                                            <rect key="frame" x="20" y="129" width="89" height="39"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
-                                                            <state key="normal" title="Delivery">
-                                                                <color key="titleColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sX-0N-hkw">
-                                                            <rect key="frame" x="125" y="129" width="84" height="39"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
-                                                            <state key="normal" title="Pick Up">
-                                                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                        </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdt-df-QfB">
-                                                            <rect key="frame" x="20" y="200" width="46" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
-                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$20-$50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9h-kV-v3T">
-                                                            <rect key="frame" x="233" y="200" width="66" height="20"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
-                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PdA-J3-ucD">
-                                                            <rect key="frame" x="20" y="237" width="279" height="0.0"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.90980392156862744" green="0.91764705882352937" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </view>
-                                                        <slider opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="30" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="b5v-7r-gb4">
-                                                            <rect key="frame" x="18" y="230" width="283" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                            <color key="minimumTrackTintColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <color key="maximumTrackTintColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <color key="thumbTintColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </slider>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delivery Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4s-Lf-0zk">
-                                                            <rect key="frame" x="20" y="275" width="108" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
-                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XK2-sn-15m">
-                                                            <rect key="frame" x="20" y="305" width="89" height="37"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                            <state key="normal" title="15 minute">
-                                                                <color key="titleColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSr-iq-9ux">
-                                                            <rect key="frame" x="116" y="305" width="89" height="37"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                            <state key="normal" title="20 Minute">
-                                                                <color key="titleColor" red="0.21568627450980393" green="0.21568627450980393" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpG-gM-d26">
-                                                            <rect key="frame" x="212" y="305" width="89" height="37"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                            <state key="normal" title="20 Minute">
-                                                                <color key="titleColor" red="0.2156862745" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                        </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtd-we-NnO">
-                                                            <rect key="frame" x="20" y="380" width="65" height="24"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
-                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvB-IW-XSm">
-                                                            <rect key="frame" x="0.0" y="419" width="320" height="43"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6Z-P6-iH6">
-                                                                    <rect key="frame" x="20" y="4" width="48" height="35"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
-                                                                    <state key="normal" title="     1">
-                                                                        <color key="titleColor" red="0.21568627450980393" green="0.21568627450980393" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </state>
-                                                                </button>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star-1" translatesAutoresizingMaskIntoConstraints="NO" id="AJH-MR-KcW">
-                                                                    <rect key="frame" x="30" y="13" width="14" height="14"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C39-ry-wHO">
-                                                                    <rect key="frame" x="79" y="4" width="48" height="35"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
-                                                                    <state key="normal" title="     2">
-                                                                        <color key="titleColor" red="0.2156862745" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </state>
-                                                                </button>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star-1" translatesAutoresizingMaskIntoConstraints="NO" id="oh7-zX-Dhu">
-                                                                    <rect key="frame" x="87" y="13" width="14" height="14"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTn-9D-eCt">
-                                                                    <rect key="frame" x="138" y="4" width="46" height="35"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
-                                                                    <state key="normal" title="     3">
-                                                                        <color key="titleColor" red="0.2156862745" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </state>
-                                                                </button>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star-1" translatesAutoresizingMaskIntoConstraints="NO" id="nnA-8K-20c">
-                                                                    <rect key="frame" x="145" y="13" width="14" height="14"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77M-rI-1GX">
-                                                                    <rect key="frame" x="196" y="4" width="46" height="35"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <color key="backgroundColor" red="0.98431372549019602" green="0.42745098039215684" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
-                                                                    <state key="normal" title="     4">
-                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </state>
-                                                                </button>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star 1" translatesAutoresizingMaskIntoConstraints="NO" id="b72-LL-iEu">
-                                                                    <rect key="frame" x="202" y="13" width="14" height="14"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCz-nH-QeK">
-                                                                    <rect key="frame" x="253" y="4" width="46" height="35"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
-                                                                    <state key="normal" title="     5">
-                                                                        <color key="titleColor" red="0.2156862745" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </state>
-                                                                </button>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star-1" translatesAutoresizingMaskIntoConstraints="NO" id="fhq-LB-DKj">
-                                                                    <rect key="frame" x="259" y="13" width="14" height="14"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utO-Hc-IEb">
-                                                            <rect key="frame" x="20" y="506" width="65" height="24"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
-                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rs6-zp-UdT">
-                                                            <rect key="frame" x="20" y="547" width="279" height="0.0"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.90980392160000001" green="0.91764705879999997" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </view>
-                                                        <slider opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="30" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Ul3-3C-srJ">
-                                                            <rect key="frame" x="18" y="537" width="283" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                            <color key="minimumTrackTintColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <color key="maximumTrackTintColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <color key="thumbTintColor" red="0.98431372549999996" green="0.42745098040000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </slider>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0km - 4 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj0-py-zmq">
-                                                            <rect key="frame" x="211" y="506" width="88" height="23"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
-                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40H-83-iU6">
-                                                            <rect key="frame" x="20" y="588" width="280" height="60"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.92156862750000001" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
-                                                            <state key="normal" title="Apply">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="btnApplyClick:" destination="Oa1-xW-n3d" eventType="touchUpInside" id="epC-zX-VIp"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                            </tableView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.32358955536912754" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -5957,7 +5988,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4F2-9i-Ry2">
-                                        <rect key="frame" x="142.5" y="15" width="35.5" height="30"/>
+                                        <rect key="frame" x="142.5" y="15" width="35" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="uVL-kO-NMN"/>
                                         </constraints>
@@ -7067,11 +7098,9 @@
                                                             <rect key="frame" x="23" y="263" width="28" height="28"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoa-yK-b4a">
-                                                            <rect key="frame" x="65" y="274" width="225" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wish you have interesting experiences" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoa-yK-b4a">
+                                                            <rect key="frame" x="65" y="274" width="193" height="42"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <string key="text">Wish you have interesting experiences
-</string>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                             <color key="textColor" red="0.53725490200000003" green="0.5450980392" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -7178,7 +7207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AK5-Hr-WbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5144" y="969"/>
+            <point key="canvasLocation" x="5144" y="968.81559220389818"/>
         </scene>
         <!--TrackingOrderVC-->
         <scene sceneID="edX-Rr-8zT">

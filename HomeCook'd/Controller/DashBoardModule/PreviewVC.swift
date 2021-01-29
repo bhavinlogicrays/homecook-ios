@@ -25,21 +25,26 @@ class PreviewVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-       viewItemCount.layer.cornerRadius = viewItemCount.frame.size.width/2
-        imgDisplay.layer.cornerRadius = 10
+      
 //        arrFoodImg = [["img":"cart-img1","name":""],["img":"cart-img2"],["img":"cart-img3"]] as [[String : AnyObject]]
         
-        CommonManager.setCorner(button:btnViewCart )
+        
         
         arrIng = [["img":"Broccoli","name":"Salt","type":""],["img":"Chicken","name":"Chicken","type":""],["img":"onion","name":"Onion","type":"(Alergy)"],["img":"Garlic","name":"Pappers","type":""],["img":"Pappers","name":"Garlic","type":"(Alergy)"],["img":"Ginger","name":"Ginger","type":""],["img":"Broccoli","name":"Broccoli","type":""],["img":"Orange","name":"Orange","type":""],["img":"Walnut","name":"Walnut","type":""],["img":"Orange","name":"Orange","type":""]] as [[String : AnyObject]]
+        
+    }
+    
+    // MARK: - UI Methods
+    func setUI(){
+        viewItemCount.layer.cornerRadius = viewItemCount.frame.size.width/2
+         imgDisplay.layer.cornerRadius = 10
+        
+        CommonManager.setCorner(button:btnViewCart )
         
         imgDisplay.layer.cornerRadius = 25
         imgDisplay.layer.borderWidth = 1
         imgDisplay.layer.borderColor = UIColor.clear.cgColor
-
-
     }
-    
 
     // MARK: - Delegate Methods
     // MARK: CollectionView

@@ -439,8 +439,8 @@
 			isa = PBXGroup;
 			children = (
 				84A82D8A25C1675200C2D42D /* CustomCell */,
-				82E9588625AC162C006ED26A /* HomeVC3.swift */,
 				82D147C625AB0C83002073A6 /* HomeVC.swift */,
+				82E9588625AC162C006ED26A /* HomeVC3.swift */,
 				828B97CC25A473E7002DAA66 /* DashBoardRunningOrderVC.swift */,
 				828B97CE25A4741C002DAA66 /* DashBoardOrderRequestVC.swift */,
 				82A850D5259F29C500522965 /* DashBoardVC.swift */,

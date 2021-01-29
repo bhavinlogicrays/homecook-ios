@@ -5,6 +5,7 @@
 import UIKit
 
 class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,HomeVCCellDelegate {
+    
 
     // MARK: - Variables
     var arrFoodImg = [String]()
@@ -173,4 +174,9 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,HomeVCC
         self.navigationController?.pushViewController(objVC, animated: true)
     }
 
+    func didPressOnReview(_ Index: Int) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "ReViewVC") as! ReViewVC
+            self.navigationController?.pushViewController(objVC, animated: true)
+    }
+    
 }

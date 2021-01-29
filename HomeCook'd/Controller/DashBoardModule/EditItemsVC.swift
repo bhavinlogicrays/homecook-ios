@@ -4,7 +4,7 @@
 
 import UIKit
 
-class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate {
+class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate,UICollectionViewDelegateFlowLayout {
     
     // MARK:- Variables
     var arrImg = [String]()
@@ -23,8 +23,10 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
     @IBOutlet weak var collectionViewFruits: UIView!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var btnSaveChanges: UIButton!
+    @IBOutlet weak var btnSeeAll: UIButton!
     
     var txtTemp: UITextField!
+    
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
@@ -32,6 +34,20 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
 
         // Do any additional setup after loading the view.
         
+        
+        setUI()
+        
+        arrImg = ["img1-running-order","Group 3265","Group 3265","Group 3265"]
+        arrIng = ["Broccoli","Chicken","onion","Garlic","Pappers"]
+        arrIngName = ["Chicken","onion","Garlic","Pappers","Ginger"]
+        arrIngName2 = ["","(Alergy)","","(Alergy)",""]
+        arrFruitImg = ["b-Avocado","b-Apple","b-blueberry","b-broccoli","b-Chicken"]
+        arrFruitName = ["Avocado","Apple","blueberry","broccoli","Chicken"]
+        
+    }
+
+    // MARK: - UI Methods
+    func setUI(){
         CommonManager.setBorder(textField: txtItmName)
         CommonManager.setBorder(textField: txtPrice)
         CommonManager.setBorder(textField: txtEstTime)
@@ -54,15 +70,8 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         txtItmName.setRightPaddingPoints(15)
         txtItmName.setLeftPaddingPoints(15)
         
-        arrImg = ["img1-running-order","Group 3265","Group 3265","Group 3265"]
-        arrIng = ["Broccoli","Chicken","onion","Garlic","Pappers"]
-        arrIngName = ["Chicken","onion","Garlic","Pappers","Ginger"]
-        arrIngName2 = ["","(Alergy)","","(Alergy)",""]
-        arrFruitImg = ["b-Avocado","b-Apple","b-blueberry","b-broccoli","b-Chicken"]
-        arrFruitName = ["Avocado","Apple","blueberry","broccoli","Chicken"]
     }
-
-    // MARK: - UI Methods
+    
     // MARK: - IBAction Methods
     @IBAction func onClickBack(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -73,6 +82,10 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
     
     @IBAction func onClickSaveChanges(_ sender: Any) {
           navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func onClickSeeAll(_ sender: Any) {
+        
     }
     
     // MARK: - Delegate Methods
@@ -115,6 +128,12 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         }
        
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//           return CGSizeZero
+//
+//        }
 
     // MARK: - Delegate Methods
     // MARK: UITextField

@@ -89,7 +89,16 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         self.navigationController?.pushViewController(objVC, animated: true)
     }
     @IBAction func onClickLogIn(_ sender: Any) {
-        checkValidation()
+       // checkValidation()
+        if strIsComefrom ==  "Chef" {
+            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
+            self.navigationController?.pushViewController(objVC, animated: true)
+        }
+        else{
+            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
+            self.navigationController?.pushViewController(objVC, animated: true)
+        }
+
     }
     
     @IBAction func onClickRememberMe(_ sender: Any) {
