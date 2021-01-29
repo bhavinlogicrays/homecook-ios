@@ -1,8 +1,8 @@
 //
-//  ResendApiModel.swift
+//  ResendOtpModule.swift
 //  HomeCook'd
 //
-//  Created by admin on 28/01/21.
+//  Created by Khushbu Lotia on 29/01/21.
 //  Copyright © 2021 Sheela Dodiya. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import SwiftyJSON
 
 //MARK:- Response
 
-class ResendOTPResponseModel:NSObject
+class ResendOtpModule:NSObject
 
 {
     let Status  = "status"
@@ -20,7 +20,7 @@ class ResendOTPResponseModel:NSObject
     lazy var status:Bool = false
     lazy var errormsg = ""
 
-    func initWithDictionary(dictionary:[String : JSON]) -> ResendOTPResponseModel {
+    func initWithDictionary(dictionary:[String : JSON]) -> ResendOtpModule {
        
         if let item1 = dictionary[ErrorMsg]?.stringValue {
             errormsg = item1

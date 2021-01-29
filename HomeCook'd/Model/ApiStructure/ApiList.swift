@@ -21,7 +21,9 @@ class ApiList:NSObject{
             
             static let loginEndpoint = "/clientgettoken"
             static let registerEndpoint = "/chef/register"
-
+            static let forgotPasswordEndpoint = "/client/forgot"
+            static let forgot_VarificationEndpoint = "/verificationcode"
+            static let resendOTPEndpoint = "/verificationcode"
         }
 
     }

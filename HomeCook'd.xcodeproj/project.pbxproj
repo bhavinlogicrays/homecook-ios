@@ -131,6 +131,9 @@
 		84A82DB325C16A8F00C2D42D /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A82DB225C16A8F00C2D42D /* LoginResponseModel.swift */; };
 		84A82DDE25C16BF400C2D42D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A82DDD25C16BF400C2D42D /* Utils.swift */; };
 		C400F5C025C3C49400061A10 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400F5BF25C3C49400061A10 /* RegisterModule.swift */; };
+		C400F5D625C3DD5D00061A10 /* ResendOtpModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400F5D525C3DD5D00061A10 /* ResendOtpModule.swift */; };
+		C400F5DC25C3DE7300061A10 /* ForgotPasswordResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400F5DB25C3DE7300061A10 /* ForgotPasswordResponseModel.swift */; };
+		C400F5DF25C3DF1500061A10 /* VerificationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400F5DE25C3DF1500061A10 /* VerificationResponseModel.swift */; };
 		C42E4BA325C2B3A0009267B7 /* RadioButtonManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42E4BA225C2B3A0009267B7 /* RadioButtonManage.swift */; };
 		C4AC1CF825C192E7009C02CB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC1CF725C192E7009C02CB /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
@@ -264,6 +267,9 @@
 		84A82DDD25C16BF400C2D42D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9106C05312D98C7452DFB30C /* Pods-HomeCook'd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCook'd.release.xcconfig"; path = "Target Support Files/Pods-HomeCook'd/Pods-HomeCook'd.release.xcconfig"; sourceTree = "<group>"; };
 		C400F5BF25C3C49400061A10 /* RegisterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModule.swift; sourceTree = "<group>"; };
+		C400F5D525C3DD5D00061A10 /* ResendOtpModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendOtpModule.swift; sourceTree = "<group>"; };
+		C400F5DB25C3DE7300061A10 /* ForgotPasswordResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordResponseModel.swift; sourceTree = "<group>"; };
+		C400F5DE25C3DF1500061A10 /* VerificationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationResponseModel.swift; sourceTree = "<group>"; };
 		C42E4BA225C2B3A0009267B7 /* RadioButtonManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonManage.swift; sourceTree = "<group>"; };
 		C4AC1CF725C192E7009C02CB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E5C342D506B677A7C3A91578 /* libPods-HomeCook'd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HomeCook'd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -790,6 +796,9 @@
 			children = (
 				84A82DB225C16A8F00C2D42D /* LoginResponseModel.swift */,
 				C400F5BF25C3C49400061A10 /* RegisterModule.swift */,
+				C400F5D525C3DD5D00061A10 /* ResendOtpModule.swift */,
+				C400F5DB25C3DE7300061A10 /* ForgotPasswordResponseModel.swift */,
+				C400F5DE25C3DF1500061A10 /* VerificationResponseModel.swift */,
 			);
 			path = ResponseModule;
 			sourceTree = "<group>";
@@ -958,7 +967,9 @@
 				828E0D7425B82E6E00790179 /* PreviewVCCell.swift in Sources */,
 				82899D0625A31C1900CDEC00 /* ForgotPassWordVC.swift in Sources */,
 				82E4DF2A25A71DDE0038DF38 /* SettingVC.swift in Sources */,
+				C400F5DC25C3DE7300061A10 /* ForgotPasswordResponseModel.swift in Sources */,
 				82032D0A25B5BBC90046B841 /* AddNewCardVC.swift in Sources */,
+				C400F5DF25C3DF1500061A10 /* VerificationResponseModel.swift in Sources */,
 				82E9588D25AC3495006ED26A /* Extension.swift in Sources */,
 				82032D0825B5B0990046B841 /* RatingVC.swift in Sources */,
 				C42E4BA325C2B3A0009267B7 /* RadioButtonManage.swift in Sources */,
@@ -987,6 +998,7 @@
 				84A82DB325C16A8F00C2D42D /* LoginResponseModel.swift in Sources */,
 				82484F9425A6E6EF0072E458 /* TotalOrderVCCell.swift in Sources */,
 				820D05C925A5BCCD009508F3 /* BottomPopupViewController.swift in Sources */,
+				C400F5D625C3DD5D00061A10 /* ResendOtpModule.swift in Sources */,
 				820D05C825A5BCCD009508F3 /* BottomPopupUtils.swift in Sources */,
 				82032D0C25B5BFCE0046B841 /* Terms&ConditionVC.swift in Sources */,
 				828469B725A49D840049467A /* EditItemVCCell.swift in Sources */,

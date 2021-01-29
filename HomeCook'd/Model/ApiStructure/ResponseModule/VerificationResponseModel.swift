@@ -1,8 +1,8 @@
 //
-//  Forgot_VarificationCodeResponseModel.swift
+//  VerificationResponseModel.swift
 //  HomeCook'd
 //
-//  Created by admin on 28/01/21.
+//  Created by Khushbu Lotia on 29/01/21.
 //  Copyright © 2021 Sheela Dodiya. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import SwiftyJSON
 
 //MARK:- Response
 
-class Forgot_VarificationCodeResponseModel:NSObject
+class VerificationResponseModel:NSObject
 
 {
     let Status  = "status"
@@ -20,7 +20,7 @@ class Forgot_VarificationCodeResponseModel:NSObject
     lazy var status:Bool = false
     lazy var succmsg = ""
 
-    func initWithDictionary(dictionary:[String : JSON]) -> Forgot_VarificationCodeResponseModel {
+    func initWithDictionary(dictionary:[String : JSON]) -> VerificationResponseModel {
        
         if let item1 = dictionary[SuccessMsg]?.stringValue {
             succmsg = item1

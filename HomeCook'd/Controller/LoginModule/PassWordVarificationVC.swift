@@ -22,8 +22,8 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var btnResend: UIButton!
     
     var txtTemp: UITextField!
-    lazy var dicForgotVarification = Forgot_VarificationCodeResponseModel()
-    lazy var dicResend = ResendOTPResponseModel()
+    lazy var dicForgotVarification = VerificationResponseModel()
+    lazy var dicResend = ResendOtpModule()
     var getEmail =  String()
     
     // MARK: - ViewController Methods
@@ -143,7 +143,8 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
                     }
                     if let dicResponseData = jsonResponse.dictionary {
 
-                        weakSelf.dicForgotVarification = Forgot_VarificationCodeResponseModel().initWithDictionary(dictionary: dicResponseData)
+                        weakSelf.dicForgotVarification = Forgot
+                        VerificationResponseModel().initWithDictionary(dictionary: dicResponseData)
                         if weakSelf.dicForgotVarification.status == true {
 
                             Utils.showMessage(type:.success, message: weakSelf.dicForgotVarification.succmsg)
@@ -177,7 +178,7 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
                     }
                     if let dicResponseData = jsonResponse.dictionary {
 
-                        weakSelf.dicResend = ResendOTPResponseModel().initWithDictionary(dictionary: dicResponseData)
+                        weakSelf.dicResend = ResendOtpModule().initWithDictionary(dictionary: dicResponseData)
                         
                         if weakSelf.dicResend.status == false {
                             
