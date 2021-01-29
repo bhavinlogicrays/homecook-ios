@@ -57,7 +57,7 @@ class WelComeVC: UIViewController {
         strIsComefrom = "Chef"
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
         objVC.strSetTitle = "Register"
-        self.navigationController?.pushViewController(objVC, animated: true)
+        navigationController?.pushViewController(objVC, animated: true)
     }
     
     @IBAction func onClickCustomer(_ sender: Any) {

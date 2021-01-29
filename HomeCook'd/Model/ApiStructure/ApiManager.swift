@@ -23,10 +23,9 @@ class ApiManager:NSObject{
     func initialize() {
     }
 
-    func callAPIForGETorPOST(strUrl : String?, parameters: [String : Any]?, httpMethodForGetOrPost : Alamofire.HTTPMethod?, withJsonResponseValue: ((JSON?, Int?) -> Void)?) {
+    func callAPIForGETorPOST(strUrl : String?, parameters: [String : Any]?, httpMethodForGetOrPost : Alamofire.HTTPMethod?, setheaders:HTTPHeaders,withJsonResponseValue: ((JSON?, Int?) -> Void)?) {
             print("Parameters", parameters as Any)
-        let header:HTTPHeaders = ["Content-Type":"application/json"]
-        AF.request(strUrl!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).responseJSON { [weak self] (response) in
+        AF.request(strUrl!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: setheaders).responseJSON { [weak self] (response) in
             var json = JSON()
                     if let WeakSelf = self {
                         

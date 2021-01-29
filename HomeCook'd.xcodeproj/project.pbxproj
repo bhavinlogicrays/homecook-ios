@@ -130,6 +130,9 @@
 		84A82D6C25C1659600C2D42D /* AJAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A82D6A25C1659600C2D42D /* AJAlertController.swift */; };
 		84A82DB325C16A8F00C2D42D /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A82DB225C16A8F00C2D42D /* LoginResponseModel.swift */; };
 		84A82DDE25C16BF400C2D42D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A82DDD25C16BF400C2D42D /* Utils.swift */; };
+		C400F5C025C3C49400061A10 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400F5BF25C3C49400061A10 /* RegisterModule.swift */; };
+		C42E4BA325C2B3A0009267B7 /* RadioButtonManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42E4BA225C2B3A0009267B7 /* RadioButtonManage.swift */; };
+		C4AC1CF825C192E7009C02CB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC1CF725C192E7009C02CB /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -260,6 +263,9 @@
 		84A82DB225C16A8F00C2D42D /* LoginResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		84A82DDD25C16BF400C2D42D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9106C05312D98C7452DFB30C /* Pods-HomeCook'd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCook'd.release.xcconfig"; path = "Target Support Files/Pods-HomeCook'd/Pods-HomeCook'd.release.xcconfig"; sourceTree = "<group>"; };
+		C400F5BF25C3C49400061A10 /* RegisterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModule.swift; sourceTree = "<group>"; };
+		C42E4BA225C2B3A0009267B7 /* RadioButtonManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonManage.swift; sourceTree = "<group>"; };
+		C4AC1CF725C192E7009C02CB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E5C342D506B677A7C3A91578 /* libPods-HomeCook'd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HomeCook'd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -362,8 +368,6 @@
 		82B63602259F220200FFCA39 /* HomeCook'd */ = {
 			isa = PBXGroup;
 			children = (
-				84A82D3525C1640900C2D42D /* View */,
-				84A82D3425C163FA00C2D42D /* Resource */,
 				84A82D3325C163E600C2D42D /* Library */,
 				84A82D3225C163DE00C2D42D /* Model */,
 				84A82D3125C163D200C2D42D /* Controller */,
@@ -418,20 +422,6 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
-		84A82D3425C163FA00C2D42D /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		84A82D3525C1640900C2D42D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		84A82D3625C1641C00C2D42D /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,8 +454,10 @@
 		84A82D5225C164E900C2D42D /* CommonClass */ = {
 			isa = PBXGroup;
 			children = (
+				C4AC1CF625C192CF009C02CB /* ImagePickerController */,
 				84A82DDD25C16BF400C2D42D /* Utils.swift */,
 				84A82D5525C1651C00C2D42D /* CommonManager.swift */,
+				C42E4BA225C2B3A0009267B7 /* RadioButtonManage.swift */,
 			);
 			path = CommonClass;
 			sourceTree = "<group>";
@@ -797,8 +789,17 @@
 			isa = PBXGroup;
 			children = (
 				84A82DB225C16A8F00C2D42D /* LoginResponseModel.swift */,
+				C400F5BF25C3C49400061A10 /* RegisterModule.swift */,
 			);
 			path = ResponseModule;
+			sourceTree = "<group>";
+		};
+		C4AC1CF625C192CF009C02CB /* ImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				C4AC1CF725C192E7009C02CB /* ImagePicker.swift */,
+			);
+			path = ImagePickerController;
 			sourceTree = "<group>";
 		};
 		FB1222080713587BEAAEFC8A /* Frameworks */ = {
@@ -960,6 +961,7 @@
 				82032D0A25B5BBC90046B841 /* AddNewCardVC.swift in Sources */,
 				82E9588D25AC3495006ED26A /* Extension.swift in Sources */,
 				82032D0825B5B0990046B841 /* RatingVC.swift in Sources */,
+				C42E4BA325C2B3A0009267B7 /* RadioButtonManage.swift in Sources */,
 				828B97CD25A473E7002DAA66 /* DashBoardRunningOrderVC.swift in Sources */,
 				829603C425A70FE100ED3F14 /* PaymentMethodVCCell.swift in Sources */,
 				82B63606259F220200FFCA39 /* WelComeVC.swift in Sources */,
@@ -975,6 +977,7 @@
 				828469AB25A486350049467A /* MyFoodVC.swift in Sources */,
 				84A82DDE25C16BF400C2D42D /* Utils.swift in Sources */,
 				828C542B25AC6624006830EC /* TabVC.swift in Sources */,
+				C400F5C025C3C49400061A10 /* RegisterModule.swift in Sources */,
 				82484F9025A6DE830072E458 /* MessegeVCCell.swift in Sources */,
 				828B297125A5ED2C00EB8DCA /* PersonalInfoVC.swift in Sources */,
 				8449D2AE25B9B2C400B39058 /* Customer_NotificationVCCell.swift in Sources */,
@@ -1021,6 +1024,7 @@
 				82E4934725A466A300409613 /* RevenueVC.swift in Sources */,
 				82484F9225A6E6C80072E458 /* TotalOrdersVC.swift in Sources */,
 				84A82D6C25C1659600C2D42D /* AJAlertController.swift in Sources */,
+				C4AC1CF825C192E7009C02CB /* ImagePicker.swift in Sources */,
 				820D05CA25A5BCCD009508F3 /* BottomPopupDismissInteractionController.swift in Sources */,
 				8281CC3A25B6E18D009FC8F2 /* SearchVCCell.swift in Sources */,
 				82484F8E25A6DB230072E458 /* MessegesVC.swift in Sources */,
@@ -1189,6 +1193,7 @@
 			baseConfigurationReference = 4500B375E1D3448522A39066 /* Pods-HomeCook'd.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "HomeCook'd/HomeCook'dDebug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Sanjay Modasia (9RXJ9UL8J9)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2L2TH4Z227;
