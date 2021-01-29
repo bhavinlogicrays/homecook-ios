@@ -35,7 +35,6 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         // Do any additional setup after loading the view.
         setUI()
         
-        
     }
    
     // MARK: - UI Methods
@@ -69,22 +68,30 @@ class LogInVC: UIViewController,UITextFieldDelegate {
             viewSocialMedia.isHidden = false
         }
         
-        if UserDefaults.standard.value(forKey: "email") as? String  != nil  && UserDefaults.standard.value(forKey: "email") as? String != nil {
-            txtEmail.text = UserDefaults.standard.value(forKey: "email") as? String
-            txtPassword.text = UserDefaults.standard.value(forKey: "password") as? String
-        }
-        else {
-            txtEmail.text = ""
-            txtPassword.text = ""
-        }
+//        if UserDefaults.standard.value(forKey: "email") as? String  != nil  && UserDefaults.standard.value(forKey: "email") as? String != nil {
+//            txtEmail.text = UserDefaults.standard.value(forKey: "email") as? String
+//            txtPassword.text = UserDefaults.standard.value(forKey: "password") as? String
+//        }
+//        else {
+//            txtEmail.text = ""
+//            txtPassword.text = ""
+//        }
 
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        Utils.hideProgressHud()
+    }
+    
+    
     // MARK: - IBAction Methods
     @IBAction func onClickBack(_ sender: Any) {
+        self.view.endEditing(true)
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onClickForgotPassWord(_ sender: Any) {
+        self.view.endEditing(true)
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "ForgotPassWordVC") as! ForgotPassWordVC
         self.navigationController?.pushViewController(objVC, animated: true)
     }
@@ -93,20 +100,20 @@ class LogInVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func onClickRememberMe(_ sender: Any) {
-        if btnRememberme.isSelected {
+        self.view.endEditing(true)
+        if isRememberClick == true {
             isRememberClick = false
-            btnRememberme.isSelected = false
-            imgRemember.image  = #imageLiteral(resourceName: "icons8-unchecked-checkbox-50 (4)")
+            imgRemember.image  = UIImage(named: "uncheck")
         }
         else {
             isRememberClick = true
-            btnRememberme.isSelected = true
-            imgRemember.image  = #imageLiteral(resourceName: "CheckMark")
+            imgRemember.image  = UIImage(named: "CheckMark")
 
         }
     }
 
     @IBAction func onClickHideUnhidePassword(_ sender: Any) {
+        self.view.endEditing(true)
         if btnHideUnhidePassword.isSelected {
             btnHideUnhidePassword.isSelected = false
             txtPassword.isSecureTextEntry = true
@@ -119,6 +126,7 @@ class LogInVC: UIViewController,UITextFieldDelegate {
 
     
     @IBAction func onClickRegister(_ sender: Any) {
+        self.view.endEditing(true)
         if strIsComefrom ==  "Chef"  {
             let objVC = STORYBOARD.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterVC
             self.navigationController?.pushViewController(objVC, animated: true)
@@ -126,10 +134,10 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         else {
             let objVC = STORYBOARD.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
             self.navigationController?.pushViewController(objVC, animated: true)
-
         }
         
     }
+    
     
     
     // MARK: - Delegate Methods
@@ -143,11 +151,6 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        txtTemp.text = txtTemp.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        txtTemp.resignFirstResponder()
-        txtTemp = nil
-    }
     
     //MARK:- CheckValidation
     func checkValidation() {
@@ -158,15 +161,16 @@ class LogInVC: UIViewController,UITextFieldDelegate {
     }
         guard let strpwd = txtPassword.text,  strpwd.count > 0 else {
             Utils.showMessage(type: .error, message:"Please enter password")
-
         return
     }
+        
+        
         if isRememberClick == true {
             UserDefaults.standard.set(txtEmail.text!, forKey: "email")
             UserDefaults.standard.set(txtPassword.text!, forKey: "password")
             UserDefaults.standard.synchronize()
         }
-        callApi()
+        //callApi()
 }
     
     //MARK:- Api Call
@@ -189,13 +193,14 @@ class LogInVC: UIViewController,UITextFieldDelegate {
                         if weakSelf.dicLogin.status == true {
                             if strIsComefrom ==  "Chef" {
                                 let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
+                                isLogin = true
                                 weakSelf.navigationController?.pushViewController(objVC, animated: true)
                             }
                             else{
                                 let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
+                                isLogin = true
                                 weakSelf.navigationController?.pushViewController(objVC, animated: true)
                             }
-
                         }
                         else {
                             Utils.showMessage(type: .error, message: "Invalid Login Details")
@@ -211,6 +216,7 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         
         
     }
+    
 
 }
 

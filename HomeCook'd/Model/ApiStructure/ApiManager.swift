@@ -24,27 +24,28 @@ class ApiManager:NSObject{
     }
 
     func callAPIForGETorPOST(strUrl : String?, parameters: [String : Any]?, httpMethodForGetOrPost : Alamofire.HTTPMethod?, setheaders:HTTPHeaders,withJsonResponseValue: ((JSON?, Int?) -> Void)?) {
-               print("Parameters", parameters as Any)
-           AF.request(strUrl!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: setheaders).responseJSON { [weak self] (response) in
-               var json = JSON()
-                       if let WeakSelf = self {
-                           
-                           switch response.result {
-                                  case .success(let data):
-                                   Utils.hideProgressHud()
-                                   json = JSON(data)
-                                   guard json.dictionary != nil else { return }
-                                   withJsonResponseValue?(json,response.response?.statusCode)
+            print("Parameters", parameters as Any)
+        AF.request(strUrl!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: setheaders).responseJSON { [weak self] (response) in
+            var json = JSON()
+                    if let WeakSelf = self {
+                        
+                        switch response.result {
+                               case .success(let data):
+                                Utils.hideProgressHud()
+                                json = JSON(data)
+                                guard json.dictionary != nil else { return }
+                                withJsonResponseValue?(json,response.response?.statusCode)
+                                break
+                               case .failure(let error):
+                                Utils.hideProgressHud()
+                                print(error)
                                    break
-                                  case .failure(let error):
-                                   Utils.hideProgressHud()
-                                   print(error)
-                                      break
-                                  }
-                       }
-           
-                   }
-       }
+                               }
+                    }
+        
+                }
+    }
+
 //For array Response api
 //    AF.request(baseURLString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: AppStatus.shared.headers).responseData { [weak self] (response) in
 //        if let WeakSelf = self {

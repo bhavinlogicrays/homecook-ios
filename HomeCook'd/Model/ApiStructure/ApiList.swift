@@ -17,7 +17,10 @@ class ApiList:NSObject{
         //http://192.168.0.10:8000/api/customerlogin
         static let Host = "https://www.dev.halal.masumparvej.me/api" // Developement
         struct Auth {
+            //Mark:-ChfApi
+            
             static let loginEndpoint = "/clientgettoken"
+            static let registerEndpoint = "/chef/register"
             static let forgotPasswordEndpoint = "/client/forgot"
             static let forgot_VarificationEndpoint = "/verificationcode"
             static let resendOTPEndpoint = "/verificationcode"

@@ -17,6 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if isLogin == true {
+            if strIsComefrom == "Chef" {
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabVC") as! TabVC
+                let navigationController = UINavigationController(rootViewController: initialViewController)
+                navigationController.isNavigationBarHidden = true
+                UIApplication.shared.delegate?.window!?.rootViewController = navigationController
+
+            } else {
+                let initialViewController1 = storyboard.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
+                let navigationController = UINavigationController(rootViewController: initialViewController1)
+                navigationController.isNavigationBarHidden = true
+                UIApplication.shared.delegate?.window!?.rootViewController = navigationController
+
+            }
+        }
+        else {
+            let initialViewController11 = storyboard.instantiateViewController(withIdentifier: "WelComeVC") as! WelComeVC
+            let navigationController = UINavigationController(rootViewController: initialViewController11)
+            navigationController.isNavigationBarHidden = true
+            UIApplication.shared.delegate?.window!?.rootViewController = navigationController
+        }
 
         return true
     }

@@ -25,6 +25,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>NSCameraUsageDescription</key>
+    <string>HomeCook wants to take pictures.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>HomeCook wants to use your photos.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-ExtraLight.ttf</string>

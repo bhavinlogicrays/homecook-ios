@@ -16,12 +16,10 @@ let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 var strIsComefrom = String()
 var isPayment : Bool = false
 let API_SHARED  =  ApiManager.sharedInstance
-
-
+var isLogin:Bool = false
+var dictData = [String:Any]()
 class CommonManager{
     
-
-
     class func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
@@ -37,9 +35,18 @@ class CommonManager{
     }
     
     //MARK:- Check  Validation
-    class func checkValidation() {
-        
+   class  func validate(password: String) -> Bool {
+        let regularExpression = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}"
+        let passwordValidation = NSPredicate.init(format: "SELF MATCHES %@", regularExpression)
+        return passwordValidation.evaluate(with: password)
     }
+
+    class  func validatePhone(Phone: String) -> Bool {
+//        let regEx = "^\\+(?:[0-9]?){6,14}[0-9]$"
+        let regEx = "^[6-9]\\d{9}$"
+        let phoneCheck = NSPredicate(format: "SELF MATCHES[c] %@", regEx)
+        return phoneCheck.evaluate(with: Phone)
+     }
     
     //MARK: - UI Methods
     class func setBorder(textField: UITextField) {
