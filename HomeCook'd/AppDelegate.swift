@@ -34,10 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         else {
-            let initialViewController11 = storyboard.instantiateViewController(withIdentifier: "WelComeVC") as! WelComeVC
-            let navigationController = UINavigationController(rootViewController: initialViewController11)
+//            let initialViewController11 = storyboard.instantiateViewController(withIdentifier: "WelComeVC") as! WelComeVC
+//            let navigationController = UINavigationController(rootViewController: initialViewController11)
+//            navigationController.isNavigationBarHidden = true
+//            UIApplication.shared.delegate?.window!?.rootViewController = navigationController
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabVC") as! TabVC
+            let navigationController = UINavigationController(rootViewController: initialViewController)
             navigationController.isNavigationBarHidden = true
             UIApplication.shared.delegate?.window!?.rootViewController = navigationController
+
         }
 
         return true

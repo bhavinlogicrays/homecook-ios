@@ -7,6 +7,7 @@ import UIKit
 class DashBoardRunningOrderVCCell: UITableViewCell {
 
     // MARK:- Variables
+    
     // MARK:- UIControls
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lblInvoice: UILabel!

@@ -8,7 +8,6 @@ class NotificationVCCell: UITableViewCell {
 
     // MARK: - Variables
     // MARK: - UI Controls
-    
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lblTime: UILabel!

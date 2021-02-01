@@ -10,6 +10,8 @@ class CartVCCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    // MARK: - UIControls
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var cartImg: UIImageView!
     @IBOutlet weak var lblFoodName: UILabel!

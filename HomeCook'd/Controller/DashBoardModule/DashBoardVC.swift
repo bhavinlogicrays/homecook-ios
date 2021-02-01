@@ -31,28 +31,10 @@ class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
 
         // Do any additional setup after loading the view.
         
-        CommonManager.setViewCorner(view: runningOrders)
-        CommonManager.setViewCorner(view: orderRequest)
-       
-        viewRevenue.layer.cornerRadius = 25.0
-        viewRevenue.layer.masksToBounds = true
-        
-        setViewCorRad(view: viewReviews)
-        setViewCorRad(view: viewItems)
+        setUI()
         
         arrFood = ["dash-img-2","dash-img-1","dash-img-1","dash-img-2"]
-
-        viewTimeByChart.layer.cornerRadius = 25.0
-        viewTimeByChart.layer.borderWidth = 2.0
-        viewTimeByChart.layer.borderColor = UIColor.init(red: 232.0/255.0, green: 234.0/255.0, blue: 237.0/255.0, alpha: 1.0) .cgColor
-        viewTimeByChart.layer.masksToBounds = true
-        viewTimeByChart.clipsToBounds = false
-
-        viewDaily.layer.cornerRadius = 10.0
-        viewDaily.layer.borderWidth = 2.0
-        viewDaily.layer.borderColor = UIColor.init(red: 232.0/255.0, green: 234.0/255.0, blue: 237.0/255.0, alpha: 1.0) .cgColor
-        viewDaily.layer.masksToBounds = true
-        viewDaily.clipsToBounds = false
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,6 +55,30 @@ class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
     }
     
     // MARK: - UI Methods
+    func setUI(){
+        
+        CommonManager.setViewCorner(view: runningOrders)
+        CommonManager.setViewCorner(view: orderRequest)
+       
+        viewRevenue.layer.cornerRadius = 25.0
+        viewRevenue.layer.masksToBounds = true
+        
+        setViewCorRad(view: viewReviews)
+        setViewCorRad(view: viewItems)
+        
+        viewTimeByChart.layer.cornerRadius = 25.0
+        viewTimeByChart.layer.borderWidth = 2.0
+        viewTimeByChart.layer.borderColor = UIColor.init(red: 232.0/255.0, green: 234.0/255.0, blue: 237.0/255.0, alpha: 1.0) .cgColor
+        viewTimeByChart.layer.masksToBounds = true
+        viewTimeByChart.clipsToBounds = false
+
+        viewDaily.layer.cornerRadius = 10.0
+        viewDaily.layer.borderWidth = 2.0
+        viewDaily.layer.borderColor = UIColor.init(red: 232.0/255.0, green: 234.0/255.0, blue: 237.0/255.0, alpha: 1.0) .cgColor
+        viewDaily.layer.masksToBounds = true
+        viewDaily.clipsToBounds = false
+    }
+    
     func setViewCorRad(view: UIView) {
         view.layer.cornerRadius = 20.0
         view.layer.masksToBounds = true

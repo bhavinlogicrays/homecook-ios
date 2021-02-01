@@ -5,7 +5,7 @@
 import UIKit
 
 class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,HomeVCCellDelegate {
-
+    
     // MARK: - Variables
     var arrFoodImg = [String]()
     var arrChefImg = [String]()
@@ -41,6 +41,19 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,HomeVCC
 
         // Do any additional setup after loading the view.
         
+        setUI()
+        
+        arrFoodImg = ["food-img-big","food-img2-big","food-img-big","food-img2-big","food-img-big","food-img2-big","food-img-big"]
+        arrChefImg = ["chef-1","chef-2","chef-1","chef-2","chef-1","chef-2","chef-1"]
+        arrDelTime = ["Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Pick Up 1.5 km"]
+        arrHomeCook = ["Friends HomeCooke'd","Duhari HomeCooke'd ","Friends HomeCooke'd","Duhari HomeCooke'd","Friends HomeCooke'd","Duhari HomeCooke'd","Friends HomeCooke'd"]
+        
+ 
+    }
+    
+    // MARK: - UI Methods
+    func setUI() {
+       
         imgView.layer.cornerRadius = imgView.frame.size.height/2
         imgView.layer.masksToBounds = true
         
@@ -76,19 +89,9 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,HomeVCC
         innerSubView.layer.cornerRadius = 25.0
         innerSubView.layer.masksToBounds = true
         
-        
-
-
-        arrFoodImg = ["food-img-big","food-img2-big","food-img-big","food-img2-big","food-img-big","food-img2-big","food-img-big"]
-        arrChefImg = ["chef-1","chef-2","chef-1","chef-2","chef-1","chef-2","chef-1"]
-        arrDelTime = ["Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Delivery 20 min","Pick Up 1.5 km","Pick Up 1.5 km"]
-        arrHomeCook = ["Friends HomeCooke'd","Duhari HomeCooke'd ","Friends HomeCooke'd","Duhari HomeCooke'd","Friends HomeCooke'd","Duhari HomeCooke'd","Friends HomeCooke'd"]
-        
         isViewOpen = ""
         subView.isHidden = true
-
         
-       
     }
     
     func setCorner(btn: UIButton){
@@ -172,5 +175,11 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,HomeVCC
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "HomeVC3") as! HomeVC3
         self.navigationController?.pushViewController(objVC, animated: true)
     }
+
+    func didPressOnReview(_ Index: Int) {
+        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "ReViewVC") as! ReViewVC
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
+    
 
 }

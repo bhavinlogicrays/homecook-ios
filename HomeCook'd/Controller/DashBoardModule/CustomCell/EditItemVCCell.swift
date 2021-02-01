@@ -7,6 +7,7 @@ import UIKit
 class EditItemVCCell: UICollectionViewCell {
     
     // MARK:- variables
+    
     // MARK:- UIControls
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var imgIngrs: UIImageView!

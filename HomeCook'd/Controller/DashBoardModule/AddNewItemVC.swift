@@ -31,6 +31,21 @@ class AddNewItemVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
 
         // Do any additional setup after loading the view.
         
+        setUI()
+        
+        self.view.endEditing(true)
+        
+        arrImg = ["Group 3265","Group 3265","Group 3265","Group 3265"]
+    
+        arrIng = ["b-Avocado","b-Apple","b-blueberry","b-broccoli","b-Chicken","b-Garlic","b-onion","b-orange","b-Pappers","b-Salt"]
+        arrIngName = ["Avocado","Apple","blueberry","broccoli","Chicken","Garlic","onion","orange","Pappers","Salt"]
+        arrFruitImg = ["b-Avocado","b-Apple","b-blueberry","b-broccoli","b-Chicken","b-Garlic","b-onion","b-orange","b-Pappers","b-Salt"]
+        arrFruitName = ["Avocado","Apple","blueberry","broccoli","Chicken","Garlic","onion","orange","Pappers","Salt"]
+    }
+    
+    // MARK: - UI Methods
+    func setUI(){
+        
         detailTextView.layer.cornerRadius = 8.0
         detailTextView.layer.borderColor = UIColor.lightGray.cgColor
         detailTextView.layer.borderWidth = 1.0
@@ -40,10 +55,6 @@ class AddNewItemVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
         CommonManager.setBorder(textField: txtItemName)
         CommonManager.setBorder(textField: txtPrice)
         CommonManager.setBorder(textField: txtEstTime)
-        
-        
-        self.view.endEditing(true)
-        
         
         txtPrice.attributedPlaceholder = NSAttributedString(string:"$50", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
         txtPrice.setRightPaddingPoints(15)
@@ -57,16 +68,7 @@ class AddNewItemVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
         txtItemName.setRightPaddingPoints(15)
         txtItemName.setLeftPaddingPoints(15)
         
-        
-        arrImg = ["Group 3265","Group 3265","Group 3265","Group 3265"]
-    
-        arrIng = ["b-Avocado","b-Apple","b-blueberry","b-broccoli","b-Chicken","b-Garlic","b-onion","b-orange","b-Pappers","b-Salt"]
-        arrIngName = ["Avocado","Apple","blueberry","broccoli","Chicken","Garlic","onion","orange","Pappers","Salt"]
-        arrFruitImg = ["b-Avocado","b-Apple","b-blueberry","b-broccoli","b-Chicken","b-Garlic","b-onion","b-orange","b-Pappers","b-Salt"]
-        arrFruitName = ["Avocado","Apple","blueberry","broccoli","Chicken","Garlic","onion","orange","Pappers","Salt"]
     }
-    
-    // MARK: - UI Methods
     // MARK: - IBAction Methods
     @IBAction func onClickBack(_ sender: Any) {
         navigationController?.popViewController(animated: true)

@@ -105,15 +105,18 @@ class HomeVC3: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeVC3Cell", for: indexPath) as! HomeVC3Cell
         if indexPath.row == 1 {
             cell.viewItemCount.isHidden = false
+            cell.imgAdd.isHidden = true
+            
         }
         else {
             cell.viewItemCount.isHidden = true
+            cell.imgAdd.isHidden = false
 
         }
         cell.viewItemCount.layer.cornerRadius = cell.viewItemCount.frame.size.width/2
         cell.imgFood.image = UIImage(named: arrFoodImg[indexPath.row])
-        cell.imgFood.layer.cornerRadius = 20.0
-        conCollFoodItemHeight.constant = CGFloat(CGFloat((arrFoodImg.count / 2)) * 169)
+        cell.imgFood.layer.cornerRadius = 10
+        conCollFoodItemHeight.constant = CGFloat(CGFloat((arrFoodImg.count / 2)) * (140))
         collectionViewItems.layoutIfNeeded()
         collectionViewItems.updateConstraintsIfNeeded()
 
@@ -126,10 +129,8 @@ class HomeVC3: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
         }
         if collectionView == collViewFoodCat {
             return CGSize(width:(self.view.frame.size.width / 4  )    , height: (self.collViewFoodCat.frame.size.height ))
-
         }
-
-        return CGSize(width:((self.collectionViewItems.frame.size.width) / 2  ) - 20   , height: 169)
+        return CGSize(width:((self.collectionViewItems.frame.size.width - 10) / 2 ), height: 140)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

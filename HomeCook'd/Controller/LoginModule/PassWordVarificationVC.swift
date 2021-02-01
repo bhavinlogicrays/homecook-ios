@@ -143,7 +143,7 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
                     }
                     if let dicResponseData = jsonResponse.dictionary {
 
-                        weakSelf.dicForgotVarification = Forgot
+                        weakSelf.dicForgotVarification = 
                         VerificationResponseModel().initWithDictionary(dictionary: dicResponseData)
                         if weakSelf.dicForgotVarification.status == true {
 

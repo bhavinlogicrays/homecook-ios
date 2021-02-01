@@ -15,6 +15,7 @@ class HomeVC3Cell: UICollectionViewCell {
     @IBOutlet weak var lblFoodName: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var viewItemCount: UIView!
+    @IBOutlet weak var imgAdd: UIImageView!
 
     
 }

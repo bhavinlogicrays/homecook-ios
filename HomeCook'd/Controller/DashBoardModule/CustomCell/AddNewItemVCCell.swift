@@ -7,7 +7,8 @@ import UIKit
 class AddNewItemVCCell: UICollectionViewCell {
     
     // MARK: - Variables
-    // MARK: - UI Controls
+    
+    // MARK: - UIControls
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var imgIngrs: UIImageView!
     @IBOutlet weak var lblIngrName: UILabel!

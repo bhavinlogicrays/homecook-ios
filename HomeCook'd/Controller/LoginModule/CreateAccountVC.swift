@@ -18,6 +18,7 @@ class CreateAccountVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var txtPassword : UITextField!
     @IBOutlet weak var txtDateOfBirth : UITextField!
     @IBOutlet weak var lblTrms : UILabel!
+    @IBOutlet weak var btnHideUnhidePassword: UIButton!
     @IBOutlet weak var btnRegister : UIButton!
     @IBOutlet weak var btnLogin : UIButton!
 
@@ -39,7 +40,7 @@ class CreateAccountVC: UIViewController,UITextFieldDelegate {
         txtEmail.keyboardType = UIKeyboardType.emailAddress
         txtPassword.keyboardType = UIKeyboardType.default
         txtPassword.isSecureTextEntry = true
-//        txtDateOfBirth.keyboardType = UIKeyboardType
+        
         CommonManager.setBorder(textField: txtName)
         CommonManager.setBorder(textField: txtEmail)
         CommonManager.setBorder(textField: txtPassword)
@@ -75,16 +76,76 @@ class CreateAccountVC: UIViewController,UITextFieldDelegate {
         
         self.txtDateOfBirth.setInputViewDatePicker(target: self, selector: #selector(tapDone)) //1
 
-
     }
     
-    @objc func tapDone() {
-        if let datePicker = self.txtDateOfBirth.inputView as? UIDatePicker { // 2-1
-            let dateformatter = DateFormatter() // 2-2
-            dateformatter.dateStyle = .medium // 2-3
-            self.txtDateOfBirth.text = dateformatter.string(from: datePicker.date) //2-4
+    //MARK:- CheckValidation
+    func checkValidation()  {
+        self.view.endEditing(true)
+        guard let strname = txtName.text,  strname.count > 0 else {
+            Utils.showMessage(type: .error, message:"Please enter name")
+        return
+    }
+        guard let stremail = txtEmail.text,  stremail.count > 0 else {
+            Utils.showMessage(type: .error, message:"Please enter email")
+        return
+    }
+        if !CommonManager.isValidEmail(txtEmail.text!){
+            Utils.showMessage(type: .error, message:"Please enter valid email")
+            return
         }
-        self.txtDateOfBirth.resignFirstResponder() // 2-5
+        
+        guard let strPass = txtPassword.text,  strPass.count > 0 else {
+          Utils.showMessage(type: .error, message:"Please enter password")
+        return
+    }
+        if txtPassword.text!.count < 6 {
+            Utils.showMessage(type: .error, message:"Password contain min 6 character")
+            return
+        }
+        
+        let age = getAgeFromDOF(date: txtDateOfBirth.text ?? "")
+       
+        if age.0 < 17 {
+            txtDateOfBirth.text = ""
+            CommonManager.DisplayAlertView(titleDisply: "OOPS!", msg: "Minimum age is required for create account is 17 years")
+        }
+        
+    }
+    
+    @IBAction func onClickHideUnhidePassword(_ sender: Any) {
+        self.view.endEditing(true)
+        if btnHideUnhidePassword.isSelected {
+            btnHideUnhidePassword.isSelected = false
+            txtPassword.isSecureTextEntry = true
+        }
+        else {
+            btnHideUnhidePassword.isSelected = true
+            txtPassword.isSecureTextEntry = false
+        }
+    }
+
+    func getAgeFromDOF(date: String) -> (Int,Int,Int) {
+
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "dd/MM/yyyy"
+        let dateOfBirth = dateFormater.date(from: date)
+
+        let calender = Calendar.current
+
+        let dateComponent = calender.dateComponents([.year, .month, .day], from:
+        dateOfBirth!, to: Date())
+
+        return (dateComponent.year!, dateComponent.month!, dateComponent.day!)
+    }
+    @objc func tapDone() {
+        if let datePicker = self.txtDateOfBirth.inputView as? UIDatePicker {
+            let dateformatter = DateFormatter()
+            dateformatter.dateStyle = .medium
+            dateformatter.dateFormat = "dd/MM/yyyy"
+            self.txtDateOfBirth.text = dateformatter.string(from: datePicker.date)
+        }
+        self.txtDateOfBirth.resignFirstResponder()
+       
     }
 
     
