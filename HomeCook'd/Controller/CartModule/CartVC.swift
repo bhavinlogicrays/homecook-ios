@@ -22,13 +22,16 @@ class CartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
 //        viewCheckOut.layer.cornerRadius = 33.0
         
-        viewCheckOut.layer.cornerRadius = 25
-        viewCheckOut.layer.masksToBounds = true
-        viewCheckOut.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        setUI()
         
         arrFoodImg = [["img":"cart-img1","name":""],["img":"cart-img2"],["img":"cart-img3"]] as [[String : AnyObject]]
     }
     
+    func setUI(){
+        viewCheckOut.layer.cornerRadius = 25
+        viewCheckOut.layer.masksToBounds = true
+        viewCheckOut.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrFoodImg.count
@@ -54,7 +57,29 @@ class CartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
       }
     }
+    
+   
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "", handler: {a,b,c in
+            // example of your delete function
+            self.arrFoodImg.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            let backView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+            backView.backgroundColor = #colorLiteral(red: 0.933103919, green: 0.08461549133, blue: 0.0839477703, alpha: 1)
+            
+            backView.layer.cornerRadius = 20
+            backView.layer.masksToBounds = true
+            
+            let myImage = UIImageView(frame: CGRect(x: 30, y: backView.frame.size.height/2-14, width: 16, height: 16))
+            myImage.image = #imageLiteral(resourceName: "delete-item")
+            backView.addSubview(myImage)
+        })
 
+        deleteAction.image = UIImage(named: "trash.png")
+        deleteAction.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 
     @IBAction func onClickCheckout(_ sender: UIButton) {
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_PaymentVC") as! Customer_PaymentVC

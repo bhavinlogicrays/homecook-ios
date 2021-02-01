@@ -6,7 +6,7 @@ import UIKit
 
 class Customer_NotificationVCCell: UITableViewCell {
 
-    
+    // MARK: - UIControls
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var lblFoodName: UILabel!

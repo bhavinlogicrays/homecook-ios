@@ -6,20 +6,26 @@ import UIKit
 
 class PersonalEditVC: UIViewController,UITextFieldDelegate {
 
+    // MARK: - UIControls
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var txtSetServiceTime: UITextField!
     @IBOutlet weak var imgSetService: UIImageView!
 
-    
     var txtTemp: UITextField!
     
+    // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        setUI()
+    }
+    
+    // MARK: - UI Methods
+    func setUI(){
         CommonManager.setBorder(textField: txtName)
         CommonManager.setBorder(textField: txtEmail)
         CommonManager.setBorder(textField: txtPhone)

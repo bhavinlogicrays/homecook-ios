@@ -10,7 +10,6 @@ class NotificationVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     var arrImg = [String]()
     var arrFood = [String]()
     
-    
     // MARK: - UI Controls
     @IBOutlet weak var lblNotification: UILabel!
     @IBOutlet weak var lblMessege: UILabel!
@@ -22,19 +21,24 @@ class NotificationVC: UIViewController,UITableViewDelegate,UITableViewDataSource
 
         // Do any additional setup after loading the view.
         
-       lblNotification.layer.cornerRadius = lblNotification.frame.size.height/2
-       lblNotification.layer.masksToBounds = true
-        
-       lblMessege.layer.cornerRadius = lblMessege.frame.size.height/2
-       lblMessege.layer.borderWidth = 1.0
-       lblMessege.layer.borderColor = UIColor.lightGray.cgColor
-       lblMessege.layer.masksToBounds = true
+         setUI()
         
          arrImg = ["chef-img","chef-img","chef-img","chef-img"]
          arrFood = ["veg thai","vegan thai curry","veganPad","vegetable pad thai"]
     }
     
     // MARK: - UI Methods
+    func setUI(){
+    lblNotification.layer.cornerRadius = lblNotification.frame.size.height/2
+    lblNotification.layer.masksToBounds = true
+     
+    lblMessege.layer.cornerRadius = lblMessege.frame.size.height/2
+    lblMessege.layer.borderWidth = 1.0
+    lblMessege.layer.borderColor = UIColor.lightGray.cgColor
+    lblMessege.layer.masksToBounds = true
+        
+    }
+    
     // MARK: - IBAction Methods
     
     // MARK: - Delegate Methods

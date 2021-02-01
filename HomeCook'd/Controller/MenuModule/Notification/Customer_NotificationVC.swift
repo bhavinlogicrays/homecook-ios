@@ -22,13 +22,7 @@ class Customer_NotificationVC: UIViewController, UITableViewDelegate,UITableView
 
         // Do any additional setup after loading the view.
         
-        lblNotification.layer.cornerRadius = lblNotification.frame.size.height/2
-        lblNotification.layer.masksToBounds = true
-         
-        lblMessege.layer.cornerRadius = lblMessege.frame.size.height/2
-        lblMessege.layer.borderWidth = 1.0
-        lblMessege.layer.borderColor = UIColor.lightGray.cgColor
-        lblMessege.layer.masksToBounds = true
+        setUI()
         
         arrImg  = ["cart-img1","cart-img2","cart-img3","cart-img1"]
         arrFoodName = ["Vegetable Thai Food","Vegetable Thai Food","Keema Chickeniriyani","Mazali Chicken halim"]
@@ -36,6 +30,16 @@ class Customer_NotificationVC: UIViewController, UITableViewDelegate,UITableView
     }
     
     // MARK: - UI Methods
+    func setUI(){
+    lblNotification.layer.cornerRadius = lblNotification.frame.size.height/2
+    lblNotification.layer.masksToBounds = true
+     
+    lblMessege.layer.cornerRadius = lblMessege.frame.size.height/2
+    lblMessege.layer.borderWidth = 1.0
+    lblMessege.layer.borderColor = UIColor.lightGray.cgColor
+    lblMessege.layer.masksToBounds = true
+    }
+    
     // MARK: - IBAction Methods
     
     // MARK: - Delegate Methods

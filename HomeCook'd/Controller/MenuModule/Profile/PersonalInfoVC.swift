@@ -7,6 +7,7 @@ import UIKit
 class PersonalInfoVC: UIViewController,UITextFieldDelegate {
 
     // MARK: - Variables
+    
     // MARK: - UI Controls
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
@@ -23,6 +24,14 @@ class PersonalInfoVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        // Do any additional setup after loading the view.
+        
+        setUI()
+    }
+    
+    // MARK: - UI Methods
+    func setUI(){
         imgSetService.isHidden = true
         btnEditImg.isHidden = true
         
@@ -40,11 +49,6 @@ class PersonalInfoVC: UIViewController,UITextFieldDelegate {
             btnEditImg.isHidden = false
 
         }
-        // Do any additional setup after loading the view.
-        
-        
-        
-        
         txtEmail.attributedPlaceholder = NSAttributedString(string:"yourmail@gmail.com", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
         txtEmail.setLeftPaddingPoints(15)
         txtEmail.setRightPaddingPoints(15)
@@ -65,7 +69,6 @@ class PersonalInfoVC: UIViewController,UITextFieldDelegate {
         setBorder(textField: txtEmail)
         setBorder(textField: txtPhone)
         setBorder(textField: txtSetServiceTime)
-
     }
     
     func setBorder(textField: UITextField) {
