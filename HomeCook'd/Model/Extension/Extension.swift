@@ -32,7 +32,8 @@ enum AppFontType : String {
     case light = "Poppins-Light"
     case normal = "Poppins-Regular"
     case semibold = "Poppins-SemiBold"
-    
+    case medium = "Poppins-Medium"
+
 }
 
 extension UIFont {
@@ -73,6 +74,8 @@ extension UITextField {
         toolBar.setItems([barButton], animated: false) //8
         self.inputAccessoryView = toolBar //9
     }
+    
+  
     
 
 }

@@ -21,7 +21,7 @@ class RegisterVC: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
 
     var txtTemp: UITextField!
     var imagePicker: ImagePicker!
-
+    var isImagePicked:Bool = false
     
 
     // MARK: - ViewController Methods
@@ -86,9 +86,6 @@ class RegisterVC: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
     
     @IBAction func onClickNext(_ sender: Any) {
         checkValidation()
-//        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "RegisterVC2") as! RegisterVC2
-//        self.navigationController?.pushViewController(objVC, animated: true)
-
     }
     
     @IBAction func btnProfileCameraClick(_ sender: Any) {
@@ -119,7 +116,12 @@ class RegisterVC: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
     
     func didSelect(image: UIImage?) {
         if image == nil {
+            isImagePicked = false
             ProfileImage.image = UIImage(named: "")
+        }
+        
+        else {
+            isImagePicked = true
         }
         ProfileImage.layer.cornerRadius = self.ProfileImage.frame.size.height / 2
         ProfileImage.layer.borderWidth = 1
@@ -181,8 +183,12 @@ class RegisterVC: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
         dictData["city"]     = txtCity.text!
         dictData["postcode"]  = txtPostCode.text!
         dictData["address"]  = txtAddress.text!
-        dictData["image"]    = ProfileImage.image
-
+        if isImagePicked == true {
+            dictData["image"]    = ProfileImage.image
+        }
+        else {
+            dictData["image"]    =  nil
+        }
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "RegisterVC2") as! RegisterVC2
         self.navigationController?.pushViewController(objVC, animated: true)
 

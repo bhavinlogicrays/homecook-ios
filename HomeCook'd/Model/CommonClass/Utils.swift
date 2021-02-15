@@ -14,9 +14,11 @@ class Utils {
     
     class func showProgressHud() {
         SVProgressHUD.setDefaultStyle(.custom)
-        SVProgressHUD.setForegroundColor(UIColor.black)
+        SVProgressHUD.setForegroundColor(UIColor.init(hexString: "#EB3943"))
         SVProgressHUD.setBackgroundColor(UIColor.clear)
         SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.setDefaultAnimationType(.flat)
+        SVProgressHUD.setRingThickness(4)
         DispatchQueue.main.async {
             SVProgressHUD.show()
         }
@@ -41,7 +43,7 @@ class Utils {
                        view.configureTheme(type)
                        // Add a drop shadow.
                        view.configureDropShadow()
-            view.bodyLabel?.font = UIFont.getAppFont(of: .normal, size: 18)
+            view.bodyLabel?.font = UIFont.getAppFont(of: .normal, size: 16)
                        view.button?.isHidden = true
                        // Show the message.
                        if title == nil {

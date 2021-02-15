@@ -23,6 +23,10 @@ class PaymentWithdrawVC: UIViewController {
         view2.layer.cornerRadius = 15.0
         view3.layer.cornerRadius = 15.0
         view4.layer.cornerRadius = 15.0
+        
+        
+        
+        
     }
     @IBAction func onClickPerInf(_ sender: UIButton) {
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PersonalInfoVC") as! PersonalInfoVC
@@ -57,7 +61,11 @@ class PaymentWithdrawVC: UIViewController {
     @IBAction func onClickLogOut(_ sender: Any) {
         isPayment = false
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "WelComeVC") as! WelComeVC
-        isLogin = false
+        let appDomain = Bundle.main.bundleIdentifier
+        UserDefaults.standard.removePersistentDomain(forName: appDomain ?? "com.homecook.application")
+        UserDefaults.standard.synchronize()
+
+        DELEGATE.isLogin = false
         self.navigationController?.pushViewController(objVC, animated: true)
         
     }

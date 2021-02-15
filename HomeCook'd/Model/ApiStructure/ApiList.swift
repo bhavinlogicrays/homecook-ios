@@ -17,15 +17,51 @@ class ApiList:NSObject{
         //http://192.168.0.10:8000/api/customerlogin
         static let Host = "https://www.dev.halal.masumparvej.me/api" // Developement
         struct Auth {
-            //Mark:-ChfApi
             
-            static let loginEndpoint = "/clientgettoken"
+            static let loginEndpoint = "/login"
             static let registerEndpoint = "/chef/register"
-            static let forgotPasswordEndpoint = "/client/forgot"
+            static let forgotPasswordEndpoint = "/forgot"
             static let forgot_VarificationEndpoint = "/verificationcode"
             static let resendOTPEndpoint = "/verificationcode"
+            static let changePassword = "/resetpassword"
+
+        }
+        //Mark:-ChfApi
+        struct OrderList{
+            static let orderReqList = "/orderlist"
+            static let orderReqStatus = "/changeorderstatus"
+        }
+        
+        struct Dashboard {
+            static let dashboardView  = "/chefdashboardview"
         }
 
+        struct  Revenue {
+            static let revenueList  = "/revenuelist"
+        }
+        
+        struct  Review {
+            static let reviewList  = "/reviewlist"
+        }
+        struct  FoodList {
+            static let myfoodList  = "/myfoodlist"
+            static let foodDetail  = "/fooddetail"
+
+        }
+        struct ChefProfile{
+            static let displayChefData  = "/userprofile"
+            static let editProfile = "/updateuserprofile"
+        }
+        
+        struct AddUpdateItem{
+            static let addItem  = "/userprofile"
+            static let updateItem = "/updatefooddetail"
+
+        }
+        struct AllIngredientsList {
+        static let allIng  = "/ingredientslist"
+
+        }
     }
 
 }

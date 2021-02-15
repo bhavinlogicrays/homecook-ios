@@ -14,36 +14,41 @@ import SwiftyJSON
 
 
 class ApiManager:NSObject{
+    var isConnected              = false
+
     static let sharedInstance: ApiManager = {
         let instance = ApiManager()
         instance.initialize()
         return instance
     }()
+    
    
     func initialize() {
     }
 
     func callAPIForGETorPOST(strUrl : String?, parameters: [String : Any]?, httpMethodForGetOrPost : Alamofire.HTTPMethod?, setheaders:HTTPHeaders,withJsonResponseValue: ((JSON?, Int?) -> Void)?) {
             print("Parameters", parameters as Any)
-        AF.request(strUrl!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: setheaders).responseJSON { [weak self] (response) in
-            var json = JSON()
-                    if let WeakSelf = self {
-                        
-                        switch response.result {
-                               case .success(let data):
-                                Utils.hideProgressHud()
-                                json = JSON(data)
-                                guard json.dictionary != nil else { return }
-                                withJsonResponseValue?(json,response.response?.statusCode)
-                                break
-                               case .failure(let error):
-                                Utils.hideProgressHud()
-                                print(error)
-                                   break
-                               }
-                    }
-        
-                }
+            AF.request(strUrl!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: setheaders).responseJSON { [weak self] (response) in
+                var json = JSON()
+                        if let WeakSelf = self {
+                            
+                            switch response.result {
+                                   case .success(let data):
+                                    Utils.hideProgressHud()
+                                    json = JSON(data)
+                                    guard json.dictionary != nil else { return }
+                                    withJsonResponseValue?(json,response.response?.statusCode)
+                                    break
+                                   case .failure(let error):
+                                    Utils.hideProgressHud()
+                                    Utils.showMessage(type: .error, message: "Something went wrong!")
+                                    print(error)
+                                       break
+                                   }
+                        }
+            
+        }
+       
     }
 
 //For array Response api

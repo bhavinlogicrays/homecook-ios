@@ -9,9 +9,6 @@ import Alamofire
 class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
 
     // MARK:- Variables
-    var myString:NSString = "We have sent a code to your email example@gmail.com"
-    var myMutableString = NSMutableAttributedString()
-    
     // MARK:- UIControls
     @IBOutlet weak var lblVerification: UILabel!
     @IBOutlet weak var txtCode1: UITextField!
@@ -25,28 +22,34 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
     lazy var dicForgotVarification = VerificationResponseModel()
     lazy var dicResend = ResendOtpModule()
     var getEmail =  String()
-    
+    var iscomeForgot:String = ""
+
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         setUI()
     }
     
     // MARK: - UI Methods
     func setUI() {
-        txtCode1.keyboardType = UIKeyboardType.numbersAndPunctuation
-        txtCode2.keyboardType = UIKeyboardType.numbersAndPunctuation
-        txtCode3.keyboardType = UIKeyboardType.numbersAndPunctuation
-        txtCode4.keyboardType = UIKeyboardType.numbersAndPunctuation
+        txtCode1.keyboardType = UIKeyboardType.numberPad
+        txtCode2.keyboardType = UIKeyboardType.numberPad
+        txtCode3.keyboardType = UIKeyboardType.numberPad
+        txtCode4.keyboardType = UIKeyboardType.numberPad
         
         txtCode1.becomeFirstResponder()
-        myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Poppins", size: 16.0)!])
-        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.gray, range: NSRange(location: 34,length:17))
-        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSRange(location: 0,length:34))
-        lblVerification.attributedText = myMutableString
+        
+        let attrs1 = [NSAttributedString.Key.font : UIFont.getAppFont(of: .normal, size: 16), NSAttributedString.Key.foregroundColor : UIColor.lightGray]
+        let attrs2 = [NSAttributedString.Key.font : UIFont.getAppFont(of: .normal, size: 16), NSAttributedString.Key.foregroundColor : UIColor.darkGray]
+        
+        let attributedString1 = NSMutableAttributedString(string:"We have sent a code to your email ", attributes:attrs1)
+        let attributedString2 = NSMutableAttributedString(string:getEmail, attributes:attrs2)
+        attributedString1.append(attributedString2)
+
+        self.lblVerification.attributedText =  attributedString1
+
         
         CommonManager.setBorder(textField: txtCode1)
         CommonManager.setBorder(textField: txtCode2)
@@ -63,11 +66,12 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
     @IBAction func onClickVerify(_ sender: Any) {
 //        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
 //        self.navigationController?.pushViewController(objVC, animated: true)
-        
+        self.view.endEditing(true)
         callApi()
     }
     
     @IBAction func onClickResend(_ sender: Any) {
+        self.view.endEditing(true)
         callResendApi()
     }
     
@@ -128,6 +132,10 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
 
     //MARK:- Api Call
     func callApi(){
+        if !InternetConnectionManager.isConnectedToNetwork() {
+                Utils.showMessage(type: .error, message: CommonManager.Messages.NoInternet)
+            return
+        }
         Utils.showProgressHud()
        
         let apiUrl = ApiList.URL.Host  + ApiList.URL.Auth.forgot_VarificationEndpoint
@@ -147,8 +155,15 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
                         VerificationResponseModel().initWithDictionary(dictionary: dicResponseData)
                         if weakSelf.dicForgotVarification.status == true {
 
-                            Utils.showMessage(type:.success, message: weakSelf.dicForgotVarification.succmsg)
-                            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
+                            if weakSelf.iscomeForgot == "forgot" {
+                                let changePwd = STORYBOARD.instantiateViewController(withIdentifier: "ChangePasswordVC") as? ChangePasswordVC
+                                changePwd?.strEmail = weakSelf.getEmail
+                                weakSelf.navigationController?.pushViewController(changePwd!, animated: true)
+                                return
+                            }
+                            weakSelf.iscomeForgot = ""
+                            Utils.showMessage(type: .success, message: weakSelf.dicForgotVarification.succmsg)
+                            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
                             weakSelf.navigationController?.pushViewController(objVC, animated: true)
                         }
                         else {
@@ -157,6 +172,7 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
                     } else {}
 
                 } else {
+                    Utils.hideProgressHud()
                 }
 
             }
@@ -165,6 +181,10 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
     }
     
     func callResendApi(){
+        if !InternetConnectionManager.isConnectedToNetwork() {
+                Utils.showMessage(type: .error, message: CommonManager.Messages.NoInternet)
+            return
+        }
         Utils.showProgressHud()
         let apiUrl = ApiList.URL.Host  + ApiList.URL.Auth.resendOTPEndpoint
         let param = ["email":getEmail]

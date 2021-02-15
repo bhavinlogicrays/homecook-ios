@@ -16,7 +16,7 @@ class DashBoardRunningOrderVCCell: UITableViewCell {
     @IBOutlet weak var lblFoodPrice: UILabel!
     @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var btnCancel: UIButton!
-    
+
     // MARK: - Cell Methods
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,11 +34,11 @@ class DashBoardRunningOrderVCCell: UITableViewCell {
         lblFoodType.layer.cornerRadius = lblFoodType.frame.size.height/2
         lblFoodType.layer.masksToBounds = true
         
-        btnDone.layer.cornerRadius = btnDone.frame.size.height/2
-        btnDone.layer.masksToBounds = true
         
         btnCancel.layer.cornerRadius = btnCancel.frame.size.height/2
         btnCancel.layer.masksToBounds = true
+        
+
     }
 
 }

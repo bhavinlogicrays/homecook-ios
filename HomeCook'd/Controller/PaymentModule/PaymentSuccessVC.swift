@@ -18,8 +18,8 @@ class PaymentSuccessVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        if  strIsComefrom ==  "Chef" {
+        let strgetValue  = UserDefaults.standard.value(forKey: "isLogin") as? String
+        if  strgetValue ==  "Chef"  || strgetValue != nil {
             btnBackToHome.isHidden = true
             btnOk.setTitle("Ok", for: .normal)
             lblSuccess.text = "Withdraw Successful"
@@ -46,7 +46,10 @@ class PaymentSuccessVC: UIViewController {
 
 
     @IBAction func onClickOk(_ sender: UIButton) {
-        if strIsComefrom ==  "Chef" {
+        
+        let strgetValue  = UserDefaults.standard.value(forKey: "isLogin") as? String
+
+        if strgetValue ==  "Chef"  || strgetValue != nil{
             isPayment = true
             self.navigationController?.popToViewController(ofClass: TabVC.self)
         }
