@@ -1,7 +1,3 @@
-//
-//  RegisterVC2.swift
-//
-
 import UIKit
 import Alamofire
 import SwiftyJSON
@@ -34,11 +30,15 @@ class RegisterVC2: UIViewController,UITextFieldDelegate,ImagePickerDelegate,UIPi
     var arrAm = [String]()
     var arrPM = [String]()
     var dictRegResponse  = RegisterModule()
-var arrData = [[String]]()
+    var arrData = [[String]]()
     var  imagePicker: ImagePicker!
     let  SelectionPicker = UIPickerView()
     var activeTextField = Int()
+    var strImageSel = String()
     let radioController: RadioButtonManage = RadioButtonManage()
+    var isImagePicked:Bool = false
+
+    var StrSelect:String = ""
 
 
     // MARK: - ViewController Methods
@@ -66,12 +66,6 @@ var arrData = [[String]]()
         SelectionPicker.delegate = self
         txtCooking.inputView = SelectionPicker
         txtTime.inputView = SelectionPicker
-        if activeTextField == 0 {
-            SelectionPicker.delegate?.pickerView?(SelectionPicker, didSelectRow: 0, inComponent: 0)
-        }
-        else {
-            SelectionPicker.delegate?.pickerView?(SelectionPicker, didSelectRow: 0, inComponent: 4)
-        }
     }
     
     func createToolbar()
@@ -111,6 +105,19 @@ var arrData = [[String]]()
         @objc func closePickerView()
         {
             view.endEditing(true)
+            if activeTextField == 1 {
+                if StrSelect == ""
+                {
+                    txtTime.text =  "Sun-Mon, \(arrData[0][0])AM - \(arrData[2][0])PM"
+                                dictData["hours_from"] = arrData[0][0]
+                                dictData["hours_to"] = arrData[2][0]
+                }
+            }
+            else {
+                if txtCooking.text  == "" {
+                    txtCooking.text = arrSelectPassion[0]
+                }
+            }
         }
 
     
@@ -133,7 +140,7 @@ var arrData = [[String]]()
     
     @IBAction func onClickRegister(_ sender: Any) {
         self.view.endEditing(true)
-        checkValidation()
+            checkValidation()
     }
     
     @IBAction func btnUploadCertiClick(_ sender: Any) {
@@ -183,20 +190,17 @@ var arrData = [[String]]()
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        txtTemp.resignFirstResponder()
-        return true
-    }
-    
     
     // MARK: -ImagePicker
 
     func didSelect(image: UIImage?) {
         if image == nil
         {
-            imgCerti.image  = #imageLiteral(resourceName: "upload-video")
+            imgCerti.image  = UIImage(named: "upload-video")
+            isImagePicked = false
             return
         }
+        isImagePicked = true
         imgCerti.layer.cornerRadius = imgCerti.frame.size.width / 2
         imgCerti.layer.borderWidth = 1
         imgCerti.layer.borderColor = UIColor.clear.cgColor
@@ -209,7 +213,7 @@ var arrData = [[String]]()
             return 1
         }
         else {
-            return 4
+            return arrData.count
         }
     }
 
@@ -219,18 +223,7 @@ var arrData = [[String]]()
             return arrSelectPassion.count
         }
         else {
-            return arrData.count
-//            if component == 0 {
-//                return arrFrom.count
-//            }
-//            else if component == 2
-//            {
-//                return arrTo.count
-//            }
-//            else {
-//                return 1
-//            }
-          
+            return arrData[component].count
         }
     }
 
@@ -242,22 +235,6 @@ var arrData = [[String]]()
         }
         else {
             return arrData[component][row]
-//            if component == 0 {
-//                return arrFrom[row]
-//            }
-//            else if component == 1
-//            {
-//                return arrAm[row]
-//            }
-//
-//            else if component == 2
-//            {
-//                return arrTo[row]
-//            }
-//            else {
-//                return arrPM[row]
-//            }
-            
         }
     }
 
@@ -267,15 +244,8 @@ var arrData = [[String]]()
             txtCooking.text = arrSelectPassion[row]
         }
         else {
-//            let selIndexfrom = pickerView.selectedRow(inComponent: 0)
-//            let strFrom = arrFrom[selIndexfrom]
-//            let selIndexto = pickerView.selectedRow(inComponent: 2)
-//            let strTo = arrTo[selIndexto]
-//            txtTime.text = "Sun-Mon, \(strFrom)AM - \(strTo)PM"
-//            dictData["hours_from"] = strFrom
-//            dictData["hours_to"] = strTo
-            
-            txtTime.text =  "Sun-Mon, \(arrData[0][row])AM - \(arrData[2])PM"
+            StrSelect = "Sun-Mon, \(arrData[0][row])AM - \(arrData[2][row])PM"
+            txtTime.text =  "Sun-Mon, \(arrData[0][row])AM - \(arrData[2][row])PM"
                         dictData["hours_from"] = arrData[0][row]
                         dictData["hours_to"] = arrData[2][row]
 
@@ -307,11 +277,19 @@ var arrData = [[String]]()
             return
         }
         
+        if  isImagePicked == false {
+            Utils.showMessage(type: .error, message: "Please select certificate")
+            return
+        }
       callApi()
     }
     
     //MARK:- ApiCall
     func callApi() {
+        if !InternetConnectionManager.isConnectedToNetwork() {
+                Utils.showMessage(type: .error, message: CommonManager.Messages.NoInternet)
+            return
+        }
         Utils.showProgressHud()
         let headers: HTTPHeaders = [
                     "Content-type": "multipart/form-data"
@@ -322,9 +300,9 @@ var arrData = [[String]]()
         var strPassionateCooking = String()
 
         if btnDelivery.isSelected == true {
-            strServiceType = "1"
+            strServiceType = "Deliver"
         } else {
-            strServiceType = "0"
+            strServiceType = "Pickup"
         }
         
         if txtCooking.text  == "Yes"  {
@@ -332,14 +310,13 @@ var arrData = [[String]]()
          }
         else {
             strPassionateCooking = "1"
-
         }
-        let param = ["name":dictData["name"] as! String,"email":dictData["email"],"phone":dictData["phone"]as! String,"password":txtPassword.text!,"city":dictData["city"]as! String,"postcode":dictData["postcode"]as! String,"address":dictData["address"] as! String,"service_type":strServiceType,"is_cooking_passionate":strPassionateCooking,"hours_from":dictData["hours_from"]as! String,"hours_to":dictData["hours_to"] as! String,"app_secret":"lara_food_321"]
+        var param = ["name":dictData["name"] as! String,"email":dictData["email"],"phone":dictData["phone"]as! String,"password":txtPassword.text!,"city":dictData["city"]as! String,"postcode":dictData["postcode"]as! String,"address":dictData["address"] as! String,"service_type":strServiceType,"is_cooking_passionate":strPassionateCooking,"hours_from":dictData["hours_from"]as! String,"hours_to":dictData["hours_to"] as! String,"app_secret":"lara_food_321"]
         //profile_pic
-        let imagetoDataConvert = imgCerti.image!.pngData()
-       // let profileimagetoDataConvert = (dictData["image"] as! UIImage).pngData()
+         if dictData["image"]as? UIImage  == nil {
+            param["logo"] = ""
+        }
 
-        
         AF.upload(multipartFormData: { multipartFormData in
             for (key, value) in param {
                 if let temp = value as? String {
@@ -360,20 +337,23 @@ var arrData = [[String]]()
                         }
                     })
                 }
-            }
-            
-            multipartFormData.append(imagetoDataConvert!, withName: "certificate", fileName: "\(Date.init().timeIntervalSince1970).png", mimeType: "image/png")
-//            multipartFormData.append(profileimagetoDataConvert, withName: "profile_pic", fileName: "\(Date.init().timeIntervalSince1970).png", mimeType: "image/png")
 
-            
+            }
+            multipartFormData.append(self.imgCerti.image!.pngData()!, withName: "certificate", fileName: "\(Date.init().timeIntervalSince1970).png", mimeType: "image/png")
+            if dictData["image"]as? UIImage  != nil{
+                 let profileimagetoDataConvert = (dictData["image"] as! UIImage).pngData()
+                multipartFormData.append(profileimagetoDataConvert!, withName: "logo", fileName: "\(Date.init().timeIntervalSince1970).png", mimeType: "image/png")
+            }
         },
         to: urlReq, method: .post , headers: headers).uploadProgress(queue: .main, closure: { progress in
             print("Upload Progress: \(progress.fractionCompleted)")
+            
         })
             .responseJSON(completionHandler: { (response) in
                 Utils.hideProgressHud()
                 if let err = response.error{
                     print(err)
+                    Utils.showMessage(type: .error, message: "Something went wrong!")
                     return
                 }
                 let json = response.data
@@ -389,17 +369,19 @@ var arrData = [[String]]()
                         {
                             Utils.showMessage(type: .success, message: "OTP sent to your registered email id")
                         let nextVC  = STORYBOARD.instantiateViewController(withIdentifier: "PassWordVarificationVC") as! PassWordVarificationVC
+                            nextVC.getEmail = dictData["email"] as? String ?? ""
                             self.navigationController?.pushViewController(nextVC, animated: true)
                         }
                         else {
-                            
-                            
-//                            Utils.showMessage(type: .error, message: dicResponseData[""])
+                            let errorDict = dicResponseData["errMsg"]?.dictionary
+                            let arry = Array(errorDict!)[0].value
+                            print("Array:\(arry)")
+                            let showMsg = arry[0].string
+                            Utils.showMessage(type: .error, message: showMsg!)
                         }
                     }
-
-                }
+                    }
+                
             })
       }
 }
-

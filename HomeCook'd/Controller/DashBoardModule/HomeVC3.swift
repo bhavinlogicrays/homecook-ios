@@ -128,7 +128,7 @@ class HomeVC3: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
             return CGSize(width: self.collectionViewFoodImg.frame.size.width, height: self.collectionViewFoodImg.frame.size.height)
         }
         if collectionView == collViewFoodCat {
-            return CGSize(width:(self.view.frame.size.width / 4  )    , height: (self.collViewFoodCat.frame.size.height ))
+            return CGSize(width:(self.view.frame.size.width - 30 / 4  )    , height: (self.collViewFoodCat.frame.size.height ))
         }
         return CGSize(width:((self.collectionViewItems.frame.size.width - 10) / 2 ), height: 140)
     }

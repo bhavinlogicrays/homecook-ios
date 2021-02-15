@@ -44,8 +44,10 @@ class PaymentMethodVC: UIViewController,UICollectionViewDelegate,UICollectionVie
     }
     
     @IBAction func onClickWithdraw(_ sender: UIButton) {
-        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
-        self.navigationController?.pushViewController(objVC, animated: true)
+       
+            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
+            self.navigationController?.pushViewController(objVC, animated: true)
+        
     }
     
     // MARK: - Delegate Methods

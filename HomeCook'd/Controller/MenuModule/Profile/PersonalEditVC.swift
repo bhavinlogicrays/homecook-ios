@@ -47,20 +47,7 @@ class PersonalEditVC: UIViewController,UITextFieldDelegate {
         txtSetServiceTime.setLeftPaddingPoints(15)
         txtSetServiceTime.setRightPaddingPoints(15)
         
-//        btnEdit.isSelected = false
-//        if DELEGATE.strIsComefrom == "Chef" {
-//            txtSetServiceTime.isHidden = false
-//            lblSetServiceTime.isHidden = false
-//            btnEditImg.isHidden = true
-//            imgSetService.isHidden = false
-//
-//        } else {
-//            txtSetServiceTime.isHidden = true
-//            lblSetServiceTime.isHidden = true
-//            btnEditImg.isHidden = false
-//            imgSetService.isHidden = true
-//
-//        }
+
     }
     
     @IBAction func onClickBack(_ sender: Any) {

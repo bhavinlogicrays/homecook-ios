@@ -18,7 +18,7 @@ class TabVC: UIViewController {
     
     var btnTemp: UIButton!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var tabView: UIView!
+    @IBOutlet weak var tabView: UIStackView!
     @IBOutlet weak var imgTab1: UIImageView!
     @IBOutlet weak var imgTab2: UIImageView!
     @IBOutlet weak var imgTab3: UIImageView!
@@ -35,15 +35,15 @@ class TabVC: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        
+        tabView.layer.cornerRadius = 20.0
+        tabView.layer.borderWidth = 1
+        tabView.layer.borderColor  = UIColor.clear.cgColor
+
         tabView.layer.shadowColor = UIColor.init(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.05).cgColor
         tabView.layer.shadowOpacity = 1
         tabView.layer.shadowOffset = CGSize(width: 0, height: -4)
         tabView.layer.shadowRadius = 5
 
-        tabView.layer.cornerRadius = 20.0
-       
-       
         
         objVC1 = STORYBOARD.instantiateViewController(withIdentifier: "DashBoardVC") as? DashBoardVC
         objVC2 = STORYBOARD.instantiateViewController(withIdentifier: "MyFoodVC") as? MyFoodVC
@@ -88,7 +88,7 @@ class TabVC: UIViewController {
             imgTab2.image = UIImage(named: "sel_menu.png")
         }
         else if(btnTemp == btn3) {
-            imgTab3.image = UIImage(named: "sel_plus.png")
+            imgTab3.image = UIImage(named: "Plus-1")
         }
         else if(btnTemp == btn4) {
             imgTab4.image = UIImage(named: "sel_notification.png")
@@ -108,6 +108,7 @@ class TabVC: UIViewController {
         addChild(selectedVC)
         selectedVC.view.frame = containerView.bounds
         containerView.addSubview(selectedVC.view)
+        selectedVC.viewDidLoad()
         selectedVC.didMove(toParent: self)
         
     }

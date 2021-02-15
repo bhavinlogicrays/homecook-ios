@@ -4,14 +4,14 @@
 
 import UIKit
 import Alamofire
-
+import SDWebImage
 
 class LogInVC: UIViewController,UITextFieldDelegate {
     
     
     // MARK: - Variables
     var strSetTitle:String = ""
-
+    
     // MARK: - UIControls
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -21,24 +21,24 @@ class LogInVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var btnHideUnhidePassword: UIButton!
     @IBOutlet weak var btnRememberme: UIButton!
     @IBOutlet weak var imgRemember: UIImageView!
-
+    
     var txtTemp: UITextField!
     var isRememberClick:Bool = false
     var isHideUnhidePwd:Bool = false
-
+    
     lazy var dicLogin = LoginResponseModel()
-
+    
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        setUI()
-        
     }
-   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setUI()
+    }
+    
     // MARK: - UI Methods
-
+    
     func setUI() {
         txtEmail.keyboardType = UIKeyboardType.emailAddress
         txtPassword.keyboardType = UIKeyboardType.default
@@ -48,7 +48,7 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         CommonManager.setBorder(textField: txtPassword )
         CommonManager.setCorner(button: btnLogin)
         
-        btnRegister.setTitle(strSetTitle, for: .normal)
+        //        btnRegister.setTitle(strSetTitle, for: .normal)
         btnRegister.layer.masksToBounds = false
         btnRegister.layer.cornerRadius = 10.0
         btnRegister.layer.borderWidth = 1.0
@@ -64,30 +64,40 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         
         if strIsComefrom ==  "Chef"  {
             viewSocialMedia.isHidden = true
+            btnRegister.setTitle("Register", for: .normal)
+            
+            let retrievedString: String? = KeychainWrapper.standard.string(forKey: "email")
+            let retrievedString1: String? = KeychainWrapper.standard.string(forKey: "password")
+
+            if (retrievedString != "" && retrievedString1 != "") && (retrievedString != nil && retrievedString1 != nil)  {
+                self.txtEmail.text = retrievedString
+                self.txtPassword.text = retrievedString1
+                isRememberClick = true
+                imgRemember.image  = UIImage(named: "CheckMark")
+
+            }
+            else {
+                self.txtEmail.text = ""
+                self.txtPassword.text = ""
+                isRememberClick = false
+                imgRemember.image  = UIImage(named: "uncheck")
+
+            }
+
         } else {
             viewSocialMedia.isHidden = false
+            btnRegister.setTitle("Create Account", for: .normal)
         }
-        
-//        if UserDefaults.standard.value(forKey: "email") as? String  != nil  && UserDefaults.standard.value(forKey: "email") as? String != nil {
-//            txtEmail.text = UserDefaults.standard.value(forKey: "email") as? String
-//            txtPassword.text = UserDefaults.standard.value(forKey: "password") as? String
-//        }
-//        else {
-//            txtEmail.text = ""
-//            txtPassword.text = ""
-//        }
+
+
 
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        Utils.hideProgressHud()
-    }
-    
     
     // MARK: - IBAction Methods
     @IBAction func onClickBack(_ sender: Any) {
         self.view.endEditing(true)
-        navigationController?.popViewController(animated: true)
+        let dashboardVC = navigationController!.viewControllers.filter { $0 is WelComeVC }.first!
+        navigationController!.popToViewController(dashboardVC, animated: true)
     }
     
     @IBAction func onClickForgotPassWord(_ sender: Any) {
@@ -95,8 +105,17 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "ForgotPassWordVC") as! ForgotPassWordVC
         self.navigationController?.pushViewController(objVC, animated: true)
     }
+    
     @IBAction func onClickLogIn(_ sender: Any) {
-        checkValidation()
+        self.view.endEditing(true)
+        if strIsComefrom == "Chef" {
+            checkValidation()
+            
+        }
+        else {
+            let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
+            self.navigationController?.pushViewController(objVC, animated: true)
+        }
     }
     
     @IBAction func onClickRememberMe(_ sender: Any) {
@@ -108,10 +127,10 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         else {
             isRememberClick = true
             imgRemember.image  = UIImage(named: "CheckMark")
-
+            
         }
     }
-
+    
     @IBAction func onClickHideUnhidePassword(_ sender: Any) {
         self.view.endEditing(true)
         if btnHideUnhidePassword.isSelected {
@@ -123,7 +142,7 @@ class LogInVC: UIViewController,UITextFieldDelegate {
             txtPassword.isSecureTextEntry = false
         }
     }
-
+    
     
     @IBAction func onClickRegister(_ sender: Any) {
         self.view.endEditing(true)
@@ -157,30 +176,46 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         self.view.endEditing(true)
         guard let stremail = txtEmail.text,  stremail.count > 0 else {
             Utils.showMessage(type: .error, message:"Please enter email")
-        return
-    }
+            return
+        }
         guard let strpwd = txtPassword.text,  strpwd.count > 0 else {
             Utils.showMessage(type: .error, message:"Please enter password")
-        return
-    }
-        
+            return
+        }
         
         if isRememberClick == true {
-            UserDefaults.standard.set(txtEmail.text!, forKey: "email")
-            UserDefaults.standard.set(txtPassword.text!, forKey: "password")
-            UserDefaults.standard.synchronize()
+//            guard let userName = self.txtEmail.text,
+//                  let password = self.txtPassword.text else { return }
+                
+            let strEmail: String = self.txtEmail.text!
+            let strPass: String = self.txtPassword.text!
+            let saveSuccessful: Bool = KeychainWrapper.standard.set(strEmail, forKey: "email")
+            let saveSuccessful1: Bool = KeychainWrapper.standard.set(strPass, forKey: "password")
+
+            print(saveSuccessful)
+            print(saveSuccessful1)
+
+            
+
+//            let keychain = KeychainSwift()
+//            keychain.accessGroup = "$(AppIdentifierPrefix)com.homecook.application"
+//            keychain.set(userName, forKey: "userName")
+//            keychain.set(password, forKey: "password")
         }
-        //callApi()
-}
+        callApi()
+    }
     
     //MARK:- Api Call
     func callApi(){
-        Utils.showProgressHud()
         let apiUrl = ApiList.URL.Host  + ApiList.URL.Auth.loginEndpoint
         let param = ["email":txtEmail.text!,
                      "password":txtPassword.text!]
         let header:HTTPHeaders = ["Content-Type":"application/json"]
-
+        if !InternetConnectionManager.isConnectedToNetwork() {
+            Utils.showMessage(type: .error, message: CommonManager.Messages.NoInternet)
+            return
+        }
+        Utils.showProgressHud()
         API_SHARED.callAPIForGETorPOST(strUrl: apiUrl , parameters:param, httpMethodForGetOrPost: .post, setheaders: header) {[weak self] (dicResponseWithSuccess ,_)  in
             if let weakSelf = self {
                 if  let jsonResponse = dicResponseWithSuccess {
@@ -188,35 +223,58 @@ class LogInVC: UIViewController,UITextFieldDelegate {
                         return
                     }
                     if let dicResponseData = jsonResponse.dictionary {
-                    
+                        
                         weakSelf.dicLogin = LoginResponseModel().initWithDictionary(dictionary: dicResponseData)
                         if weakSelf.dicLogin.status == true {
                             if strIsComefrom ==  "Chef" {
-                                let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
-                                isLogin = true
-                                weakSelf.navigationController?.pushViewController(objVC, animated: true)
+                                    let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
+                                    UserDefaults.standard.setValue(weakSelf.dicLogin.token, forKey: "app_token")
+                                    DELEGATE.isLogin = true
+                                    UserDefaults.standard.setValue("true", forKey: "isLogin")
+                                    weakSelf.navigationController?.pushViewController(objVC, animated: true)
+                                
                             }
                             else{
                                 let objVC = STORYBOARD.instantiateViewController(withIdentifier: "Customer_TabVC") as! Customer_TabVC
-                                isLogin = true
+                                DELEGATE.isLogin = true
                                 weakSelf.navigationController?.pushViewController(objVC, animated: true)
                             }
+                            UserDefaults.standard.setValue(strIsComefrom, forKey: "isCome")
+                            UserDefaults.standard.synchronize()
                         }
                         else {
-                            Utils.showMessage(type: .error, message: "Invalid Login Details")
-                        }
-                    } else {}
+                            if weakSelf.dicLogin.userStatus == "0" {
+                                Utils.showMessage(type: .error, message: dicResponseData["errMsg"]?.string ?? "Your email is not verified. Please verify your email first")
 
+                                let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PassWordVarificationVC") as! PassWordVarificationVC
+                                objVC.getEmail = weakSelf.txtEmail.text!
+                                weakSelf.txtEmail.text = ""
+                                weakSelf.txtPassword.text = ""
+                                weakSelf.navigationController?.pushViewController(objVC, animated: true)
+                            }
+                            
+                            else if weakSelf.dicLogin.userStatus == "2" {
+                                Utils.showMessage(type: .error, message: dicResponseData["errMsg"]?.string ?? "Your certificate is not approved by admin")
+                                return
+                            }
+                            else {
+                                Utils.showMessage(type: .error, message: dicResponseData["errMsg"]?.string ?? "")
+                            }
+                        }
+                    } else {
+                        Utils.showMessage(type: .error, message: "Something went wrong!")
+                    }
+                    
                 } else {
                 }
                 
             }
-            }
+        }
         
         
         
     }
     
-
+    
 }
 

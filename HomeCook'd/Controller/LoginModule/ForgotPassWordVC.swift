@@ -88,11 +88,14 @@ class ForgotPassWordVC: UIViewController,UITextFieldDelegate {
        
     //MARK:- Api Call
     func callApi(){
+        if !InternetConnectionManager.isConnectedToNetwork() {
+                Utils.showMessage(type: .error, message: CommonManager.Messages.NoInternet)
+            return
+        }
         Utils.showProgressHud()
         let apiUrl = ApiList.URL.Host  + ApiList.URL.Auth.forgotPasswordEndpoint
         let param = ["email":txtEmail.text!]
         let header:HTTPHeaders = ["Content-Type":"application/json"]
-
         API_SHARED.callAPIForGETorPOST(strUrl: apiUrl , parameters:param, httpMethodForGetOrPost: .post, setheaders: header) {[weak self] (dicResponseWithSuccess ,_)  in
             if let weakSelf = self {
                 if  let jsonResponse = dicResponseWithSuccess {
@@ -106,11 +109,12 @@ class ForgotPassWordVC: UIViewController,UITextFieldDelegate {
 
                             Utils.showMessage(type:.success, message: weakSelf.dicForgotPassword.succmsg)
                             let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PassWordVarificationVC") as! PassWordVarificationVC
+                            objVC.iscomeForgot = "forgot"
                             objVC.getEmail = weakSelf.txtEmail.text!
                             weakSelf.navigationController?.pushViewController(objVC, animated: true)
                         }
                         else {
-                            Utils.showMessage(type: .error, message:dicResponseData["errMsg"] as? String ?? "")
+                            Utils.showMessage(type: .error, message:dicResponseData["errMsg"]?.string ?? "")
                         }
                     } else {}
 

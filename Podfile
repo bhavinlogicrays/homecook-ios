@@ -11,6 +11,7 @@ target 'HomeCook\'d' do
   pod 'IQKeyboardManagerSwift', '~> 6.5'
   pod 'Alamofire'
   pod 'SwiftMessages'
+  pod 'SDWebImage', '~> 5.10'
 
 
 end

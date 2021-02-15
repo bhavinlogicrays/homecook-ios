@@ -3,9 +3,7 @@
 
 import UIKit
 
-protocol MyFoodVCCellDelegate: NSObjectProtocol {
-    func didPressOnCell(_ Index: Int)
-}
+
 class MyFoodVCCell: UITableViewCell {
 
     // MARK:- Variables
@@ -16,9 +14,6 @@ class MyFoodVCCell: UITableViewCell {
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lblFoodName: UILabel!
     @IBOutlet weak var lblFoodType: UILabel!
-    @IBOutlet weak var lblRating: UILabel!
-    @IBOutlet weak var lblReviews: UILabel!
-    weak var delegate: (NSObjectProtocol & MyFoodVCCellDelegate)?
     
     // MARK: - Cell Methods
     override func awakeFromNib() {
@@ -38,7 +33,4 @@ class MyFoodVCCell: UITableViewCell {
         lblFoodType.layer.masksToBounds = true
     }
 
-    @IBAction func onClickCell(_ sender: Any) {
-        delegate?.didPressOnCell(row)
-    }
 }
