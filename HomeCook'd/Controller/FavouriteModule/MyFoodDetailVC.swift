@@ -63,6 +63,7 @@ class MyFoodDetailVC: UIViewController,UICollectionViewDelegate,UICollectionView
     @IBAction func OnClickEdit(_ sender: Any) {
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "EditItemsVC") as! EditItemsVC
         objVC.dictResponsefromDetail = dictFoodDeatil
+        objVC.itemID = passitemid
         self.navigationController?.pushViewController(objVC, animated: true)
     }
     

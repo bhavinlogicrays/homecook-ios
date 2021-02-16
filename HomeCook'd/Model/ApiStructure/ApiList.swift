@@ -54,7 +54,7 @@ class ApiList:NSObject{
         }
         
         struct AddUpdateItem{
-            static let addItem  = "/userprofile"
+            static let addItem  = "/addnewfooditem"
             static let updateItem = "/updatefooddetail"
 
         }

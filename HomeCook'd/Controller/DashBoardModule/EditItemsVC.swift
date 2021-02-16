@@ -38,18 +38,20 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
     var dictResponsefromDetail  = FoodDetail_SubRes()
     var dictAllIng  = IngModule()
     var dictsubIng  = IngGettingModel()
+    var arrPassIng = [IngArryStore]()
+    var arrGetImages  = [JSON]()
     var txtTemp: UITextField!
-
+    var itemID:String? = ""
     fileprivate let pickerView = CommonPicker()
     var arrCatPick = [JSON]()
     var selectedIndex  = Int()
     let pickerController = UIImagePickerController()
-
+    var arrUploadImage = [[String:Data]]()
 
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrImg = [["img":"","isVideo":"0","videoUrl":""],["img":"","isVideo":"0","videoUrl":""],["img":"","isVideo":"0","videoUrl":""],["img":"","isVideo":"0","videoUrl":""]]
+//        arrImg = [["img":"","isVideo":"0","videoUrl":""],["img":"","isVideo":"0","videoUrl":""],["img":"","isVideo":"0","videoUrl":""],["img":"","isVideo":"0","videoUrl":""]]
         btnReset.isSelected = false
         viewSub.isUserInteractionEnabled = false
        setUI()
@@ -79,7 +81,27 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         CommonManager.txtfiedSetColor(txtvalue:dictResponsefromDetail.catName,textfield: self.txtcatType)
         CommonManager.txtViewSetColor(txtvalue:dictResponsefromDetail.itemDesc,textView: self.detailTextView)
         
-        
+        arrGetImages = dictResponsefromDetail.arrImages
+        if arrGetImages.count ==  1 {
+                var dict = arrImg[0]
+                dict["img"] = arrGetImages[0].stringValue
+            arrImg[0] = dict
+        }
+        else if arrGetImages.count > 1  {
+            for i in 0..<4 {
+                if i == (arrGetImages.count)
+                {
+                    arrGetImages.append("")
+                    arrImg.append(["img":"","isVideo":"0","videoUrl":""])
+
+                }
+                else  {
+                    let strImage = arrGetImages[i].stringValue
+                    arrImg.append(["img":strImage,"isVideo":"0","videoUrl":""])
+                }
+            }
+        }
+        self.collUploadPhoto.reloadData()
     }
     
     // MARK: - IBAction Methods
@@ -128,7 +150,8 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if collectionView == collectionViewIngradients {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "cellViewExpandCollapse", for: indexPath) as! cellViewExpandCollapse
-            if arrMainIng[indexPath.section].arrIngList.count > 5 {
+            headerView.lblHeaderTitle.text =  arrMainIng[indexPath.section].strIngType
+            if arrMainIng[indexPath.section].arrIngList.count <= 5 {
                 headerView.btnFoodIng.isHidden = true
                 headerView.imgDropdown.isHidden = true
             }
@@ -137,8 +160,6 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
                 headerView.imgDropdown.isHidden = false
             }
             
-            
-            headerView.lblHeaderTitle.text =  arrMainIng[indexPath.section].strIngType
             headerView.btnFoodIng.tag = indexPath.section
             headerView.btnFoodIng.addTarget(self, action: #selector(btnExpandTapp(_ :)), for: .touchUpInside)
             return headerView
@@ -169,7 +190,8 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
             let cell = collUploadPhoto.dequeueReusableCell(withReuseIdentifier: "CellUploadPhoto", for: indexPath) as! CellUploadPhoto
             let dict = arrImg[indexPath.row]
             if dict["img"] as? String != "" {
-                cell.imgIngrs.image =  dict["img"] as? UIImage
+//                cell.imgIngrs.image =  dict["img"] as? UIImage
+                cell.imgIngrs.sd_setImage(with:URL(string: dict["img"]as! String), placeholderImage: UIImage(named:"Group 3265"))
             }
             else {
                 cell.imgIngrs.image  = UIImage(named:"Group 3265")
@@ -182,7 +204,7 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
 
             }
             cell.imgIngrs.layer.cornerRadius = 8.0
-            cell.imgIngrs.layer.borderColor = UIColor.lightGray.cgColor
+            cell.imgIngrs.layer.borderColor = UIColor.clear.cgColor
             cell.imgIngrs.layer.borderWidth = 1.0
             cell.btnPicker.tag  = indexPath.row
             cell.btnPicker.addTarget(self, action: #selector(btnVideoTapped(_:)), for: .touchUpInside)
@@ -191,23 +213,14 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         else {
           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EditItemVCCell", for: indexPath) as! EditItemVCCell
             cell.imgIngrs.sd_setImage(with: URL(string:arrMainIng[indexPath.section].arrIngList[indexPath.row].ingName),placeholderImage: UIImage(named: "onion"))
-//            if arrIng[indexPath.row].isSelected ==  1 {
-//                cell.isSelected = true
-//                cell.imgIngrs.image = UIImage(named: "onion")
-//            }
-//            else {
-//                cell.isSelected = false
-//                cell.imgIngrs.image = UIImage(named: "b-onion")
-//
-//            }
             cell.lblIngrName.text = arrMainIng[indexPath.section].arrIngList[indexPath.row].ingName
             cell.lblIngrName2.text = ""
             let arr1  = (self.arrMainIng[indexPath.section].arrIngList)
             if arrMainIng[indexPath.section].isExp == "0" {
-                self.collIngHeight.constant = CGFloat(Float(self.arrMainIng.count) * (Float(arr1.count) / 5.0) * 100)
+                self.collIngHeight.constant = CGFloat(Float(self.arrMainIng.count) * (Float(arr1.count) / 5.0) * 100) + 50
             } else {
-                let floatingvalue  =  Double((Float(self.arrMainIng[indexPath.section].arrIngList.count)) / 5.0).rounded(.up)
-                self.collIngHeight.constant = (CGFloat(floatingvalue * 100)) * CGFloat(self.arrMainIng.count)
+                let floatingvalue  =  Double((Float(self.arrMainIng[indexPath.section].arrIngList.count) / 5.0)).rounded(.up)
+                self.collIngHeight.constant = ((CGFloat(floatingvalue * 100)) * CGFloat(self.arrMainIng.count))
             }
             self.collectionViewIngradients.layoutIfNeeded()
             self.collectionViewIngradients.updateConstraintsIfNeeded()
@@ -297,9 +310,10 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
     
     //MARK:- Validation
     func checkValidation() {
-//        guard let strItemName
-        
-        
+        guard let strItemName = txtItmName.text,strItemName.count > 0 else  {
+            Utils.showMessage(type: .error, message: "Please enter item name")
+            return
+        }
         
         
     }
@@ -355,7 +369,6 @@ extension EditItemsVC:UINavigationControllerDelegate,UIImagePickerControllerDele
                 dict["img"] = editedImage
                 dict["isVideo"] = "0"
                 dict["videoUrl"] = ""
-
                 arrImg[i] = dict
             }
         }
@@ -427,6 +440,93 @@ extension EditItemsVC:UIPickerViewDataSource,UIPickerViewDelegate{
     //MARK:- Api Call
     
     func callEditItemApi() {
+        let apiUrl = ApiList.URL.Host  + ApiList.URL.AddUpdateItem.updateItem
+        let strToken = UserDefaults.standard.value(forKey: "app_token") as? String
+        let headers: HTTPHeaders = [
+                    "Content-type": "multipart/form-data"
+                ]
+
+        if !InternetConnectionManager.isConnectedToNetwork() {
+                Utils.showMessage(type: .error, message: CommonManager.Messages.NoInternet)
+            return
+        }
+        var param = ["api_token":strToken ?? ""] as [String : Any]
+        Utils.showProgressHud()
+        param["item_name"] = txtItmName.text
+        param["prime"] = txtPrice.text
+        param["description"] = detailTextView.text
+        param["item_id"] = itemID
+        param["food_type"] = txtcatType.text
+        
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            for (key, value) in param {
+                if let temp = value as? String {
+                    multipartFormData.append(temp.data(using: .utf8)!, withName: key)
+                }
+                if let temp = value as? Int {
+                    multipartFormData.append("\(temp)".data(using: .utf8)!, withName: key)
+                }
+                if let temp = value as? NSArray {
+                    temp.forEach({ element in
+                        let keyObj = key + "[]"
+                        if let string = element as? String {
+                            multipartFormData.append(string.data(using: .utf8)!, withName: keyObj)
+                        } else
+                            if let num = element as? Int {
+                                let value = "\(num)"
+                                multipartFormData.append(value.data(using: .utf8)!, withName: keyObj)
+                        }
+                    })
+                }
+            }
+            
+            for i in 0..<self.arrImg.count
+            {
+                let dict = self.arrImg[i]
+                
+                if dict["isVideo"] as? String != "1" {
+                    let strImage  = (dict["img"] as? UIImage)?.pngData()
+                    self.arrUploadImage.append(["img":strImage!])
+                }
+                else {
+                    let strVideo  = (dict["img"] as? URL )
+//                    self.arrUploadImage.append(["img":strVideo!])
+
+                }
+            }
+            for i  in 0..<self.arrUploadImage.count {
+                
+                multipartFormData.append(self.arrImg[i]["img"]as! Data, withName: "image\(i+2)",fileName: "\(Date.init().timeIntervalSince1970).png",mimeType: "image/png")
+            }
+        },
+        to: apiUrl, method: .post , headers: headers).uploadProgress(queue: .main, closure: { progress in
+            print("Upload Progress: \(progress.fractionCompleted)")
+            
+        })
+            .responseJSON(completionHandler: { (response) in
+                Utils.hideProgressHud()
+                if let err = response.error{
+                    print(err)
+                    Utils.showMessage(type: .error, message: "Something went wrong!")
+                    return
+                }
+                let json = response.data
+                if (json != nil)
+                {
+                    let jsonObject = JSON(json!)
+                    guard jsonObject.dictionary != nil else {
+                        return
+                    }
+                    if let dicResponseData = jsonObject.dictionary {
+//                        self.dictRegResponse = RegisterModule().initWithDictionary(dictionary: dicResponseData)
+                       
+                    }
+                    }
+                
+            })
+    
+
         
     }
     func callAllIngApi() {
@@ -467,10 +567,8 @@ extension EditItemsVC:UIPickerViewDataSource,UIPickerViewDelegate{
                                     weakSelf.collectionViewIngradients.reloadData()
                                     weakSelf.collectionViewIngradients.layoutIfNeeded()
                                     weakSelf.collectionViewIngradients.updateConstraintsIfNeeded()
-
                                 }
                     }
-                    
                             weakSelf.pickerController.delegate = weakSelf
                             weakSelf.pickerView.dataSource = weakSelf
                             weakSelf.pickerView.delegate = weakSelf
@@ -485,6 +583,7 @@ extension EditItemsVC:UIPickerViewDataSource,UIPickerViewDelegate{
                     }
 
                 } else {
+                    
                 }
 
             }
