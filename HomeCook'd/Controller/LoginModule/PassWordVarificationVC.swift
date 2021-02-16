@@ -17,12 +17,16 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var txtCode4: UITextField!
     @IBOutlet weak var btnVerify: UIButton!
     @IBOutlet weak var btnResend: UIButton!
-    
+    @IBOutlet weak var lblDisplaySec: UILabel!
+
     var txtTemp: UITextField!
     lazy var dicForgotVarification = VerificationResponseModel()
     lazy var dicResend = ResendOtpModule()
     var getEmail =  String()
     var iscomeForgot:String = ""
+    var count = 50  // 60sec if you want
+    var resendTimer = Timer()
+
 
     // MARK: - ViewController Methods
     override func viewDidLoad() {
@@ -49,8 +53,9 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
         attributedString1.append(attributedString2)
 
         self.lblVerification.attributedText =  attributedString1
+        btnResend.isUserInteractionEnabled = false
+        resendTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
 
-        
         CommonManager.setBorder(textField: txtCode1)
         CommonManager.setBorder(textField: txtCode2)
         CommonManager.setBorder(textField: txtCode3)
@@ -67,12 +72,48 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
 //        let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
 //        self.navigationController?.pushViewController(objVC, animated: true)
         self.view.endEditing(true)
-        callApi()
+        guard let strCode1 = txtCode1.text,  strCode1.count > 0 else {
+            Utils.showMessage(type: .error, message:"Please enter verification code")
+        return
+    }
+        guard let strCode2 = txtCode2.text,  strCode2.count > 0 else {
+            Utils.showMessage(type: .error, message:"Please enter verification code")
+            return
+        }
+        guard let strCode3 = txtCode3.text,  strCode3.count > 0 else {
+            Utils.showMessage(type: .error, message:"Please enter verification code")
+            return
+        }
+        guard let strCode4 = txtCode4.text,  strCode4.count > 0 else {
+                        Utils.showMessage(type: .error, message:"Please enter verification code")
+            return
+        }
+
+        if self.iscomeForgot == "" {
+            self.iscomeForgot = "register"
+        }
+        callApi(strCome: self.iscomeForgot)
     }
     
     @IBAction func onClickResend(_ sender: Any) {
         self.view.endEditing(true)
         callResendApi()
+//        callResendApi()
+    }
+    @objc func update() {
+        if(count > 0) {
+            count = count - 1
+            print(count)
+            lblDisplaySec.text = "in \(count) sec"
+        }
+        else {
+            lblDisplaySec.text =  ""
+            btnResend.isUserInteractionEnabled = true
+            btnResend.setTitleColor(UIColor.red, for: .normal)
+            resendTimer.invalidate()
+            print("call your api")
+            // if you want to reset the time make count = 60 and resendTime.fire()
+        }
     }
     
     // MARK: - Delegate Methods
@@ -131,16 +172,16 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
     }
 
     //MARK:- Api Call
-    func callApi(){
+    func callApi(strCome:String){
         if !InternetConnectionManager.isConnectedToNetwork() {
                 Utils.showMessage(type: .error, message: CommonManager.Messages.NoInternet)
             return
         }
         Utils.showProgressHud()
-       
+
         let apiUrl = ApiList.URL.Host  + ApiList.URL.Auth.forgot_VarificationEndpoint
         let param = ["email":getEmail,
-                     "verification_code":txtCode1.text! + txtCode2.text! + txtCode3.text! + txtCode4.text!]
+                     "verification_code":txtCode1.text! + txtCode2.text! + txtCode3.text! + txtCode4.text!, "verified_from":strCome]
         let header:HTTPHeaders = ["Content-Type":"application/json"]
 
         API_SHARED.callAPIForGETorPOST(strUrl: apiUrl , parameters:param, httpMethodForGetOrPost: .post, setheaders: header) {[weak self] (dicResponseWithSuccess ,_)  in
@@ -167,7 +208,7 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
                             weakSelf.navigationController?.pushViewController(objVC, animated: true)
                         }
                         else {
-                            Utils.showMessage(type: .error, message: "Something went wrong!")
+                            Utils.showMessage(type: .error, message: dicResponseData["errMsg"]?.stringValue ?? "")
                         }
                     } else {}
 
@@ -202,12 +243,15 @@ class PassWordVarificationVC: UIViewController,UITextFieldDelegate {
                         
                         if weakSelf.dicResend.status == false {
                             
-                            Utils.showMessage(type:.success, message: weakSelf.dicResend.errormsg)
-
+                            Utils.showMessage(type:.error, message: weakSelf.dicResend.errMsg)
                         }
                         else {
-                            Utils.showMessage(type: .error, message: "Something went wrong!")
-                        }
+                            Utils.showMessage(type:.success, message: weakSelf.dicResend.sucMsg)
+                            weakSelf.count = 50
+                            weakSelf.resendTimer = Timer()
+                            weakSelf.resendTimer = Timer.scheduledTimer(timeInterval: 1, target: weakSelf,selector: #selector(weakSelf.update), userInfo: nil, repeats: true)
+
+                         }
                     } else {}
 
                 } else {

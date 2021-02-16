@@ -40,11 +40,21 @@ class ChangePasswordVC: UIViewController {
             return
         }
         
-        guard let strNew1  = txtConfirmNewPassord.text,strNew1.count > 0  else {
-            Utils.showMessage(type: .error, message: "Please enter confirm new  password")
+       if    txtNewPassword.text!.count < 6   {
+            Utils.showMessage(type: .error, message: "Password should contain 6 character")
+            return
+        }
+        guard let strNew3  = txtConfirmNewPassord.text,strNew3.count > 0  else {
+            Utils.showMessage(type: .error, message: "Please enter confirm password")
             return
         }
 
+        if   txtConfirmNewPassord.text!.count < 6   {
+            Utils.showMessage(type: .error, message: "Password should contain 6 character")
+            return
+        }
+
+        
         if txtConfirmNewPassord.text != txtNewPassword.text! {
             Utils.showMessage(type: .error, message: "Password not mached")
             return

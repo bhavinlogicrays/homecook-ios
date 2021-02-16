@@ -22,7 +22,7 @@ class ApiList:NSObject{
             static let registerEndpoint = "/chef/register"
             static let forgotPasswordEndpoint = "/forgot"
             static let forgot_VarificationEndpoint = "/verificationcode"
-            static let resendOTPEndpoint = "/verificationcode"
+            static let resendOTPEndpoint = "/resendotp"
             static let changePassword = "/resetpassword"
 
         }

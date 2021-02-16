@@ -15,19 +15,25 @@ class ResendOtpModule:NSObject
 
 {
     let Status  = "status"
-    let ErrorMsg  = "succMsg"
+    let SuccMsg  = "succMsg"
+    let ErrMsg  = "errMsg"
 
     lazy var status:Bool = false
-    lazy var errormsg = ""
+    lazy var sucMsg = ""
+    lazy var errMsg = ""
 
     func initWithDictionary(dictionary:[String : JSON]) -> ResendOtpModule {
        
-        if let item1 = dictionary[ErrorMsg]?.stringValue {
-            errormsg = item1
+        if let item1 = dictionary[SuccMsg]?.stringValue {
+            sucMsg = item1
         }
         if let item2 = dictionary[Status]?.boolValue {
             status = item2
         }
+        if let item3 = dictionary[ErrMsg]?.stringValue {
+            errMsg = item3
+        }
+
         return self
     }
 }

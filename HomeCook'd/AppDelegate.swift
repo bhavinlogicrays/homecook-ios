@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navigationController.isNavigationBarHidden = true
             UIApplication.shared.delegate?.window!?.rootViewController = navigationController
             
+
         }
         
         return true

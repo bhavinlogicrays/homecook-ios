@@ -39,6 +39,7 @@ class RegisterVC2: UIViewController,UITextFieldDelegate,ImagePickerDelegate,UIPi
     var isImagePicked:Bool = false
 
     var StrSelect:String = ""
+    var strSelectCom:String = ""
 
 
     // MARK: - ViewController Methods
@@ -87,37 +88,63 @@ class RegisterVC2: UIViewController,UITextFieldDelegate,ImagePickerDelegate,UIPi
             CommonManager.setBorder(textField: txtCooking)
             CommonManager.setBorder(textField: txtTime)
             CommonManager.setBorder(textField: txtPassword)
+            
+
             setDashPattern(view: viewPhoto)
             txtPassword.attributedPlaceholder = NSAttributedString(string:"********", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
             txtPassword.setRightPaddingPoints(15)
             txtPassword.setLeftPaddingPoints(15)
             
             txtTime.attributedPlaceholder = NSAttributedString(string:"Select Service Time", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
-            txtTime.setRightPaddingPoints(15)
             txtTime.setLeftPaddingPoints(15)
             
             txtCooking.attributedPlaceholder = NSAttributedString(string:"Select", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 156.0/255.0, green: 155.0/255.0, blue: 166.0/255.0, alpha: 1.0)])
             txtCooking.setRightPaddingPoints(15)
             txtCooking.setLeftPaddingPoints(15)
-            
+            let imageView = UIImageView()
+            let image = UIImage(named: "Arrow")
+            let imageContainerView1: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 45))
+            imageView.frame = CGRect(x: imageContainerView1.center.x - 10, y: 10, width: 20, height: 20)
+            imageView.image = image
+            imageContainerView1.addSubview(imageView)
+            txtCooking.rightView = imageContainerView1
+            txtCooking.rightView?.isUserInteractionEnabled = false
+            txtCooking.rightViewMode = .always
+
+            let imageView1 = UIImageView()
+            let image1 = UIImage(named: "cale-ic")
+            let imageContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 45))
+            imageView1.frame = CGRect(x: imageContainerView.center.x - 10, y: 10, width: 20, height: 20)
+            imageView1.image = image1
+            imageContainerView.addSubview(imageView1)
+            txtTime.rightView = imageContainerView
+            txtTime.rightView?.isUserInteractionEnabled = false
+            txtTime.rightViewMode = .always
         }
     
         @objc func closePickerView()
         {
             view.endEditing(true)
-            if activeTextField == 1 {
-                if StrSelect == ""
-                {
-                    txtTime.text =  "Sun-Mon, \(arrData[0][0])AM - \(arrData[2][0])PM"
-                                dictData["hours_from"] = arrData[0][0]
-                                dictData["hours_to"] = arrData[2][0]
-                }
-            }
-            else {
+            if activeTextField == 0 {
                 if txtCooking.text  == "" {
                     txtCooking.text = arrSelectPassion[0]
                 }
+
             }
+
+            else {
+                if StrSelect == ""  {
+                    StrSelect = "\(arrData[0][0])"
+                }
+                 if strSelectCom == "" {
+                    strSelectCom = "\(arrData[2][0])"
+                }
+                txtTime.text = "Mon-Sun \(StrSelect)AM - \(strSelectCom) PM "
+                dictData["hours_from"] = StrSelect
+                dictData["hours_to"] = strSelectCom
+
+            }
+           
         }
 
     
@@ -182,7 +209,6 @@ class RegisterVC2: UIViewController,UITextFieldDelegate,ImagePickerDelegate,UIPi
 
         if textField == txtCooking {
             activeTextField = 0
-            SelectionPicker.reloadAllComponents()
         }
         else if textField == txtTime{
             activeTextField = 1
@@ -244,10 +270,28 @@ class RegisterVC2: UIViewController,UITextFieldDelegate,ImagePickerDelegate,UIPi
             txtCooking.text = arrSelectPassion[row]
         }
         else {
-            StrSelect = "Sun-Mon, \(arrData[0][row])AM - \(arrData[2][row])PM"
-            txtTime.text =  "Sun-Mon, \(arrData[0][row])AM - \(arrData[2][row])PM"
-                        dictData["hours_from"] = arrData[0][row]
-                        dictData["hours_to"] = arrData[2][row]
+            
+            if component == 0 {
+                let strSelectedRow1  = SelectionPicker.selectedRow(inComponent:0)
+                StrSelect = arrData[0][strSelectedRow1]
+
+            }
+            else {
+                let strSelectedRow  = SelectionPicker.selectedRow(inComponent:2)
+                print("sel Value : \(strSelectedRow)")
+                strSelectCom = arrData[2][strSelectedRow]
+            }
+            
+            if StrSelect == ""  {
+                StrSelect = "\(arrData[0][0])"
+            }
+             if strSelectCom == "" {
+                strSelectCom = "\(arrData[2][0])"
+            }
+            txtTime.text = "Mon-Sun \(StrSelect)AM - \(strSelectCom) PM "
+
+            dictData["hours_from"] = StrSelect
+            dictData["hours_to"] = strSelectCom
 
         }
 
@@ -273,12 +317,12 @@ class RegisterVC2: UIViewController,UITextFieldDelegate,ImagePickerDelegate,UIPi
         return
     }
         if txtPassword.text!.count < 6 {
-            Utils.showMessage(type: .error, message:"Password contain min 6 character")
+            Utils.showMessage(type: .error, message:"Your password should contain min 6 characters")
             return
         }
         
         if  isImagePicked == false {
-            Utils.showMessage(type: .error, message: "Please select certificate")
+            Utils.showMessage(type: .error, message: "Please upload certificate")
             return
         }
       callApi()
