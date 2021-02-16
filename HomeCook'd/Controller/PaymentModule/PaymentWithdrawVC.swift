@@ -24,7 +24,7 @@ class PaymentWithdrawVC: UIViewController {
         view3.layer.cornerRadius = 15.0
         view4.layer.cornerRadius = 15.0
         
-        
+         
         
         
     }

@@ -46,7 +46,7 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
     var arrCatPick = [JSON]()
     var selectedIndex  = Int()
     let pickerController = UIImagePickerController()
-    var arrUploadImage = [[String:Data]]()
+    var arrSelectedIng = [IngArryStore]()
 
     // MARK: - ViewController Methods
     override func viewDidLoad() {
@@ -58,6 +58,7 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         self.txtItmName.text = dictResponsefromDetail.itemName
         self.txtPrice.text = "$ \(dictResponsefromDetail.itemPrice ?? 0.00)"
         self.txtcatType.text = dictResponsefromDetail.catName
+        arrSelectedIng = dictResponsefromDetail.arrAllIngRes
         self.callAllIngApi()
     }
 
@@ -189,19 +190,20 @@ class EditItemsVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         if(collectionView == collUploadPhoto){
             let cell = collUploadPhoto.dequeueReusableCell(withReuseIdentifier: "CellUploadPhoto", for: indexPath) as! CellUploadPhoto
             let dict = arrImg[indexPath.row]
-            if dict["img"] as? String != "" {
-//                cell.imgIngrs.image =  dict["img"] as? UIImage
-                cell.imgIngrs.sd_setImage(with:URL(string: dict["img"]as! String), placeholderImage: UIImage(named:"Group 3265"))
-            }
-            else {
-                cell.imgIngrs.image  = UIImage(named:"Group 3265")
-            }
+//            if dict["img"] as? String != "" {
+////                cell.imgIngrs.image =  dict["img"] as? UIImage
+//            }
+//            else {
+//                cell.imgIngrs.image  = UIImage(named:"Group 3265")
+//            }
             if dict["isVideo"] as? String == "1" {
                 cell.imgVideoIcon.isHidden = false
+                cell.imgIngrs.image = dict["img"] as? UIImage
+                
             }
             else {
                 cell.imgVideoIcon.isHidden = true
-
+                cell.imgIngrs.sd_setImage(with:URL(string: dict["img"]as! String), placeholderImage: UIImage(named:"Group 3265"))
             }
             cell.imgIngrs.layer.cornerRadius = 8.0
             cell.imgIngrs.layer.borderColor = UIColor.clear.cgColor
@@ -487,18 +489,17 @@ extension EditItemsVC:UIPickerViewDataSource,UIPickerViewDelegate{
                 
                 if dict["isVideo"] as? String != "1" {
                     let strImage  = (dict["img"] as? UIImage)?.pngData()
-                    self.arrUploadImage.append(["img":strImage!])
+            multipartFormData.append(strImage!, withName: "image\(i+2)",fileName: "\(Date.init().timeIntervalSince1970).png",mimeType: "image/png")
+
                 }
                 else {
-                    let strVideo  = (dict["img"] as? URL )
-//                    self.arrUploadImage.append(["img":strVideo!])
+                    let strVideo  = (dict["videoUrl"] as? URL )
+//                    self.arrUploadImage.append(["img":strVideo!,"isVideo":"1"])
+                multipartFormData.append(strVideo!, withName: "image\(i+2)",fileName: "\(Date.init().timeIntervalSince1970).mp4",mimeType: "video/mp4")
 
                 }
             }
-            for i  in 0..<self.arrUploadImage.count {
-                
-                multipartFormData.append(self.arrImg[i]["img"]as! Data, withName: "image\(i+2)",fileName: "\(Date.init().timeIntervalSince1970).png",mimeType: "image/png")
-            }
+
         },
         to: apiUrl, method: .post , headers: headers).uploadProgress(queue: .main, closure: { progress in
             print("Upload Progress: \(progress.fractionCompleted)")
