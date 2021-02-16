@@ -36,7 +36,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "A9FCD525-F88B-4A2D-BC93-662FCD8A052A - 708e15ead038feaa"
+                  uuid = "A9FCD525-F88B-4A2D-BC93-662FCD8A052A - 708e15ead038fe4d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -46,12 +46,12 @@
                   urlString = "file:///Users/khushbu/Documents/Homecook_lat/homecook-ios/HomeCook&apos;d/Controller/LoginModule/ChangePasswordVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
                   offsetFromSymbolStart = "1415">
                </Location>
                <Location
-                  uuid = "A9FCD525-F88B-4A2D-BC93-662FCD8A052A - bfe6a9d6dd791e8b"
+                  uuid = "A9FCD525-F88B-4A2D-BC93-662FCD8A052A - bfe6a9d6dd791e6c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -61,8 +61,8 @@
                   urlString = "file:///Users/khushbu/Documents/Homecook_lat/homecook-ios/HomeCook&apos;d/Controller/LoginModule/ChangePasswordVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
                   offsetFromSymbolStart = "218">
                </Location>
             </Locations>
@@ -87,64 +87,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7216DA4E-5304-469B-86CE-00A9D76E18A4"
+            uuid = "0C8E22DB-2B12-4237-8998-76573AD2E4D4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HomeCook&apos;d/Controller/LoginModule/PassWordVarificationVC.swift"
+            filePath = "HomeCook&apos;d/Controller/LoginModule/LogInVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "callResendApi()"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "callApi()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7216DA4E-5304-469B-86CE-00A9D76E18A4 - a4822933d623677a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HomeCook_d.PassWordVarificationVC.callResendApi() -&gt; ()"
-                  moduleName = "HomeCook&apos;d"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khushbu/Documents/Homecook_lat/homecook-ios/HomeCook&apos;d/Controller/LoginModule/PassWordVarificationVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "234"
-                  endingLineNumber = "234"
-                  offsetFromSymbolStart = "777">
-               </Location>
-               <Location
-                  uuid = "7216DA4E-5304-469B-86CE-00A9D76E18A4 - d5bc48c498d8bba"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;SwiftyJSON.JSON&gt;, Swift.Optional&lt;Swift.Int&gt;) -&gt; () in HomeCook_d.PassWordVarificationVC.callResendApi() -&gt; ()"
-                  moduleName = "HomeCook&apos;d"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khushbu/Documents/Homecook_lat/homecook-ios/HomeCook&apos;d/Controller/LoginModule/PassWordVarificationVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "234"
-                  endingLineNumber = "234"
-                  offsetFromSymbolStart = "184">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "689B1494-7A78-4FC8-A1A9-00665BF84660"
+            uuid = "0C95AA20-81C2-4D49-BBE4-94AC63E97EE6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HomeCook&apos;d/Controller/LoginModule/PassWordVarificationVC.swift"
+            filePath = "HomeCook&apos;d/Controller/LoginModule/LogInVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "callResendApi()"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "callApi()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E591D7E-51A8-48F9-BE3A-02BC1CFC1C27"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HomeCook&apos;d/Controller/PaymentModule/PaymentWithdrawVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABDD949E-844D-41D1-85EE-6A450D046521"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HomeCook&apos;d/Controller/PaymentModule/PaymentWithdrawVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

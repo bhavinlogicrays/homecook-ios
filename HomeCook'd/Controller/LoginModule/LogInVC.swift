@@ -234,10 +234,13 @@ class LogInVC: UIViewController,UITextFieldDelegate {
                     if let dicResponseData = jsonResponse.dictionary {
                         
                         weakSelf.dicLogin = LoginResponseModel().initWithDictionary(dictionary: dicResponseData)
+                        
                         if weakSelf.dicLogin.status == true {
                             if strIsComefrom ==  "Chef" {
                                     let objVC = STORYBOARD.instantiateViewController(withIdentifier: "TabVC") as! TabVC
                                     UserDefaults.standard.setValue(weakSelf.dicLogin.token, forKey: "app_token")
+                                UserDefaults.standard.set(weakSelf.dicLogin.name, forKey: "Chef_name")
+                                UserDefaults.standard.set(weakSelf.dicLogin.profilePic, forKey: "Chef_image")
                                     DELEGATE.isLogin = true
                                     UserDefaults.standard.setValue("true", forKey: "isLogin")
                                     weakSelf.navigationController?.pushViewController(objVC, animated: true)

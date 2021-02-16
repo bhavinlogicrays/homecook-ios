@@ -410,16 +410,8 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="gm4-LD-9y6">
-                                                    <rect key="frame" x="265" y="44" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0e0-pJ-qUC">
-                                                    <rect key="frame" x="260" y="43" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UPLOAD CERTIFICATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpb-DG-e2V">
-                                                    <rect key="frame" x="20" y="99" width="134" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload Servsafe Food Handler Certificate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpb-DG-e2V">
+                                                    <rect key="frame" x="20" y="99" width="270" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -482,10 +474,6 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cale-ic" translatesAutoresizingMaskIntoConstraints="NO" id="inW-N6-ZMN">
-                                                    <rect key="frame" x="265" y="308" width="15" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SERVICE TYPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlq-5r-h9G">
                                                     <rect key="frame" x="20" y="358" width="153" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -800,6 +788,13 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voh-k9-nc8">
+                                                        <rect key="frame" x="-4" y="-5" width="51" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="onClickResend:" destination="tf1-Vh-rA3" eventType="touchUpInside" id="Tci-Z2-L0W"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
@@ -881,7 +876,9 @@
                     </view>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
+                        <outlet property="btnResend" destination="Voh-k9-nc8" id="1F1-NM-5fR"/>
                         <outlet property="btnVerify" destination="0Nj-Fy-GI6" id="khU-UN-5Uh"/>
+                        <outlet property="lblDisplaySec" destination="5Nl-ck-Vdq" id="yQ5-Z0-uUv"/>
                         <outlet property="lblVerification" destination="pWC-nY-svF" id="V1T-Ah-QTT"/>
                         <outlet property="txtCode1" destination="3Sk-v5-vme" id="UTa-o6-3CN"/>
                         <outlet property="txtCode2" destination="scW-yj-XwN" id="Zgp-Ml-6CQ"/>
@@ -891,7 +888,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kaF-0T-i5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3822" y="-564"/>
+            <point key="canvasLocation" x="3820.8000000000002" y="-564.01799100449784"/>
         </scene>
         <!--TabVC-->
         <scene sceneID="WzH-eS-Oic">
@@ -1277,7 +1274,12 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="cellView" destination="Evr-ex-HVB" id="PHb-wY-bf5"/>
-                                                    <outlet property="imgView" destination="Uh0-hV-MfU" id="iMu-aL-JvC"/>
+                                                    <outlet property="imgProfile" destination="Uh0-hV-MfU" id="z3q-KW-Sg1"/>
+                                                    <outlet property="imgStar1" destination="gtr-VI-lz8" id="fGz-Jo-Fh6"/>
+                                                    <outlet property="imgStar2" destination="H2k-iU-0l1" id="tlh-HP-Qbf"/>
+                                                    <outlet property="imgStar3" destination="5Wh-pF-k7H" id="TZG-hS-1ta"/>
+                                                    <outlet property="imgStar4" destination="k6h-Ys-cI2" id="O2h-wl-TXY"/>
+                                                    <outlet property="imgStar5" destination="ygg-Ru-klt" id="Glv-Du-BCv"/>
                                                     <outlet property="lblComment" destination="4I8-lA-p5D" id="EvE-bT-cFk"/>
                                                     <outlet property="lblDate" destination="mmU-Ek-0dV" id="3mi-nG-ioU"/>
                                                     <outlet property="lblDescr" destination="UZ7-BA-i0q" id="FsT-2f-xkY"/>
@@ -3780,7 +3782,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-forward-30 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="7Ds-l5-Vgb">
-                                                                        <rect key="frame" x="320" y="33" width="10" height="19"/>
+                                                                        <rect key="frame" x="320" y="32.5" width="10" height="19"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="10" id="2Tc-ic-uOT"/>
                                                                             <constraint firstAttribute="height" constant="19" id="PpO-xA-7n9"/>
@@ -3814,7 +3816,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-forward-30 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="xRl-DJ-4cI">
-                                                                        <rect key="frame" x="315" y="113" width="15" height="19"/>
+                                                                        <rect key="frame" x="315" y="112.5" width="15" height="19"/>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo1-Kr-bTp">
                                                                         <rect key="frame" x="0.0" y="84" width="345" height="79"/>
@@ -4061,6 +4063,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imgProfile" destination="UmV-48-VQP" id="z1n-Ox-b94"/>
+                        <outlet property="lblName" destination="bAh-4B-Dbr" id="BGf-c9-I2p"/>
                         <outlet property="view1" destination="ZvJ-rP-aZd" id="fJm-a5-B21"/>
                         <outlet property="view2" destination="Zkb-7n-zj6" id="JsT-la-XZ3"/>
                         <outlet property="view3" destination="hIs-rP-kBM" id="GSn-5c-D3K"/>

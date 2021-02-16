@@ -21,6 +21,7 @@ let API_SHARED  =  ApiManager.sharedInstance
 var dictData = [String:Any] ()
 var displayDictRes  = ChefProfileResSubModule()
 var displayMainChefData  = DisplayChefProfileModule()
+var dictUserData  = LoginResponseModel()
 
 
 
