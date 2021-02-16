@@ -45,14 +45,50 @@ class ReViewVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
          let cell = tableView.dequeueReusableCell(withIdentifier: "ReViewVCCell") as! ReViewVCCell
         
         cell.lblDate.text = arrReview[indexPath.row].reviewDate
-//        cell.imageView?.sd_setImage(with: URL(string: arrReview[indexPath.row].image), placeholderImage: UIImage(named: "Ellipse 48"))
-        cell.lblComment.text = "\(arrReview[indexPath.row].orderId ?? 0)" 
+        cell.imgProfile.sd_setImage(with: URL(string: arrReview[indexPath.row].image), placeholderImage: UIImage(named: "Ellipse 48"))
+        cell.imgStar3.isHidden = false
+        cell.imgStar2.isHidden = false
+        cell.imgStar1.isHidden = false
+        cell.imgStar4.isHidden = false
+        cell.imgStar5.isHidden = false
+
+        if arrReview[indexPath.row].rating == 2 {
+            cell.imgStar3.image =  UIImage(named: "rating-1")
+            cell.imgStar4.image =  UIImage(named: "rating-1")
+            cell.imgStar5.image = UIImage(named: "rating-1")
+        }
+        else if arrReview[indexPath.row].rating == 3 {
+            cell.imgStar4.image =  UIImage(named: "rating-1")
+            cell.imgStar5.image =  UIImage(named: "rating-1")
+        }
+        else if arrReview[indexPath.row].rating == 4 {
+            cell.imgStar5.image =  UIImage(named: "rating-1")
+        }
+        else if arrReview[indexPath.row].rating == 5 {
+            cell.imgStar3.isHidden = false
+            cell.imgStar2.isHidden = false
+            cell.imgStar1.isHidden = false
+            cell.imgStar4.isHidden = false
+            cell.imgStar5.isHidden = false
+
+        }
+        else  {
+            cell.imgStar4.image =  UIImage(named: "rating-1")
+            cell.imgStar3.image =  UIImage(named: "rating-1")
+            cell.imgStar2.image =  UIImage(named: "rating-1")
+            cell.imgStar5.image =  UIImage(named: "rating-1")
+        }
+        
+
+        cell.lblComment.text = "ORDER ID : \(arrReview[indexPath.row].orderId ?? 0)" 
         cell.lblDescr.text = arrReview[indexPath.row].comment
         cell.cellView.layer.cornerRadius = 6
         cell.cellView.layer.borderWidth = 1
         cell.cellView.layer.borderColor = UIColor.clear.cgColor
         return cell
     }
+    
+
     
     //MARK:- callApi
     

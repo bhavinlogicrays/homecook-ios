@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navigationController.isNavigationBarHidden = true
             UIApplication.shared.delegate?.window!?.rootViewController = navigationController
             
+
         }
         
         return true
@@ -87,6 +88,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        let removeSuc = KeychainWrapper.standard.removeObject(forKey: "email")
+                let removeSuc1 = KeychainWrapper.standard.removeObject(forKey: "password")
+                print("remove succ:\(removeSuc) \(removeSuc1)")
+
     }
 
 

@@ -86,6 +86,8 @@ class RegisterVC: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
     
     @IBAction func onClickNext(_ sender: Any) {
         checkValidation()
+        
+
     }
     
     @IBAction func btnProfileCameraClick(_ sender: Any) {
@@ -111,6 +113,21 @@ class RegisterVC: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtCity || (textField == txtName) {
+            let maxLength = 140
+                let currentString: NSString = (textField.text ?? "") as NSString
+                let newString: NSString =
+                    currentString.replacingCharacters(in: range, with: string) as NSString
+                return newString.length <= maxLength
+
+        }
+        else if textField == txtAddress {
+            let maxLength = 255
+                let currentString: NSString = (textField.text ?? "") as NSString
+                let newString: NSString =
+                    currentString.replacingCharacters(in: range, with: string) as NSString
+                return newString.length <= maxLength
+        }
         return true
     }
     
@@ -133,10 +150,11 @@ class RegisterVC: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
     //MARK:- Check Validation
     func checkValidation() {
         self.view.endEditing(true)
-        guard let strname = txtName.text,  strname.count > 0 else {
+        guard let strname = txtName.text,  strname.count > 0  else {
             Utils.showMessage(type: .error, message:"Please enter name")
         return
     }
+       
         guard let strphone = txtPhone.text,  strphone.count > 0 else {
             Utils.showMessage(type: .error, message:"Please enter phone number")
         return
@@ -147,11 +165,11 @@ class RegisterVC: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
 //            return
 //        }
         if txtPhone.text!.count > 10 ||  txtPhone.text!.count < 10 {
-                        Utils.showMessage(type: .error, message:"Phone number should be 10 digit")
+            Utils.showMessage(type: .error, message:"Phone number should be 10 digit")
         return
     }
         guard let stremail = txtEmail.text,  stremail.count > 0 else {
-            Utils.showMessage(type: .error, message:"Please enter email")
+            Utils.showMessage(type: .error, message:"Please enter an email address")
         return
     }
         
@@ -162,6 +180,10 @@ class RegisterVC: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
         
         guard let strcity = txtCity.text,  strcity.count > 0 else {
             Utils.showMessage(type: .error, message:"Please enter city")
+        return
+    }
+        guard let strcity1 = txtCity.text,  strcity1.count < 140  else {
+            Utils.showMessage(type: .error, message:"Please enter valid city name")
         return
     }
         
