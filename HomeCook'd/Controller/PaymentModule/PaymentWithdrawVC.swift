@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PaymentWithdrawVC: UIViewController {
 
@@ -12,6 +13,11 @@ class PaymentWithdrawVC: UIViewController {
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view4: UIView!
+    @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblChef: UILabel!
+
+    lazy var dicLogin = LoginResponseModel()
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
@@ -23,10 +29,12 @@ class PaymentWithdrawVC: UIViewController {
         view2.layer.cornerRadius = 15.0
         view3.layer.cornerRadius = 15.0
         view4.layer.cornerRadius = 15.0
+        imgProfile.layer.cornerRadius = imgProfile.frame.size.height / 2
         
-        
-        
-        
+        let image = UserDefaults.standard.value(forKey: "Chef_image") as? String
+        let name = UserDefaults.standard.value(forKey: "Chef_name") as? String
+        imgProfile.sd_setImage(with: URL(string:image ?? ""),placeholderImage: UIImage(named:"chef-img"))
+        lblName.text = name
     }
     @IBAction func onClickPerInf(_ sender: UIButton) {
         let objVC = STORYBOARD.instantiateViewController(withIdentifier: "PersonalInfoVC") as! PersonalInfoVC

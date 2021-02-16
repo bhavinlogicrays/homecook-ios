@@ -50,6 +50,9 @@ class LoginResponseModel:NSObject
         if let item5 = dictionary[Id]?.stringValue {
             id = item5
         }
+        if let item7 = dictionary[PROFILE_PIC]?.stringValue {
+            profilePic = item7
+        }
 
         if let item6 = dictionary[User_Status]?.stringValue {
             userStatus = item6
