@@ -123,6 +123,8 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         if isRememberClick == true {
             isRememberClick = false
             imgRemember.image  = UIImage(named: "uncheck")
+            let removeSuc = KeychainWrapper.standard.removeObject(forKey: "email")
+            let removeSuc1 = KeychainWrapper.standard.removeObject(forKey: "password")
         }
         else {
             isRememberClick = true

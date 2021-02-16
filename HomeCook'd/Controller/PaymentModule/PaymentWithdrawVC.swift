@@ -64,7 +64,6 @@ class PaymentWithdrawVC: UIViewController {
         let appDomain = Bundle.main.bundleIdentifier
         UserDefaults.standard.removePersistentDomain(forName: appDomain ?? "com.homecook.application")
         UserDefaults.standard.synchronize()
-
         DELEGATE.isLogin = false
         self.navigationController?.pushViewController(objVC, animated: true)
         
