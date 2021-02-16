@@ -8,12 +8,17 @@ class ReViewVCCell: UITableViewCell {
 
     // MARK:- Variables
     // MARK:- UIControls
-    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblComment: UILabel!
     @IBOutlet weak var lblDescr: UILabel!
     @IBOutlet weak var cellView: UIView!
-    
+    @IBOutlet weak var imgStar1: UIImageView!
+    @IBOutlet weak var imgStar2: UIImageView!
+    @IBOutlet weak var imgStar3: UIImageView!
+    @IBOutlet weak var imgStar4: UIImageView!
+    @IBOutlet weak var imgStar5: UIImageView!
+
     //MARK: - Cell Methods
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +31,7 @@ class ReViewVCCell: UITableViewCell {
 
         // Configure the view for the selected state
         
-        imgView.layer.cornerRadius = imgView.frame.size.height
+        imgProfile.layer.cornerRadius = imgProfile.frame.size.height
         
         cellView.layer.cornerRadius = 25.0
         cellView.layer.masksToBounds = true

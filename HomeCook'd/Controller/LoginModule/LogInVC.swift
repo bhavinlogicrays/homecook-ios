@@ -123,6 +123,10 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         if isRememberClick == true {
             isRememberClick = false
             imgRemember.image  = UIImage(named: "uncheck")
+            let removeSuc = KeychainWrapper.standard.removeObject(forKey: "email")
+                    let removeSuc1 = KeychainWrapper.standard.removeObject(forKey: "password")
+                    print("remove succ:\(removeSuc) \(removeSuc1)")
+
         }
         else {
             isRememberClick = true
@@ -175,9 +179,14 @@ class LogInVC: UIViewController,UITextFieldDelegate {
     func checkValidation() {
         self.view.endEditing(true)
         guard let stremail = txtEmail.text,  stremail.count > 0 else {
-            Utils.showMessage(type: .error, message:"Please enter email")
+            Utils.showMessage(type: .error, message:"Please enter an email address")
             return
         }
+        if !CommonManager.isValidEmail(txtEmail.text!){
+            Utils.showMessage(type: .error, message:"Please enter valid email")
+            return
+        }
+
         guard let strpwd = txtPassword.text,  strpwd.count > 0 else {
             Utils.showMessage(type: .error, message:"Please enter password")
             return
